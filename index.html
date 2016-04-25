@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"/>
+<meta http-equiv="X-UA-Compatible" content="chrome=1" >
+
+<meta name="description" content="A simple way to make slideshows?">
+<meta name="author" content="Laurent U Perrinet, INT">
+
+<meta name="apple-mobile-web-app-capable" content="yes" >
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+<title>What's slides.py? - Example conference</title>
+
+
+<!-- General and theme style sheets -->
+<link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/reveal.css">
+<link rel="stylesheet" href="http://lab.hakim.se/reveal-js/css/theme/night.css" id="theme">
+    <!-- Code syntax highlighting -->
+    <link rel="stylesheet" href="http://lab.hakim.se/reveal-js/lib/css/zenburn.css">
+
+        
+
+
+    <!-- Printing and PDF exports -->
+    <script>
+            var link = document.createElement( 'link' );
+            link.rel = 'stylesheet';
+            link.type = 'text/css';
+            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+            document.getElementsByTagName( 'head' )[0].appendChild( link );
+    </script>
+
+
+    <!--[if lt IE 9]>
+    <script src="{reveal_path}lib/js/html5shiv.js"></script>
+    <![endif]-->
+
+    <!-- Loading the mathjax macro -->
+    <!-- Load mathjax -->
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+        <!-- MathJax configuration -->
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            tex2jax: {
+                inlineMath: [ ['$','$']],
+                displayMath: [ ['$$','$$'] ],
+                //processEscapes: true,
+                processEnvironments: true
+            },
+            // Center justify equations in code and markdown cells. Elsewhere
+            // we use CSS to left justify single line equations in code cells.
+            displayAlign: 'center',
+            "HTML-CSS": {
+                styles: {'.MathJax_Display': {"margin": 0}},
+                linebreaks: { automatic: true }
+            }
+        });
+        </script>
+        <!-- End of mathjax configuration -->
+
+        <!-- Get Font-awesome from cdn -->
+        <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css"> -->
+</head>
+
+<body>
+    <div class="reveal">
+        <div class="slides">
+        <section>
+<h2 class="title">A simple way to make slideshows?</h2>
+<h3><a href="http://invibe.net">Laurent U Perrinet, INT</a></h3>
+<img src="http://blog.invibe.net/files/2016-04-25_pollymagoo/figures/troislogos.png" width=61%/>
+<h3>Acknowledgements:</h3>
+            <ul>
+                <li>Lots of people...</li>
+           </ul>
+
+
+<h3>Example conference</h3>
+        
+            <aside class="notes">
+             <ul>
+<li>(AUTHOR) Hello, I am Laurent Perrinet from the Institute of Neurosciences of
+la Timone in Marseille, a joint unit from the CNRS and the AMU</li>
+<li>(OBJECTIVE) in this short talk, I will demonstrate how to use slides.py to generate
+simple slides...</li>
+<li>(ACKNO) and focus on content rather than on form</li>
+</ul>
+            </aside>
+            
+</section>
+        
+        </div>
+    </div>
+
+    <script src="http://lab.hakim.se/reveal-js/lib/js/head.min.js"></script>
+    <script src="http://lab.hakim.se/reveal-js/js/reveal.js"></script>
+
+        
+	<script>
+
+            // Full list of configuration options available at:
+            // https://github.com/hakimel/reveal.js#configuration
+            Reveal.initialize({
+
+        
+                // The "normal" size of the presentation, aspect ratio will be preserved
+                // when the presentation is scaled to fit different resolutions. Can be
+                // specified using percentage units.
+                width: 1600,
+                height: 1000,
+
+                // Factor of the display size that should remain empty around the content
+                margin: 0.0,
+        
+
+
+                // Display a presentation progress bar
+                progress: true,
+
+                // Push each slide change to the browser history
+                //history: false,
+
+                // Vertical centering of slides
+                center: true,
+
+                // Enables touch navigation on devices with touch input
+                touch: true,
+
+                // Bounds for smallest/largest possible scale to apply to content
+                // minScale: 0.2,
+                // maxScale: 1.5,
+
+                // Display controls in the bottom right corner
+                controls: false,
+
+                // Enable keyboard shortcuts for navigation
+                keyboard: true,
+
+                // Enable the slide overview mode
+                overview: true,
+
+                // Loop the presentation
+                //loop: false,
+
+                // Change the presentation direction to be RTL
+                //rtl: false,
+
+                // Number of milliseconds between automatically proceeding to the
+                // next slide, disabled when set to 0, this value can be overwritten
+                // by using a data-autoslide attribute on your slides
+                //autoSlide: 0,
+
+                // Enable slide navigation via mouse wheel
+                //mouseWheel: false,
+
+                // Parallax background image
+                //parallaxBackgroundImage: '/Users/laurentperrinet/cloud_nas/2015_RTC/2014-04-17_HDR/figures/p4100011.jpg', // e.g. "https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg"
+
+                // Parallax background size
+                //parallaxBackgroundSize: '3200px 2000px', // CSS syntax, e.g. "2100px 900px" - currently only pixels are supported (don't use % or auto)
+
+                // This slide transition gives best results:
+                transition: 'fade', // default/cube/page/concave/zoom/linear/fade/none
+
+                // Transition speed
+                transitionSpeed: 'slow', // default/fast/slow
+
+                // Transition style for full page backgrounds
+                backgroundTransition: 'none', // default/linear/none
+
+                // Theme
+                theme: 'black', // available themes are in /css/theme
+
+        
+                math: {
+                    mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
+                    config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+                },
+
+                // Optional reveal.js plugins
+                dependencies: [
+                        { src: 'http://lab.hakim.se/reveal-js/lib/js/classList.js', condition: function() { return !document.body.classList; } },
+                        { src: 'http://lab.hakim.se/reveal-js/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                        { src: 'http://lab.hakim.se/reveal-js/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+                        { src: 'http://lab.hakim.se/reveal-js/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                        { src: 'http://lab.hakim.se/reveal-js/plugin/zoom-js/zoom.js', async: true },
+                        { src: 'http://lab.hakim.se/reveal-js/plugin/notes/notes.js', async: true },
+                        { src: 'http://lab.hakim.se/reveal-js/plugin/math/math.js', async: true }
+        
+                ]
+        });
+        </script>
+    </body>
+</html>
+        
