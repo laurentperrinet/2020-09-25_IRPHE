@@ -1,3 +1,5 @@
+NAME=slides.py
+
 default: html
 
 edit:
@@ -7,8 +9,7 @@ html:
 	python3 example.py
 	open index.html
 
-doc:
-	@(cd doc && $(MAKE))
+
 edit:
 	open Makefile &
 	spe &
@@ -25,7 +26,7 @@ pypi_push:
 pypi_upload:
 	python setup.py sdist upload
 
-pypi_docs:
+pypi_docs: html
 	rm web.zip
 	zip web.zip index.html
 	open https://pypi.python.org/pypi?action=pkg_edit&name=$NAME

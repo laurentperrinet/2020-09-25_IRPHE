@@ -3,24 +3,23 @@
 
 from setuptools import setup, find_packages
 
-NAME = "MotionClouds"
+NAME = "slides"
 version = "0.2"
 
 setup(
     name = NAME,
     version = version,
     packages=find_packages('src', exclude='docs'),
-    py_modules = ['MotionClouds'], 
+    py_modules = ['slides'], 
     install_requires=['numpy'],
     package_dir = {'': 'src'},
     author = "Laurent Perrinet INT - CNRS",
     author_email = "Laurent.Perrinet@univ-amu.fr",
-    description = "Model-based stimulus synthesis of natural-like random textures for the study of motion perception.",
-    long_description=open("README.md").read(),
+    description = " **slides.py** is a framework to programmatically generate presentations.",
     license = "GPLv2",
     keywords = ('computational neuroscience', 'simulation', 'analysis', 'visualization', 'parameters'),
-    url = 'https://github.com/NeuralEnsemble/' + NAME, # use the URL to the github repo
-    download_url = 'https://github.com/NeuralEnsemble/' + NAME + '/tarball/' + version,
+    url = 'https://github.com/meduz/' + NAME, # use the URL to the github repo
+    download_url = 'https://github.com/meduz/' + NAME + '/tarball/' + version,
     classifiers = ['Development Status :: 3 - Alpha',
                    'Environment :: Console',
                    'License :: OSI Approved :: GNU General Public License (GPL)',
