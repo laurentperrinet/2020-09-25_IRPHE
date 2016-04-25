@@ -9,11 +9,6 @@ html:
 	python3 example.py
 	open index.html
 
-
-edit:
-	open Makefile &
-	spe &
-
 # https://docs.python.org/2/distutils/packageindex.html
 pypi_tags:
 	git commit -am' tagging for PyPI '
