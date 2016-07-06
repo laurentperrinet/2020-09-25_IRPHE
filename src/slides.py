@@ -14,7 +14,7 @@ class Slides:
         self.header ="""<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8"/>
+<meta charset="utf-8"/>
 <meta http-equiv="X-UA-Compatible" content="chrome=1" >
 
 <meta name="description" content="{title}">
@@ -57,19 +57,22 @@ class Slides:
         <!-- MathJax configuration -->
         <script type="text/x-mathjax-config">
         MathJax.Hub.Config({
-            tex2jax: {
-                inlineMath: [ ['$','$']],
-                displayMath: [ ['$$','$$'] ],
-                //processEscapes: true,
+            //TeX: { equationNumbers: { autoNumber: "AMS" } },
+             tex2jax: {
+                inlineMath: [['$','$']],
+                displayMath: [['$$','$$']],
+                //processEscapes: false,
                 processEnvironments: true
             },
             // Center justify equations in code and markdown cells. Elsewhere
             // we use CSS to left justify single line equations in code cells.
             displayAlign: 'center',
-            "HTML-CSS": {
-                styles: {'.MathJax_Display': {"margin": 0}},
-                linebreaks: { automatic: true }
-            }
+            //"HTML-CSS": {
+            //    styles: {'.MathJax_Display': {"margin": 0}},
+            //    linebreaks: { automatic: true },
+            //    availableFonts: ["TeX"]
+            //    }
+            //}
         });
         </script>
         <!-- End of mathjax configuration -->
@@ -114,6 +117,7 @@ class Slides:
 
                 // Display a presentation progress bar
                 progress: true,
+                slideNumber: 'c/t',
 
                 // Push each slide change to the browser history
                 //history: false,
@@ -166,6 +170,9 @@ class Slides:
                 // Transition style for full page backgrounds
                 backgroundTransition: 'none', // default/linear/none
 
+			    // Turns fragments on and off globally
+                fragments: true,
+
                 // Theme
                 theme: 'black', // available themes are in /css/theme
 
@@ -208,13 +215,19 @@ class Slides:
         """
         do nothing
         """
-    def add_slide(self, image_fname=None, video_fname=None, content='', notes=''):
+    def add_slide(self, image_fname=None, video_fname=None, content='', notes='', md=False):
         if not image_fname is None:
-            slide = """<section data-background="{}"> """.format(image_fname)
-        elif not image_fname is None:
-            slide = """<section data-background-video="{}"> """.format(image_fname)
+            slide = '<section data-background="{}"> '.format(image_fname)
+        elif not video_fname is None:
+            slide = '<section data-background-video="{}">'.format(video_fname)
+        elif md:
+            slide = """
+<section data-markdown>
+<script type="text/template">
+        """
         else:
             slide = "<section>"
+
 
         slide += content
 
@@ -224,15 +237,18 @@ class Slides:
             </aside>
             """.format(markdown.markdown(notes))
 
+        if md:
+            slide += """
+</script>
+            """
+
         slide += """
 </section>
         """
         self.body += slide
 
     def add_slide_outline(self, i=None, title='Outline', notes=''):
-        content = self.content_title(title)  + """
-            <ol>
-            """
+        content = self.content_title(title)  + '\n<ol>\n'
         for i_, section in enumerate(self.meta['sections']):
             if i_ is i:
                 content += """
@@ -275,13 +291,9 @@ class Slides:
 
     def content_title(self, title):
         if title is None:
-            return """
-            """
+            return ''
         else:
-            return """
-            <h2>{}</h2>
-            <ol>
-            """.format(title)
+            return "<h3>{}</h3>".format(title)
 
     def content_figures(self, list_of_figures, transpose=False, list_of_weights=None, title=None, height=None, fragment=False, bgcolor="black", cell_bgcolor="white"):
         content =  self.content_title(title)
@@ -357,7 +369,7 @@ class Slides:
         return content
 
     def close_section(self):
-        self.body +=  "</section>"
+        self.body +=  "\n</section>\n"
 
     def compile(self, filename='index.html'):
         html = self.header + self.body + self.footer
