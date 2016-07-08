@@ -212,10 +212,12 @@ class Slides:
     def open_section(self):
         self.body +=  "<section>"
 
-    def hide_slide(self, image_fname=None, video_fname=None, content='', notes=''):
+    def hide_slide(self, **kwargs):
         """
         do nothing
         """
+        pass
+
     def add_slide(self, image_fname=None, video_fname=None, content='', notes='', md=False, embed=None):
 
         if not image_fname is None:
