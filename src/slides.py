@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 import os
 import markdown
+import base64
 class Slides:
     """
     TODO: make a class for one slide with labels etc - compile at the end
@@ -215,8 +216,12 @@ class Slides:
         """
         do nothing
         """
-    def add_slide(self, image_fname=None, video_fname=None, content='', notes='', md=False):
+    def add_slide(self, image_fname=None, video_fname=None, content='', notes='', md=False, embed=None):
+
         if not image_fname is None:
+            if (embed is None and self.meta['embed']) or ((not embed is None ) and embed):
+                data_uri = base64.b64encode(open(image_fname, 'rb').read()).decode('utf-8').replace('\n', '')
+                image_fname = 'data:image/{ext};base64,{data_uri}'.format(ext=image_fname[-3:], data_uri=data_uri)
             slide = '<section data-background="{}"> '.format(image_fname)
         elif not video_fname is None:
             slide = '<section data-background-video="{}">'.format(video_fname)
@@ -295,7 +300,7 @@ class Slides:
         else:
             return "<h3>{}</h3>".format(title)
 
-    def content_figures(self, list_of_figures, transpose=False, list_of_weights=None, title=None, height=None, fragment=False, bgcolor="black", cell_bgcolor="white"):
+    def content_figures(self, list_of_figures, transpose=False, list_of_weights=None, title=None, height=None, embed=None, fragment=False, bgcolor="black", cell_bgcolor="white"):
         content =  self.content_title(title)
         if fragment:
             fragment_begin = '<p class="fragment">'
@@ -320,6 +325,11 @@ class Slides:
             <tr style="vertical-align:middle">
             """
             for width, fname in zip(widths, list_of_figures):
+                if (embed is None and self.meta['embed']) or ((not embed is None ) and embed):
+
+                    data_uri = base64.b64encode(open(fname, 'rb').read()).decode('utf-8').replace('\n', '')
+                    fname = 'data:image/{ext};base64,{data_uri}'.format(ext=fname[-3:], data_uri=data_uri)
+
                 if height is None:
                     content += """
                 <td width="{width}" style="text-align:center; vertical-align:middle" bgcolor="{cell_bgcolor}" />
@@ -347,6 +357,9 @@ class Slides:
                 total_weight = sum(list_of_weights)
                 heights = [str(int(height/n_fig*weight/total_weight)) for weight in list_of_weights]
             for height_, fname in zip(heights, list_of_figures):
+                if (embed is None and self.meta['embed']) or ((not embed is None ) and embed):
+                    data_uri = base64.b64encode(open(fname, 'rb').read()).decode('utf-8').replace('\n', '')
+                    fname = 'data:image/{ext};base64,{data_uri}'.format(ext=fname[-3:], data_uri=data_uri)
                 content += """
                 <tr style="vertical-align:middle">
                     <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="{cell_bgcolor}" />
