@@ -12,32 +12,28 @@ class Slides:
     def __init__(self, meta):
         self.meta = meta
         # Simply using https://docs.python.org/3.3/library/string.html#format-string-syntax to format strings...
-        self.header ="""<!DOCTYPE html>
+        self.header ="""
+<!DOCTYPE html>
 <html>
-<head>
-<meta charset="utf-8"/>
-<meta http-equiv="X-UA-Compatible" content="chrome=1" >
+    <head>
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" >
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-<meta name="description" content="{title}">
-<meta name="author" content="{author}">
+    <meta name="description" content="{title}">
+    <meta name="author" content="{author}">
 
-<meta name="apple-mobile-web-app-capable" content="yes" >
-<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-capable" content="yes" >
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
-<title>{short_title} - {conference}</title>
+    <title>{short_title} - {conference}</title>
 
 
-<!-- General and theme style sheets -->
-<link rel="stylesheet" href="{reveal_path}css/reveal.css">
-<link rel="stylesheet" href="{reveal_path}css/theme/{theme}.css" id="theme">
+    <!-- General and theme style sheets -->
+    <link rel="stylesheet" href="{reveal_path}css/reveal.css">
+    <link rel="stylesheet" href="{reveal_path}css/theme/{theme}.css" id="theme">
     <!-- Code syntax highlighting -->
     <link rel="stylesheet" href="{reveal_path}lib/css/zenburn.css">
-
-        """.format(**meta)
-
-        self.header += """
-
-
     <!-- Printing and PDF exports -->
     <script>
             var link = document.createElement( 'link' );
@@ -51,35 +47,38 @@ class Slides:
     <!--[if lt IE 9]>
     <script src="{reveal_path}lib/js/html5shiv.js"></script>
     <![endif]-->
+    """.format(**meta)
+        self.header = """
 
     <!-- Loading the mathjax macro -->
     <!-- Load mathjax -->
-        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-        <!-- MathJax configuration -->
-        <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            //TeX: { equationNumbers: { autoNumber: "AMS" } },
-             tex2jax: {
-                inlineMath: [['$','$']],
-                displayMath: [['$$','$$']],
-                //processEscapes: false,
-                processEnvironments: true
-            },
-            // Center justify equations in code and markdown cells. Elsewhere
-            // we use CSS to left justify single line equations in code cells.
-            displayAlign: 'center',
-            //"HTML-CSS": {
-            //    styles: {'.MathJax_Display': {"margin": 0}},
-            //    linebreaks: { automatic: true },
-            //    availableFonts: ["TeX"]
-            //    }
-            //}
-        });
-        </script>
-        <!-- End of mathjax configuration -->
-
-        <!-- Get Font-awesome from cdn -->
-        <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css"> -->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        //TeX: { equationNumbers: { autoNumber: "AMS" } },
+         tex2jax: {
+            inlineMath: [['$','$']],
+            displayMath: [['$$','$$']],
+            //processEscapes: false,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        //"HTML-CSS": {
+        //    styles: {'.MathJax_Display': {"margin": 0}},
+        //    linebreaks: { automatic: true },
+        //    availableFonts: ["TeX"]
+        //    }
+        //}
+    });
+    </script>
+    <!-- End of mathjax configuration -->
+    """
+        self.header += """
+    <!-- Get Font-awesome from cdn -->
+    <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css"> -->
 </head>
 
 <body>
@@ -87,7 +86,7 @@ class Slides:
         <div class="slides">
         """
 
-        self.footer ="""
+        self.footer = """
         </div>
     </div>
 
@@ -114,8 +113,6 @@ class Slides:
                 margin: {margin},
         """.format(**meta)
         self.footer +="""
-
-
                 // Display a presentation progress bar
                 progress: true,
                 slideNumber: 'c/t',
@@ -175,9 +172,9 @@ class Slides:
                 fragments: true,
 
                 // Theme
-                theme: 'black', // available themes are in /css/theme
+                theme: '{theme}', // available themes are in /css/theme
 
-        """
+        """.format(**meta)
         if self.meta['draft']:
             self.footer +="""
                 // Notes are only visible to the speaker inside of the speaker view. If you wish to share your notes with others you can initialize reveal.js with the showNotes config value set to true. Notes will appear along the bottom of the presentations.
@@ -188,7 +185,8 @@ class Slides:
                     mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
                     config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
                 }},
-
+        """
+        self.footer +="""
                 // Optional reveal.js plugins
                 dependencies: [
                         {{ src: '{reveal_path}lib/js/classList.js', condition: function() {{ return !document.body.classList; }} }},
@@ -218,14 +216,29 @@ class Slides:
         """
         pass
 
+    def embed_image(self, image_fname):
+        """
+        convert to bytes
+        """
+        data_uri = base64.b64encode(open(image_fname, 'rb').read()).decode('utf-8').replace('\n', '')
+        return 'data:image/{ext};base64,{data_uri}'.format(ext=image_fname[-3:], data_uri=data_uri)
+
+    def embed_video(self, video_fname):
+        """
+        convert to bytes
+        """
+        data_uri = base64.b64encode(open(image_fname, 'rb').read()).decode('utf-8').replace('\n', '')
+        return 'data:video/{ext};base64,{data_uri}'.format(ext=image_fname[-3:], data_uri=data_uri)
+
     def add_slide(self, image_fname=None, video_fname=None, content='', notes='', md=False, embed=None):
 
         if not image_fname is None:
             if (embed is None and self.meta['embed']) or ((not embed is None ) and embed):
-                data_uri = base64.b64encode(open(image_fname, 'rb').read()).decode('utf-8').replace('\n', '')
-                image_fname = 'data:image/{ext};base64,{data_uri}'.format(ext=image_fname[-3:], data_uri=data_uri)
-            slide = '<section data-background="{}"> '.format(image_fname)
+                image_fname = self.embed_image(image_fname)
+            slide = '<section data-background="{image_fname}" data-background-size="{width}px"> '.format(image_fname=image_fname, width = self.meta['width'])
         elif not video_fname is None:
+            if (embed is None and self.meta['embed']) or ((not embed is None ) and embed):
+                video_fname = self.embed_video(video_fname)
             slide = '<section data-background-video="{}">'.format(video_fname)
         elif md:
             slide = """
@@ -234,7 +247,6 @@ class Slides:
         """
         else:
             slide = "<section>"
-
 
         slide += content
 
@@ -302,80 +314,73 @@ class Slides:
         else:
             return "<h3>{}</h3>".format(title)
 
-    def content_figures(self, list_of_figures, transpose=False, list_of_weights=None, title=None, height=None, embed=None, fragment=False, bgcolor="black", cell_bgcolor="white"):
+    def content_figures(self, list_of_figures, transpose=False,
+                        list_of_weights=None, title=None, height=None,
+                        embed=None, fragment=False,
+                        bgcolor="black", cell_bgcolor="black"):
         content =  self.content_title(title)
-        if fragment:
-            fragment_begin = '<p class="fragment">'
-            fragment_end = '</p>'
-        else:
-            fragment_begin, fragment_end = '<p>', '</p>'
+
         if height is None:
             height = self.meta['height']
         content += """
-        <div align="center">
-            <table border="0" VALIGN="center" bgcolor={bgcolor} height={height} />
+            <div align="center">
+            <table border=0px VALIGN="center" bgcolor={bgcolor} height={height} />
             """.format(bgcolor=bgcolor, height=height)
+
         n_fig = len(list_of_figures)
-
-        if not transpose:
-            if list_of_weights is None:
-                widths = [str(int(100/n_fig))+"%" for _ in list_of_figures]
-            else:
-                total_weight = sum(list_of_weights)
-                widths = [str(int(100/n_fig*weight/total_weight))+"%" for weight in list_of_weights]
+        if list_of_weights is None:#str(int() ) +"%"
+            sizes = [1./n_fig] * n_fig #+"%" for _ in list_of_figures]
+        else:
+            total_weight = sum(list_of_weights)
+            sizes = [1./n_fig*weight/total_weight for weight in list_of_weights]
+        if not transpose: # one line many columns
             content += """
-            <tr style="vertical-align:middle">
-            """
-            for width, fname in zip(widths, list_of_figures):
-                if (embed is None and self.meta['embed']) or ((not embed is None ) and embed):
+            <tr padding=0px style="vertical-align:middle" bgcolor={bgcolor}>
+            """.format(bgcolor=bgcolor)
 
-                    data_uri = base64.b64encode(open(fname, 'rb').read()).decode('utf-8').replace('\n', '')
-                    fname = 'data:image/{ext};base64,{data_uri}'.format(ext=fname[-3:], data_uri=data_uri)
+        for i_, (size, image_fname) in enumerate(zip(sizes, list_of_figures)):
+            if (embed is None and self.meta['embed']) or ((not embed is None ) and embed):
+                # data_uri = base64.b64encode(open(fname, 'rb').read()).decode('utf-8').replace('\n', '')
+                # fname = 'data:image/{ext};base64,{data_uri}'.format(ext=fname[-3:], data_uri=data_uri)
+                image_fname = self.embed_image(image_fname)
 
-                if height is None:
-                    content += """
-                <td width="{width}" style="text-align:center; vertical-align:middle" bgcolor="{cell_bgcolor}" />
-                {fragment_begin}
-                    <img data-src="{fname}" style="width: 100%" />
-                {fragment_end}
-                </td>
-                """.format(cell_bgcolor=cell_bgcolor, width=width, fname=fname, fragment_begin=fragment_begin, fragment_end=fragment_end)
-                else:
-                    content += """
-                <td height={height} width="{width}" style="text-align:center; vertical-align:middle" bgcolor="{cell_bgcolor}" />
+            if fragment and i_>0:
+                fragment_begin = '<p class="fragment">'
+            else:
+                fragment_begin = '<p>'
+            fragment_end = '</p>'
+
+            if not transpose: # one line many columns
+                content += """
+                <td height={height} width="{width_}" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="{cell_bgcolor}" />
                 {fragment_begin}
                     <img data-src="{fname}"  height={height} />
                 {fragment_end}
                 </td>
-                """.format(cell_bgcolor=cell_bgcolor, height=int(height), width=width, fname=fname, fragment_begin=fragment_begin, fragment_end=fragment_end)
-            content += """
-                        </tr>
-                        """
-        else: # TODO make more pythonic...
-
-            if list_of_weights is None:
-                heights = [str(int(height/n_fig)) for _ in list_of_figures]
+                """.format(cell_bgcolor=cell_bgcolor, height=int(height),
+                           width_=int(size*height/self.meta['height']*self.meta['width']), fname=image_fname,
+                           fragment_begin=fragment_begin, fragment_end=fragment_end)
             else:
-                total_weight = sum(list_of_weights)
-                heights = [str(int(height/n_fig*weight/total_weight)) for weight in list_of_weights]
-            for height_, fname in zip(heights, list_of_figures):
-                if (embed is None and self.meta['embed']) or ((not embed is None ) and embed):
-                    data_uri = base64.b64encode(open(fname, 'rb').read()).decode('utf-8').replace('\n', '')
-                    fname = 'data:image/{ext};base64,{data_uri}'.format(ext=fname[-3:], data_uri=data_uri)
                 content += """
-                <tr style="vertical-align:middle">
+                <tr style="vertical-align:middle" bgcolor="{cell_bgcolor}"  height="{height_}px">
                     <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="{cell_bgcolor}" />
                     {fragment_begin}
-                        <img data-src="{fname}" height={height_} />
+                        <img data-src="{fname}"  height="{height_}px" />
                     {fragment_end}
                     </td>
                 </tr>
-                """.format(cell_bgcolor=cell_bgcolor, height_=height_, fname=fname,
+                """.format(cell_bgcolor=cell_bgcolor, height_=int(size*height), fname=image_fname,
                         fragment_begin=fragment_begin, fragment_end=fragment_end)
+
+        # closing table
+        if not transpose: # one line many columns
+            content += """
+            </tr>
+            """
         content += """
-                        </table>
-                        </div>
-                        """
+        </table>
+        </div>
+        """
         return content
     def content_bib(self, author, year, journal):
         return """
