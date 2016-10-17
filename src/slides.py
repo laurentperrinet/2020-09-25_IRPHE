@@ -35,21 +35,19 @@ class Slides:
     <!-- Code syntax highlighting -->
     <link rel="stylesheet" href="{reveal_path}lib/css/zenburn.css">
     <!-- Printing and PDF exports -->
-    <script>
-            var link = document.createElement( 'link' );
-            link.rel = 'stylesheet';
-            link.type = 'text/css';
-            link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-            document.getElementsByTagName( 'head' )[0].appendChild( link );
-    </script>
 
-
-    <!--[if lt IE 9]>
-    <script src="{reveal_path}lib/js/html5shiv.js"></script>
-    <![endif]-->
     """.format(**meta)
-        self.header = """
-
+    # <script>
+    #         var link = document.createElement( 'link' );
+    #         link.rel = 'stylesheet';
+    #         link.type = 'text/css';
+    #         link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+    #         document.getElementsByTagName( 'head' )[0].appendChild( link );
+    # </script>
+        # <!--[if lt IE 9]>
+        # <script src="{reveal_path}lib/js/html5shiv.js"></script>
+        # <![endif]-->
+        if False: self.header += """
     <!-- Loading the mathjax macro -->
     <!-- Load mathjax -->
     <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
@@ -180,12 +178,12 @@ class Slides:
                 // Notes are only visible to the speaker inside of the speaker view. If you wish to share your notes with others you can initialize reveal.js with the showNotes config value set to true. Notes will appear along the bottom of the presentations.
                 showNotes: 'true',
         """
-        self.footer +="""
-                math: {{
-                    mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
-                    config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
-                }},
-        """
+        # self.footer +="""
+        #         math: {{
+        #             mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
+        #             config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+        #         }},
+        # """
         self.footer +="""
                 // Optional reveal.js plugins
                 dependencies: [
