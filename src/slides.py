@@ -313,7 +313,7 @@ class Slides:
             return "<h3>{}</h3>".format(title)
 
     def content_figures(self, list_of_figures, transpose=False,
-                        list_of_weights=None, title=None, height=None,
+                        list_of_weights=None, title=None, height=None, width=None,
                         embed=None, fragment=False,
                         bgcolor="black", cell_bgcolor="black"):
         content =  self.content_title(title)
@@ -337,6 +337,14 @@ class Slides:
             """.format(bgcolor=bgcolor)
 
         for i_, (size, image_fname) in enumerate(zip(sizes, list_of_figures)):
+            if width is None:
+                width_str = " "
+                width_ = int(size*height/self.meta['height']*self.meta['width'])
+            else:
+                width_ = int(width)
+                width_str = 'width="{width_}px"'.format(width_=width_)
+                
+
             if (embed is None and self.meta['embed']) or ((not embed is None ) and embed):
                 # data_uri = base64.b64encode(open(fname, 'rb').read()).decode('utf-8').replace('\n', '')
                 # fname = 'data:image/{ext};base64,{data_uri}'.format(ext=fname[-3:], data_uri=data_uri)
@@ -350,24 +358,25 @@ class Slides:
 
             if not transpose: # one line many columns
                 content += """
-                <td height={height} width="{width_}" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="{cell_bgcolor}" />
+                <td height={height} width="{width}" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="{cell_bgcolor}" />
                 {fragment_begin}
-                    <img data-src="{fname}"  height={height} />
+                    <img data-src="{fname}"  height="{height}px" {width_str} />
                 {fragment_end}
                 </td>
                 """.format(cell_bgcolor=cell_bgcolor, height=int(height),
-                           width_=int(size*height/self.meta['height']*self.meta['width']), fname=image_fname,
+                           width=width_, width_str=width_str, fname=image_fname,
                            fragment_begin=fragment_begin, fragment_end=fragment_end)
             else:
                 content += """
                 <tr style="vertical-align:middle" bgcolor="{cell_bgcolor}"  height="{height_}px">
                     <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="{cell_bgcolor}" />
                     {fragment_begin}
-                        <img data-src="{fname}"  height="{height_}px" />
+                        <img data-src="{fname}"  height="{height_}px"  />
                     {fragment_end}
                     </td>
                 </tr>
-                """.format(cell_bgcolor=cell_bgcolor, height_=int(size*height), fname=image_fname,
+                """.format(cell_bgcolor=cell_bgcolor, height_=int(size*height),
+                        fname=image_fname,
                         fragment_begin=fragment_begin, fragment_end=fragment_end)
 
         # closing table
