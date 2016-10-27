@@ -107,13 +107,33 @@ s.open_section()
 s.add_slide_outline(2)
 
 s.add_slide(content="""
-    <video controls autoplay loop width=99%/>
+    <video controls autoplay loop width=60%/>
       <source type="video/mp4" src="{}">
     </video>
-    """.format(s.embed_video(os.path.join(figpath, '00003_droplets_i_sparse_0_seed_1974.mp4'))),
+    """.format(s.embed_video(os.path.join(figpath, 'video.mp4'))),
     notes="""
 
 """)
 s.close_section()
+#####################################################################################
+## Conclusion - 15''
+#####################################################################################
+#####################################################################################
+s.open_section()
+s.add_slide_outline()
+s.add_slide_summary(
+        ['install using instructions on <a href=https://github.com/meduz/slides.py>https://github.com/meduz/slides.py</a>',
+         'suggest <a href="https://github.com/meduz/slides.py/issues">improvments or issues</a>, ',
+         'fork!'],
+                      notes="""
+* and write notes using markdown
+
+""")
+s.add_slide(content=intro,
+    notes="""
+Thanks for you attention!
+""")
+s.close_section()
+
 #####################################################################################
 s.compile(filename='docs/index.html')
