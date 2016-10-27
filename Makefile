@@ -7,7 +7,6 @@ edit:
 
 html:
 	python3 example.py
-	open example.html
 
 # https://docs.python.org/2/distutils/packageindex.html
 pypi_tags:

@@ -66,10 +66,14 @@ Check-list:
 intro = """
 <h2 class="title">{title}</h2>
 <h3>{author_link}</h3>
-<img src="http://blog.invibe.net/files/2016-04-25_pollymagoo/figures/troislogos.png" width=61%/>
+""".format(**meta)
+intro += s.content_figures(
+   [os.path.join(figpath, "troislogos.png")], bgcolor="black",
+ height=s.meta['height']*.3, width=s.meta['height']*1.2)
+intro += """
 {Acknowledgements}
 <h3>{conference}</h3>
-        """.format(**meta)
+ """.format(**meta)
 s.add_slide(content=intro,
             notes="""
 * (AUTHOR) Hello, I am Laurent Perrinet from the Institute of Neurosciences of
@@ -112,4 +116,4 @@ s.add_slide(content="""
 """)
 s.close_section()
 #####################################################################################
-s.compile(filename='docs/example.html')
+s.compile(filename='docs/index.html')
