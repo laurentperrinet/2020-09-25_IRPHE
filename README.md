@@ -13,5 +13,5 @@ Some presentations done with ``slides.py``:
 
 * example slides: http://meduz.github.io/slides.py/
 * http://blog.invibe.net/files/2016-10-26_Perrinet16EUVIP_talk.html
-* http://invibe.net/LaurentPerrinet/Presentations/2016-10-26_FillatreBarlaudPerrinet16EUVIP
+* http://blog.invibe.net/files/2016-10-26_Perrinet16EUVIP_talk.html
 * http://blog.invibe.net/files/2016-10-13_LAW.html
