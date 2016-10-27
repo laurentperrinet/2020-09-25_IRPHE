@@ -34,7 +34,7 @@ meta = dict(
     short_title="What's slides.py?",
     conference="Example conference",
     Acknowledgements="""<h3>Acknowledgements:</h3>
-            <ul><li> Hakim for <a href="http://lab.hakim.se/reveal-js">reveal-js</a>
+            <ul><li> Hakim El Hattab for <a href="http://lab.hakim.se/reveal-js">reveal-js</a>
                 <li>Some people...</li>
                 <li>Lots more people...</li>
            </ul>
