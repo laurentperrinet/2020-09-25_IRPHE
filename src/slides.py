@@ -214,19 +214,22 @@ class Slides:
         """
         pass
 
+    def data_uri(self, fname):
+        return base64.b64encode(open(fname, 'rb').read()).decode('utf-8').replace('\n', '')
+
     def embed_image(self, image_fname):
         """
         convert to bytes
+        https://www.iandevlin.com/blog/2012/09/html5/html5-media-and-data-uri
+
         """
-        data_uri = base64.b64encode(open(image_fname, 'rb').read()).decode('utf-8').replace('\n', '')
-        return 'data:image/{ext};base64,{data_uri}'.format(ext=image_fname[-3:], data_uri=data_uri)
+        return 'data:image/{ext};base64,{data_uri}'.format(ext=image_fname[-3:], data_uri=self.data_uri(image_fname))
 
     def embed_video(self, video_fname):
         """
         convert to bytes
         """
-        data_uri = base64.b64encode(open(image_fname, 'rb').read()).decode('utf-8').replace('\n', '')
-        return 'data:video/{ext};base64,{data_uri}'.format(ext=image_fname[-3:], data_uri=data_uri)
+        return 'data:video/{ext};base64,{data_uri}'.format(ext=video_fname[-3:], data_uri=self.data_uri(video_fname))
 
     def add_slide(self, image_fname=None, video_fname=None, content='', notes='', md=False, embed=None):
 
@@ -343,7 +346,6 @@ class Slides:
             else:
                 width_ = int(width)
                 width_str = 'width="{width_}px"'.format(width_=width_)
-                
 
             if (embed is None and self.meta['embed']) or ((not embed is None ) and embed):
                 # data_uri = base64.b64encode(open(fname, 'rb').read()).decode('utf-8').replace('\n', '')
