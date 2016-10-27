@@ -112,4 +112,4 @@ s.add_slide(content="""
 """)
 s.close_section()
 #####################################################################################
-s.compile(filename='example.html')
+s.compile(filename='docs/example.html')
