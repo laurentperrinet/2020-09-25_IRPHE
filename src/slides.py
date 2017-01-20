@@ -3,6 +3,7 @@
 import os
 import markdown
 import base64
+
 class Slides:
     """
     TODO: make a class for one slide with labels etc - compile at the end
@@ -225,6 +226,10 @@ class Slides:
         """
         return 'data:image/{ext};base64,{data_uri}'.format(ext=image_fname[-3:], data_uri=self.data_uri(image_fname))
 
+    def content_imagelet(self, fname, height_px):
+        data_src = self.embed_image(fname)
+        return '<img data-src="{data_src}"  height="{height}px" />'.format(data_src=data_src, height=height_px)
+
     def embed_video(self, video_fname):
         """
         convert to bytes
@@ -315,6 +320,7 @@ class Slides:
         else:
             return "<h3>{}</h3>".format(title)
 
+
     def content_figures(self, list_of_figures, transpose=False,
                         list_of_weights=None, title=None, height=None, width=None,
                         embed=None, fragment=False,
@@ -333,7 +339,8 @@ class Slides:
             sizes = [1./n_fig] * n_fig #+"%" for _ in list_of_figures]
         else:
             total_weight = sum(list_of_weights)
-            sizes = [1./n_fig*weight/total_weight for weight in list_of_weights]
+            sizes = [weight/total_weight for weight in list_of_weights]#1./n_fig*
+            # print(sizes)
         if not transpose: # one line many columns
             content += """
             <tr padding=0px style="vertical-align:middle" bgcolor={bgcolor}>
@@ -342,9 +349,10 @@ class Slides:
         for i_, (size, image_fname) in enumerate(zip(sizes, list_of_figures)):
             if width is None:
                 width_str = " "
-                width_ = int(size*height/self.meta['height']*self.meta['width'])
+                width_ = int(size*self.meta['width'])#*height/self.meta['height']
+                # print(width_)
             else:
-                width_ = int(width)
+                width_ = int(size*width)
                 width_str = 'width="{width_}px"'.format(width_=width_)
 
             if (embed is None and self.meta['embed']) or ((not embed is None ) and embed):
