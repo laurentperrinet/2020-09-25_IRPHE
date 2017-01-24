@@ -323,7 +323,7 @@ class Slides:
 
     def content_figures(self, list_of_figures, transpose=False,
                         list_of_weights=None, title=None, height=None, width=None,
-                        embed=None, fragment=False,
+                        embed=None, fragment=False, url=None,
                         bgcolor="black", cell_bgcolor="black"):
         content =  self.content_title(title)
 
@@ -364,7 +364,12 @@ class Slides:
                 fragment_begin = '<p class="fragment">'
             else:
                 fragment_begin = '<p>'
-            fragment_end = '</p>'
+
+            if not url is None:
+                fragment_begin += '<a href="' + url[i_] + '">'
+                fragment_end = '</a></p>'
+            else:
+                fragment_end = '</p>'
 
             if not transpose: # one line many columns
                 content += """
