@@ -36,18 +36,18 @@ class Slides:
     <!-- Code syntax highlighting -->
     <link rel="stylesheet" href="{reveal_path}lib/css/zenburn.css">
     <!-- Printing and PDF exports -->
-
+     <script>
+             var link = document.createElement( 'link' );
+             link.rel = 'stylesheet';
+             link.type = 'text/css';
+             link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+             document.getElementsByTagName( 'head' )[0].appendChild( link );
+     </script>
+         <!--[if lt IE 9]>
+         <script src="{reveal_path}lib/js/html5shiv.js"></script>
+         <![endif]-->
     """.format(**meta)
-    # <script>
-    #         var link = document.createElement( 'link' );
-    #         link.rel = 'stylesheet';
-    #         link.type = 'text/css';
-    #         link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-    #         document.getElementsByTagName( 'head' )[0].appendChild( link );
-    # </script>
-        # <!--[if lt IE 9]>
-        # <script src="{reveal_path}lib/js/html5shiv.js"></script>
-        # <![endif]-->
+
         if False: self.header += """
     <!-- Loading the mathjax macro -->
     <!-- Load mathjax -->
@@ -179,13 +179,12 @@ class Slides:
                 // Notes are only visible to the speaker inside of the speaker view. If you wish to share your notes with others you can initialize reveal.js with the showNotes config value set to true. Notes will appear along the bottom of the presentations.
                 showNotes: 'true',
         """
-        # self.footer +="""
-        #         math: {{
-        #             mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
-        #             config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
-        #         }},
-        # """
         self.footer +="""
+                math: {{
+                    mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
+                    config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+                }},
+
                 // Optional reveal.js plugins
                 dependencies: [
                         {{ src: '{reveal_path}lib/js/classList.js', condition: function() {{ return !document.body.classList; }} }},
@@ -194,12 +193,26 @@ class Slides:
                         {{ src: '{reveal_path}plugin/highlight/highlight.js', async: true, callback: function() {{ hljs.initHighlightingOnLoad(); }} }},
                         {{ src: '{reveal_path}plugin/zoom-js/zoom.js', async: true }},
                         {{ src: '{reveal_path}plugin/notes/notes.js', async: true }},
-                        {{ src: '{reveal_path}plugin/math/math.js', async: true }}
+                        {{ src: '{reveal_path}plugin/math/math.js', async: true }},
+                        {{ src: '{reveal_path}plugin/mathsvg/math.js', async: true }},
         """.format(reveal_path=self.meta['reveal_path'])#.replace('file://', ''))
+                        # {{ src: '{reveal_path}plugin/search/search.js', async: true }},
         self.footer +="""
                 ]
         });
         </script>
+
+#  .reveal section img {
+# -  margin: 15px 0px;
+# +  margin: 0px 0px;
+#    background: rgba(255, 255, 255, 0.12);
+# -  border: 4px solid #eee;
+# -  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
+# +  border: 0px solid #eee;
+# +  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); */
+# +}
+
+
     </body>
 </html>
         """
@@ -324,7 +337,7 @@ class Slides:
     def content_figures(self, list_of_figures, transpose=False,
                         list_of_weights=None, title=None, height=None, width=None,
                         embed=None, fragment=False, url=None,
-                        bgcolor="black", cell_bgcolor="black"):
+                        bgcolor="white", cell_bgcolor="white"):
         content =  self.content_title(title)
 
         if height is None:
@@ -404,7 +417,9 @@ class Slides:
         </div>
         """
         return content
-    def content_bib(self, author, year, journal):
+    def content_bib(self, author, year, journal, url=None):
+        if not url is None:
+            journal = '<a href="{url}">{journal}</a>'.format(journal=journal, url=url)
         return """
         <div style="text-align:right;">{author} ({year}) <em>{journal}</em>  </div>
         """.format(author=author, year=year, journal=journal)
