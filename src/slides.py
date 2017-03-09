@@ -192,17 +192,16 @@ class Slides:
                         {{ src: '{reveal_path}plugin/markdown/markdown.js', condition: function() {{ return !!document.querySelector( '[data-markdown]' ); }} }},
                         {{ src: '{reveal_path}plugin/highlight/highlight.js', async: true, callback: function() {{ hljs.initHighlightingOnLoad(); }} }},
                         {{ src: '{reveal_path}plugin/zoom-js/zoom.js', async: true }},
-                        {{ src: '{reveal_path}plugin/notes/notes.js', async: true }},
+                        {{ src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true }},
                         {{ src: '{reveal_path}plugin/math/math.js', async: true }},
                         {{ src: '{reveal_path}plugin/mathsvg/math.js', async: true }},
         """.format(reveal_path=self.meta['reveal_path'])#.replace('file://', ''))
                         # {{ src: '{reveal_path}plugin/search/search.js', async: true }},
-        self.footer +="""
-                ]
-        });
-        </script>
 
-#  .reveal section img {
+# http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.html
+#                         {{ src: '{reveal_path}plugin/notes/notes.js', async: true }},
+
+#  .reveal section
 # -  margin: 15px 0px;
 # +  margin: 0px 0px;
 #    background: rgba(255, 255, 255, 0.12);
@@ -211,6 +210,12 @@ class Slides:
 # +  border: 0px solid #eee;
 # +  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); */
 # +}
+
+        self.footer +="""
+                ]
+        });
+        </script>
+
 
 
     </body>
@@ -241,7 +246,7 @@ class Slides:
 
     def content_imagelet(self, fname, height_px):
         data_src = self.embed_image(fname)
-        return '<img data-src="{data_src}"  height="{height}px" />'.format(data_src=data_src, height=height_px)
+        return '<img class="plain" data-src="{data_src}"  height="{height}px" />'.format(data_src=data_src, height=height_px)
 
     def embed_video(self, video_fname):
         """
@@ -388,7 +393,7 @@ class Slides:
                 content += """
                 <td height={height} width="{width}" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="{cell_bgcolor}" />
                 {fragment_begin}
-                    <img data-src="{fname}"  height="{height}px" {width_str} />
+                    <img class="plain" data-src="{fname}"  height="{height}px" {width_str} />
                 {fragment_end}
                 </td>
                 """.format(cell_bgcolor=cell_bgcolor, height=int(height),
@@ -399,7 +404,7 @@ class Slides:
                 <tr style="vertical-align:middle" bgcolor="{cell_bgcolor}"  height="{height_}px">
                     <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="{cell_bgcolor}" />
                     {fragment_begin}
-                        <img data-src="{fname}"  height="{height_}px"  />
+                        <img class="plain" data-src="{fname}"  height="{height_}px"  />
                     {fragment_end}
                     </td>
                 </tr>
