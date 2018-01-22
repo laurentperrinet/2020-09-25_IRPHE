@@ -18,8 +18,8 @@ setup(
     description = " **slides.py** is a framework to programmatically generate presentations.",
     license = "GPLv2",
     keywords = ('computational neuroscience', 'simulation', 'analysis', 'visualization', 'parameters'),
-    url = 'https://github.com/meduz/' + NAME, # use the URL to the github repo
-    download_url = 'https://github.com/meduz/' + NAME + '/tarball/' + version,
+    url = 'https://github.com/laurentperrinet/' + NAME, # use the URL to the github repo
+    download_url = 'https://github.com/laurentperrinet/' + NAME + '/tarball/' + version,
     classifiers = ['Development Status :: 3 - Alpha',
                    'Environment :: Console',
                    'License :: OSI Approved :: GNU General Public License (GPL)',

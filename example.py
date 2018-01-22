@@ -122,8 +122,8 @@ s.close_section()
 s.open_section()
 s.add_slide_outline()
 s.add_slide_summary(
-        ['install using instructions on <a href=https://github.com/meduz/slides.py>https://github.com/meduz/slides.py</a>',
-         'suggest <a href="https://github.com/meduz/slides.py/issues">improvments or issues</a>, ',
+        ['install using instructions on <a href=https://github.com/laurentperrinet/slides.py>https://github.com/laurentperrinet/slides.py</a>',
+         'suggest <a href="https://github.com/laurentperrinet/slides.py/issues">improvments or issues</a>, ',
          'fork!'],
                       notes="""
 * and write notes using markdown
