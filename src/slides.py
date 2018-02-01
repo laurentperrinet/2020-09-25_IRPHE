@@ -59,7 +59,7 @@ class Slides:
          tex2jax: {
             inlineMath: [['$','$']],
             displayMath: [['$$','$$']],
-            //processEscapes: false,
+            processEscapes: true,
             processEnvironments: true
         },
         // Center justify equations in code and markdown cells. Elsewhere
@@ -181,7 +181,7 @@ class Slides:
         """
         self.footer +="""
                 math: {{
-                    mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
+            		mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
                     config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
                 }},
 
@@ -274,16 +274,17 @@ class Slides:
 
         slide += content
 
-        slide +="""
-            <aside class="notes">
-             {}
-            </aside>
-            """.format(markdown.markdown(notes))
-
         if md:
             slide += """
 </script>
             """
+
+        if not notes=='':
+            slide +="""
+                <aside class="notes">
+                 {}
+                </aside>
+                """.format(markdown.markdown(notes))
 
         slide += """
 </section>
@@ -316,17 +317,27 @@ class Slides:
                     """
         self.add_slide(content=content, notes=notes)
 
-    def add_slide_summary(self, list_of_points, title='Interim summary', notes=''):
+    def add_slide_summary(self, list_of_points, title='Interim summary', fragment=False, notes=''):
         content = self.content_title(title) + """
             <ul>
             """
+
+        if fragment :
+            fragment_begin = '<p class="fragment">'
+        else:
+            fragment_begin = '<p>'
+        fragment_end = '</p>'
+
+
         for point in list_of_points:
 #                        <p class="fragment grow"><li> {} </li></p>
             content += """
-                    <h3>
-                        <li> {} </li>
-                    </h3>
-                        """.format(point)
+            {}
+            <li>
+                        {}
+            </li>
+            {}
+                        """.format(point, fragment_begin, fragment_end)
         content += """
                      </ul>
                     """
