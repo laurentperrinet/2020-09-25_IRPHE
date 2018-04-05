@@ -120,14 +120,14 @@ class Slides:
                 //history: false,
 
                 // Vertical centering of slides
-                center: true,
+                center: false,
 
                 // Enables touch navigation on devices with touch input
                 touch: true,
 
                 // Bounds for smallest/largest possible scale to apply to content
-                // minScale: 0.2,
-                // maxScale: 1.5,
+                minScale: 0.2,
+                maxScale: 2.5,
 
                 // Display controls in the bottom right corner
                 controls: false,
@@ -199,6 +199,8 @@ class Slides:
                         # {{ src: '{reveal_path}plugin/search/search.js', async: true }},
 
 # http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.html
+# https://cdn.jsdelivr.net/npm/reveal.js@3.6.0/plugin/notes/notes.js
+# http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js
 #                         {{ src: '{reveal_path}plugin/notes/notes.js', async: true }},
 
 #  .reveal section
@@ -254,7 +256,8 @@ class Slides:
         """
         return 'data:video/{ext};base64,{data_uri}'.format(ext=video_fname[-3:], data_uri=self.data_uri(video_fname))
 
-    def add_slide(self, image_fname=None, video_fname=None, content='', notes='', md=False, embed=None):
+    def add_slide(self, hide=False, image_fname=None, video_fname=None, content='', notes='', md=False, embed=None):
+        if hide: return 'Slide hidden'
 
         if not image_fname is None:
             if (embed is None and self.meta['embed']) or ((not embed is None ) and embed):
