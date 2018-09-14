@@ -15,3 +15,4 @@ Some presentations done with ``slides.py``:
 * http://blog.invibe.net/files/2016-10-26_Perrinet16EUVIP_talk.html
 * http://blog.invibe.net/files/2016-10-26_Perrinet16EUVIP_talk.html
 * http://blog.invibe.net/files/2016-10-13_LAW.html
+* http://blog.invibe.net/files/2018-04-05_BCP_talk.html  / code: https://github.com/laurentperrinet/2018-04-05_BCP_talk

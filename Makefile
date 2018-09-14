@@ -26,6 +26,4 @@ pypi_docs: html
 	open https://pypi.python.org/pypi?action=pkg_edit&name=$NAME
 
 clean:
-	rm -fr build dist results/* *.pyc **/*.pyc 
-
-
+	rm -fr build dist results/* *.pyc **/*.pyc
