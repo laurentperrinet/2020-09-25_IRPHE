@@ -88,10 +88,10 @@ s.close_section()
 s.open_section()
 s.add_slide_outline(1)
 s.add_slide_summary(
-    ['Go fullscreen using the f key',
-     'You can have an overlook using the o key',
+    ['Go fullscreen using the ``f`` key',
+     'You can have an overlook using the ``o`` key',
      'Navigate using the arrow keys',
-     'see notes using the n key'],
+     'see notes using the ``n`` key'],
     notes="""
 * and write notes using markdown
 
@@ -110,7 +110,7 @@ s.add_slide(content="""
     </video>
     """.format(s.embed_video(os.path.join(figpath, 'video.mp4'))),
             notes="""
-
+You can also embed videos.
 """)
 s.close_section()
 ###############################################################################

@@ -236,25 +236,33 @@ class Slides:
         pass
 
     def data_uri(self, fname):
+        """
+        reads an image and transforms it to a sequence of bytes
+        """
         return base64.b64encode(open(fname, 'rb').read()).decode('utf-8').replace('\n', '')
 
-    def embed_image(self, image_fname):
+
+    def embed(self, fname, ftype='image'):
         """
         convert to bytes
         https://www.iandevlin.com/blog/2012/09/html5/html5-media-and-data-uri
 
         """
-        return 'data:image/{ext};base64,{data_uri}'.format(ext=image_fname[-3:], data_uri=self.data_uri(image_fname))
+        # if image_fname[:4] == 'http':
+        data_uri = self.data_uri(fname)
+        ext = fname[-3:]
+        data_str = f'data:{ftype}/{ext};base64,{data_uri}'
+        return data_str
+
+    def embed_image(self, image_fname):
+        return self.embed(image_fname, ftype='image')
+
+    def embed_video(self, video_fname):
+        return self.embed(video_fname, ftype='video')
 
     def content_imagelet(self, fname, height_px):
         data_src = self.embed_image(fname)
         return '<img class="plain" data-src="{data_src}"  height="{height}px" />'.format(data_src=data_src, height=height_px)
-
-    def embed_video(self, video_fname):
-        """
-        convert to bytes
-        """
-        return 'data:video/{ext};base64,{data_uri}'.format(ext=video_fname[-3:], data_uri=self.data_uri(video_fname))
 
     def add_slide(self, hide=False, image_fname=None, video_fname=None, content='', notes='', md=False, embed=None):
         if hide: return 'Slide hidden'
