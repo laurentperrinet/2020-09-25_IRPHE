@@ -1,6 +1,6 @@
 #/usr/bin/env python3
 # -*- coding: utf-8 -*-
-import os
+#import os
 import markdown
 import base64
 
@@ -436,9 +436,10 @@ class Slides:
         </div>
         """
         return content
+
     def content_bib(self, author, year, journal, url=None):
         if not url is None:
-            journal = '<a href="{url}">{journal}</a>'.format(journal=journal, url=url)
+            content = '<a href="{url}">{journal}</a>'.format(journal=journal, url=url)
         return """
         <div style="text-align:right;">{author} ({year}) <em>{journal}</em>  </div>
         """.format(author=author, year=year, journal=journal)

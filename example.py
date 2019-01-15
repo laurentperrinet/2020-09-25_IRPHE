@@ -1,6 +1,7 @@
 #! /usr/bin/env python3
 # -*- coding: utf-8 -*-
-from __future__ import division, print_function, absolute_import
+from slides import Slides
+import os
 __author__ = "Laurent Perrinet INT - CNRS"
 __licence__ = 'BSD licence'
 DEBUG = True
@@ -12,19 +13,16 @@ Documentation for slides.py - serves as a template for future presentations.
 
 """
 
-import os
 home = os.environ['HOME']
 
-from slides import Slides
 
 meta = dict(
-    embed = True,
-    draft = DEBUG, # show notes etc
-    width= 1600,
-    height= 1000,
-    margin= 0.1618,#
-    #reveal_path = 'http://lab.hakim.se/reveal-js/', #/css/reveal.css file://' + home +  embed = True,
-    reveal_path = 'http://cdn.jsdelivr.net/reveal.js/3.0.0/',
+    embed=True,
+    draft=DEBUG,  # show notes etc
+    width=1600,
+    height=1000,
+    margin=0.1618,
+    reveal_path='http://cdn.jsdelivr.net/reveal.js/3.7.0/',
     #reveal_path = 'https://s3.amazonaws.com/hakim-static/reveal-js',
     theme='night',
 
@@ -40,9 +38,9 @@ meta = dict(
            </ul>
 
 """,
-sections = ['Intro', 'Methods', 'Results']
+    sections=['Intro', 'Methods', 'Results']
 )
-s= Slides(meta)
+s = Slides(meta)
 figpath = 'figures/'
 s.hide_slide(content=s.content_figures(
     [os.path.join(figpath, 'mire.png')], bgcolor="black",
@@ -59,17 +57,17 @@ Check-list:
 * (look) @ audience
 """)
 
-#####################################################################################
-## Intro - 5''
-#####################################################################################
-#####################################################################################
+###############################################################################
+# Intro - 5''
+###############################################################################
+###############################################################################
 intro = """
 <h2 class="title">{title}</h2>
 <h3>{author_link}</h3>
 """.format(**meta)
 intro += s.content_figures(
-   [os.path.join(figpath, "troislogos.png")], bgcolor="black",
- height=s.meta['height']*.3, width=s.meta['height']*1.2)
+    [os.path.join(figpath, "troislogos.png")], bgcolor="black",
+    height=s.meta['height']*.3, width=s.meta['height']*1.2)
 intro += """
 {Acknowledgements}
 <h3>{conference}</h3>
@@ -83,26 +81,26 @@ simple slides...
 * (ACKNO) and focus on content rather than on form
 """)
 s.close_section()
-#####################################################################################
-## Methods - 15''
-#####################################################################################
-#####################################################################################
+###############################################################################
+# Methods - 15''
+###############################################################################
+###############################################################################
 s.open_section()
 s.add_slide_outline(1)
 s.add_slide_summary(
-        ['Go fullscreen using the f key',
-         'You can have an overlook using the o key',
-         'Navigate using the arrow keys',
-         'see notes using the n key'],
-                      notes="""
+    ['Go fullscreen using the f key',
+     'You can have an overlook using the o key',
+     'Navigate using the arrow keys',
+     'see notes using the n key'],
+    notes="""
 * and write notes using markdown
 
 """)
 s.close_section()
-#####################################################################################
-## Results - 15''
-#####################################################################################
-#####################################################################################
+###############################################################################
+# Results - 15''
+###############################################################################
+###############################################################################
 s.open_section()
 s.add_slide_outline(2)
 
@@ -111,29 +109,29 @@ s.add_slide(content="""
       <source type="video/mp4" src="{}">
     </video>
     """.format(s.embed_video(os.path.join(figpath, 'video.mp4'))),
-    notes="""
+            notes="""
 
 """)
 s.close_section()
-#####################################################################################
-## Conclusion - 15''
-#####################################################################################
-#####################################################################################
+###############################################################################
+# Conclusion - 15''
+###############################################################################
+###############################################################################
 s.open_section()
 s.add_slide_outline()
 s.add_slide_summary(
-        ['install using instructions on <a href=https://github.com/laurentperrinet/slides.py>https://github.com/laurentperrinet/slides.py</a>',
-         'suggest <a href="https://github.com/laurentperrinet/slides.py/issues">improvments or issues</a>, ',
-         'fork!'],
-                      notes="""
+    ['install using instructions on <a href=https://github.com/laurentperrinet/slides.py>https://github.com/laurentperrinet/slides.py</a>',
+     'suggest <a href="https://github.com/laurentperrinet/slides.py/issues">improvments or issues</a>, ',
+     'fork!'],
+    notes="""
 * and write notes using markdown
 
 """)
 s.add_slide(content=intro,
-    notes="""
+            notes="""
 Thanks for you attention!
 """)
 s.close_section()
 
-#####################################################################################
+###############################################################################
 s.compile(filename='docs/index.html')
