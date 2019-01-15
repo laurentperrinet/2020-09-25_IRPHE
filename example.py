@@ -22,8 +22,8 @@ meta = dict(
     width=1600,
     height=1000,
     margin=0.1618,
-    #reveal_path='http://cdn.jsdelivr.net/reveal.js/3.7.0/',
-    reveal_path = 'https://s3.amazonaws.com/hakim-static/reveal-js',
+    reveal_path='https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/',
+    #reveal_path = 'https://s3.amazonaws.com/hakim-static/reveal-js',
     theme='night',
 
     author='Laurent U Perrinet, INT',
