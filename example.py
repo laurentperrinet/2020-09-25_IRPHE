@@ -104,6 +104,13 @@ s.close_section()
 s.open_section()
 s.add_slide_outline(2)
 
+s.add_slide(content=s.content_figures(
+    [os.path.join(figpath, "troislogos.png")], bgcolor="black",
+    height=s.meta['height']*.3, width=s.meta['height']*1.2),
+            notes="""
+You can embed images.
+""")
+
 s.add_slide(content="""
     <video controls autoplay loop width=60%/>
       <source type="video/mp4" src="{}">
@@ -112,6 +119,17 @@ s.add_slide(content="""
             notes="""
 You can also embed videos.
 """)
+
+
+myurl = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Gruenebaumpython4cele4.jpg/1200px-Gruenebaumpython4cele4.jpg"
+myurl = 'https://docs.python.org/3/_static/py.png'
+s.add_slide(content=s.content_figures(
+                    [myurl], bgcolor="black",
+                    height=s.meta['height']*.3, width=s.meta['height']*1.2),
+            notes="""
+You can embed images from an URL.
+""")
+
 s.close_section()
 ###############################################################################
 # Conclusion - 15''

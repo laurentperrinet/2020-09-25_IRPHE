@@ -239,7 +239,12 @@ class Slides:
         """
         reads an image and transforms it to a sequence of bytes
         """
-        return base64.b64encode(open(fname, 'rb').read()).decode('utf-8').replace('\n', '')
+        if fname[:4] == 'http':
+            from urllib.request import urlopen
+            fread = urlopen(fname).read()
+        else:
+            fread = open(fname, 'rb').read()
+        return base64.b64encode(fread).decode('utf-8').replace('\n', '')
 
 
     def embed(self, fname, ftype='image'):
@@ -248,7 +253,6 @@ class Slides:
         https://www.iandevlin.com/blog/2012/09/html5/html5-media-and-data-uri
 
         """
-        # if image_fname[:4] == 'http':
         data_uri = self.data_uri(fname)
         ext = fname[-3:]
         data_str = f'data:{ftype}/{ext};base64,{data_uri}'
