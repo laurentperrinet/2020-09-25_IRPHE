@@ -121,8 +121,8 @@ You can also embed videos.
 """)
 
 
-myurl = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Gruenebaumpython4cele4.jpg/1200px-Gruenebaumpython4cele4.jpg"
 myurl = 'https://docs.python.org/3/_static/py.png'
+myurl = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Gruenebaumpython4cele4.jpg/1200px-Gruenebaumpython4cele4.jpg"
 s.add_slide(content=s.content_figures(
                     [myurl], bgcolor="black",
                     height=s.meta['height']*.3, width=s.meta['height']*1.2),
