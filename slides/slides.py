@@ -13,72 +13,74 @@ class Slides:
     def __init__(self, meta):
         self.meta = meta
         # Simply using https://docs.python.org/3.3/library/string.html#format-string-syntax to format strings...
-        self.header ="""
-<!DOCTYPE html>
+        self.header ="""<!doctype html>
 <html>
     <head>
-    <meta charset="utf-8"/>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" >
-	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+        <meta charset="utf-8"/>
 
-    <meta name="description" content="{title}">
-    <meta name="author" content="{author}">
+        <title>{short_title} - {conference}</title>
 
-    <meta name="apple-mobile-web-app-capable" content="yes" >
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+        <meta name="description" content="{title}">
+        <meta name="author" content="{author}">
 
-    <title>{short_title} - {conference}</title>
+        <meta name="apple-mobile-web-app-capable" content="yes" >
+        <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 
+    	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-    <!-- General and theme style sheets -->
-    <link rel="stylesheet" href="{reveal_path}css/reveal.css">
-    <link rel="stylesheet" href="{reveal_path}css/theme/{theme}.css" id="theme">
-    <!-- Code syntax highlighting -->
-    <link rel="stylesheet" href="{reveal_path}lib/css/zenburn.css">
-    <!-- Printing and PDF exports -->
-     <script>
-             var link = document.createElement( 'link' );
-             link.rel = 'stylesheet';
-             link.type = 'text/css';
-             link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
-             document.getElementsByTagName( 'head' )[0].appendChild( link );
-     </script>
-         <!--[if lt IE 9]>
-         <script src="{reveal_path}lib/js/html5shiv.js"></script>
-         <![endif]-->
+        <!-- General and theme style sheets -->
+        <link rel="stylesheet" href="{reveal_path}css/reveal.css">
+        <link rel="stylesheet" href="{reveal_path}css/theme/{theme}.css" id="theme">
+
+    	<!-- Theme used for syntax highlighting of code -->
+        <link rel="stylesheet" href="{reveal_path}lib/css/zenburn.css">
+
+        <!-- Printing and PDF exports -->
+         <script async="" src=""{reveal_path}js/reveal.js – The HTML Presentation Framework_files/ga.js"></script>
+         <script>
+                 var link = document.createElement( 'link' );
+                 link.rel = 'stylesheet';
+                 link.type = 'text/css';
+                 link.href = window.location.search.match( /print-pdf/gi ) ? '{reveal_path}css/print/pdf.css' : '{reveal_path}css/print/paper.css';
+                 document.getElementsByTagName( 'head' )[0].appendChild( link );
+         </script>
+
+             <!--[if lt IE 9]>
+             <script src="{reveal_path}lib/js/html5shiv.js"></script>
+             <![endif]-->
     """.format(**meta)
 
         if False: self.header += """
-    <!-- Loading the mathjax macro -->
-    <!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        //TeX: { equationNumbers: { autoNumber: "AMS" } },
-         tex2jax: {
-            inlineMath: [['$','$']],
-            displayMath: [['$$','$$']],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        //"HTML-CSS": {
-        //    styles: {'.MathJax_Display': {"margin": 0}},
-        //    linebreaks: { automatic: true },
-        //    availableFonts: ["TeX"]
-        //    }
-        //}
-    });
-    </script>
-    <!-- End of mathjax configuration -->
+        <!-- Loading the mathjax macro -->
+        <!-- Load mathjax -->
+        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+        <!-- MathJax configuration -->
+        <script type="text/x-mathjax-config">
+        MathJax.Hub.Config({
+            //TeX: { equationNumbers: { autoNumber: "AMS" } },
+             tex2jax: {
+                inlineMath: [['$','$']],
+                displayMath: [['$$','$$']],
+                processEscapes: true,
+                processEnvironments: true
+            },
+            // Center justify equations in code and markdown cells. Elsewhere
+            // we use CSS to left justify single line equations in code cells.
+            displayAlign: 'center',
+            //"HTML-CSS": {
+            //    styles: {'.MathJax_Display': {"margin": 0}},
+            //    linebreaks: { automatic: true },
+            //    availableFonts: ["TeX"]
+            //    }
+            //}
+        });
+        </script>
+        <!-- End of mathjax configuration -->
     """
         self.header += """
-    <!-- Get Font-awesome from cdn -->
-    <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css"> -->
-</head>
+        <!-- Get Font-awesome from cdn -->
+        <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css"> -->
+    </head>
 
 <body>
     <div class="reveal">
