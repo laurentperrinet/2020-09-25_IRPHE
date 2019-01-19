@@ -194,7 +194,7 @@ class Slides:
                         {{ src: '{reveal_path}plugin/markdown/markdown.js', condition: function() {{ return !!document.querySelector( '[data-markdown]' ); }} }},
                         {{ src: '{reveal_path}plugin/highlight/highlight.js', async: true, callback: function() {{ hljs.initHighlightingOnLoad(); }} }},
                         {{ src: '{reveal_path}plugin/zoom-js/zoom.js', async: true }},
-                        {{ src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js', async: true }},
+                        {{ src: '{reveal_path}plugin/notes/notes.js', async: true }},
                         {{ src: '{reveal_path}plugin/math/math.js', async: true }},
                         {{ src: '{reveal_path}plugin/mathsvg/math.js', async: true }},
         """.format(reveal_path=self.meta['reveal_path'])#.replace('file://', ''))
@@ -204,6 +204,7 @@ class Slides:
 # https://cdn.jsdelivr.net/npm/reveal.js@3.6.0/plugin/notes/notes.js
 # http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js
 #                         {{ src: '{reveal_path}plugin/notes/notes.js', async: true }},
+#  reveal_path='https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/',
 
 #  .reveal section
 # -  margin: 15px 0px;
@@ -451,12 +452,11 @@ class Slides:
         """
         return content
 
-    def content_bib(self, author, year, journal, url=None):
+    def content_bib(self, author, year, journal, title='', url=None):
         if not url is None:
-            content = '<a href="{url}">{journal}</a>'.format(journal=journal, url=url)
-        return """
-        <div style="text-align:right;">{author} ({year}) <em>{journal}</em>  </div>
-        """.format(author=author, year=year, journal=journal)
+            journal = f'<a href="{url}">{journal}</a>'
+        content = f'{author} ({year}) {title} <em>{journal}</em>'
+        content = f'<div style="text-align:right;">{content}</div>'
         return content
 
     def close_section(self):
