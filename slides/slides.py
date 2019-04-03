@@ -455,7 +455,7 @@ class Slides:
     def content_bib(self, author, year, journal, title='', url=None):
         if not url is None:
             journal = f'<a href="{url}">{journal}</a>'
-        content = f'{author} ({year}) {title} <em>{journal}</em>'
+        content = f'{author} ({year}) <small>{title}</small> <em>{journal}</em>'
         content = f'<div style="text-align:right;">{content}</div>'
         return content
 

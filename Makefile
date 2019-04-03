@@ -1,12 +1,17 @@
 NAME=slides.py
 
-default: html
+default: github
 
 edit:
 	atom src/slides/slides.py example.py
 
 html:
 	python3 example.py
+
+github: html
+	git commit --dry-run -am 'Test' | grep -q -v 'nothing to commit' && git commit -am' updating slides'
+	git push
+	open https://laurentperrinet.github.io/$(NAME)
 
 # https://docs.python.org/2/distutils/packageindex.html
 pypi_tags:
