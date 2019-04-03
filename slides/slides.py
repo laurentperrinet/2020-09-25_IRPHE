@@ -44,9 +44,10 @@ class Slides:
                  document.getElementsByTagName( 'head' )[0].appendChild( link );
          </script>
 
-             <!--[if lt IE 9]>
-             <script src="{reveal_path}lib/js/html5shiv.js"></script>
-             <![endif]-->
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+         <!--[if lt IE 9]>
+         <script src="{reveal_path}lib/js/html5shiv.js"></script>
+         <![endif]-->
     """.format(**meta)
 
         if False: self.header += """
