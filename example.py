@@ -44,7 +44,7 @@ height_px = 80
 height_ratio = .7
 
 meta = dict(
- embed = True,
+ embed = False,
  draft = DEBUG, # show notes etc
  width= 1600,
  height= 1000,
