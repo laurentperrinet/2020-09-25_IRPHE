@@ -87,13 +87,13 @@ if not os.path.isfile(figname_qr):
 print(meta['sections'])
 s = Slides(meta)
 
-figpath_people = os.path.join(home, 'ownCNRS/2019-01_LACONEU/people')
-Karl = s.content_imagelet(os.path.join(figpath_people, 'karl.jpg'), height_px, embed=True)
-Rick = s.content_imagelet(os.path.join(figpath_people, 'rick.jpg'), height_px, embed=True)
-Anna = s.content_imagelet(os.path.join(figpath_people, 'anna.jpg'), height_px, embed=True)
-LM = s.content_imagelet(os.path.join(figpath_people, 'LM.png'), height_px, embed=True)
-JB = s.content_imagelet(os.path.join(figpath_people, 'JB.jpg'), height_px, embed=True)
-Fredo = s.content_imagelet(os.path.join(figpath_people, 'fredo.png'), height_px, embed=True)
+url_people = 'https://laurentperrinet.github.io/authors/'
+Karl = s.content_imagelet(os.path.join(url_people, 'karl-friston/avatar.jpg'), height_px)
+Rick = s.content_imagelet(os.path.join(url_people, 'rick-a.-adams/avatar.jpg'), height_px)
+Anna = s.content_imagelet(os.path.join(url_people, 'anna-montagnini/avatar.jpg'), height_px)
+LM = s.content_imagelet(os.path.join(url_people, 'laurent-madelain/avatar.png'), height_px)
+JB = s.content_imagelet(os.path.join(url_people, 'jean-bernard-damasse/avatar.jpg'), height_px)
+Fredo = s.content_imagelet(os.path.join(url_people, 'frédéric-chavane/avatar.png'), height_px)
 Python = s.content_imagelet('https://www.python.org/static/community_logos/python-powered-h-140x182.png', height_px)
 s.meta['Acknowledgements'] =f"""
 <small>
@@ -119,7 +119,7 @@ intro = """
 <h2 class="title">{title}</h2>
 <h3>{author_link}</h3>
 """.format(**meta)
-intro += s.content_imagelet(os.path.join(figpath_talk, "troislogos.png"), s.meta['height']*.2, embed=False) #bgcolor="black",
+intro += s.content_imagelet('http://laurentperrinet.github.io/slides.py/figures/troislogos.png', s.meta['height']*.2, embed=False) #bgcolor="black",
 intro += """
 <h4><a href="{conference_url}">{conference}</a>, {DD}/{MM}/{YYYY} </h4>
 
