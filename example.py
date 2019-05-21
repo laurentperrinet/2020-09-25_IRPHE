@@ -86,7 +86,7 @@ if not os.path.isfile(figname_qr):
 
 print(meta['sections'])
 s = Slides(meta)
-
+#
 url_people = 'https://laurentperrinet.github.io/authors/'
 Karl = s.content_imagelet(os.path.join(url_people, 'karl-friston/avatar.jpg'), height_px)
 Rick = s.content_imagelet(os.path.join(url_people, 'rick-a.-adams/avatar.jpg'), height_px)
