@@ -277,9 +277,13 @@ class Slides:
     def embed_video(self, video_fname):
         return self.embed(video_fname, ftype='video')
 
-    def content_imagelet(self, fname, height_px):
-        data_src = self.embed_image(fname)
-        return '<img class="plain" data-src="{data_src}"  height="{height}px" />'.format(data_src=data_src, height=height_px)
+    def content_imagelet(self, fname, height_px, embed=None):
+        if embed is None: embed = self.meta['embed']
+        if embed:
+            data_src = self.embed_image(fname)
+            return f'<img class="plain" data-src="{data_src}"  height="{height_px}px" />'
+        else:
+            return f'<img class="plain" data-src="{fname}"  height="{height_px}px" />'
 
     def add_slide(self, hide=False, image_fname=None, video_fname=None, content='', notes='', md=False, embed=None):
         if hide: return 'Slide hidden'
