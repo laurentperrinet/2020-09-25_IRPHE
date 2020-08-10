@@ -33,7 +33,7 @@ class Slides:
         <link rel="stylesheet" href="{reveal_path}dist/theme/{theme}.css" id="theme">
 
     	<!-- Theme used for syntax highlighting of code -->
-        <link rel="stylesheet" href="{reveal_path}lib/css/zenburn.css">
+        <link rel="stylesheet" href="{reveal_path}plugin/highlight/zenburn.css">
 
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
          <!--[if lt IE 9]>
