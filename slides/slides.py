@@ -29,20 +29,11 @@ class Slides:
     	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
         <!-- General and theme style sheets -->
-        <link rel="stylesheet" href="{reveal_path}css/reveal.css">
-        <link rel="stylesheet" href="{reveal_path}css/theme/{theme}.css" id="theme">
+        <link rel="stylesheet" href="{reveal_path}dist/reveal.css">
+        <link rel="stylesheet" href="{reveal_path}dist/theme/{theme}.css" id="theme">
 
     	<!-- Theme used for syntax highlighting of code -->
         <link rel="stylesheet" href="{reveal_path}lib/css/zenburn.css">
-
-        <!-- Printing and PDF exports -->
-         <script>
-                 var link = document.createElement( 'link' );
-                 link.rel = 'stylesheet';
-                 link.type = 'text/css';
-                 link.href = window.location.search.match( /print-pdf/gi ) ? '{reveal_path}css/print/pdf.css' : '{reveal_path}css/print/paper.css';
-                 document.getElementsByTagName( 'head' )[0].appendChild( link );
-         </script>
 
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
          <!--[if lt IE 9]>
@@ -91,8 +82,10 @@ class Slides:
         </div>
     </div>
 
-    <script src="{reveal_path}lib/js/head.min.js"></script>
-    <script src="{reveal_path}js/reveal.js"></script>
+    // <script src="{reveal_path}lib/js/head.min.js"></script>
+    <script src="{reveal_path}dist/reveal.js"></script>
+    <script src="{reveal_path}plugin/markdown/markdown.js"></script>
+    <script src="{reveal_path}plugin/highlight/highlight.js"></script>
 
         """.format(**meta)
         self.footer +="""
@@ -173,7 +166,7 @@ class Slides:
                 fragments: true,
 
                 // Theme
-                theme: '{theme}', // available themes are in /css/theme
+                theme: '{theme}', // available themes are in /dist/theme
 
         """.format(**meta)
         if self.meta['draft']:
@@ -481,5 +474,5 @@ class Slides:
         with open(filename, 'w') as f: f.write(html)
 # s.body += """
 # <script>
-#       document.getElementById('theme').setAttribute('href','css/theme/white.css'); return false;">
+#       document.getElementById('theme').setAttribute('href','dist/theme/white.css'); return false;">
 # </script>

@@ -14,20 +14,11 @@
     	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
         <!-- General and theme style sheets -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/reveal.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/theme/simple.css" id="theme">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/dist/reveal.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/dist/theme/simple.css" id="theme">
 
     	<!-- Theme used for syntax highlighting of code -->
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/lib/css/zenburn.css">
-
-        <!-- Printing and PDF exports -->
-         <script>
-                 var link = document.createElement( 'link' );
-                 link.rel = 'stylesheet';
-                 link.type = 'text/css';
-                 link.href = window.location.search.match( /print-pdf/gi ) ? 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/print/pdf.css' : 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/css/print/paper.css';
-                 document.getElementsByTagName( 'head' )[0].appendChild( link );
-         </script>
 
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
          <!--[if lt IE 9]>
@@ -45,7 +36,7 @@
 <h2 class="title">A simple way to make slideshows?</h2>
 <h3><a href="https://laurentperrinet.github.io/talk/example/">Laurent Perrinet</a></h3>
 <img class="plain" data-src="http://laurentperrinet.github.io/slides.py/figures/troislogos.png"  height="200.0px" />
-<h4><a href="https://github.com/laurentperrinet/slides.py">Example conference</a>, 4/7/2019 </h4>
+<h4><a href="https://github.com/laurentperrinet/slides.py">Example conference</a>, 10/8/2020 </h4>
 
 
 <small>
@@ -279,7 +270,7 @@ simple slides...</li>
 <h2 class="title">A simple way to make slideshows?</h2>
 <h3><a href="https://laurentperrinet.github.io/talk/example/">Laurent Perrinet</a></h3>
 <img class="plain" data-src="http://laurentperrinet.github.io/slides.py/figures/troislogos.png"  height="200.0px" />
-<h4><a href="https://github.com/laurentperrinet/slides.py">Example conference</a>, 4/7/2019 </h4>
+<h4><a href="https://github.com/laurentperrinet/slides.py">Example conference</a>, 10/8/2020 </h4>
 
 
 <small>
@@ -331,8 +322,10 @@ simple slides...</li>
         </div>
     </div>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/lib/js/head.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/js/reveal.js"></script>
+    // <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/lib/js/head.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/dist/reveal.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/plugin/markdown/markdown.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/3.7.0/plugin/highlight/highlight.js"></script>
 
         
 	<script>
@@ -410,7 +403,7 @@ simple slides...</li>
                 fragments: true,
 
                 // Theme
-                theme: 'simple', // available themes are in /css/theme
+                theme: 'simple', // available themes are in /dist/theme
 
         
                 math: {

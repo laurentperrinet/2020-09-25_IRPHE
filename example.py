@@ -24,7 +24,7 @@ if len(sys.argv)>1:
 else:
     slides_filename = None
 
-from academic import slugify
+from academic.cli import slugify
 
 print('😎 Welcome to the script generating the slides for ', tag)
 try:
