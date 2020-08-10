@@ -125,8 +125,8 @@ class Slides:
         """.format(**meta)
         if self.meta['draft']:
             self.footer +="""
-                // Notes are only visible to the speaker inside of the speaker view. If you wish to share your notes with others you can initialize reveal.js with the showNotes config value set to true. Notes will appear along the bottom of the presentations. https://revealjs.com/speaker-view/
-                showNotes: false,
+                // Notes are only visible to the speaker inside of the speaker view. If you wish to share your notes with others you can initialize reveal.js with the showNotes config value set to true. Notes will appear near the presentations. https://revealjs.com/speaker-view/
+                showNotes: true,
         """
         self.footer +="""
 
