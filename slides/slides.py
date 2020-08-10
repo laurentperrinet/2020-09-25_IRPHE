@@ -41,33 +41,6 @@ class Slides:
          <![endif]-->
     """.format(**meta)
 
-        if False: self.header += """
-        <!-- Loading the mathjax macro -->
-        <!-- Load mathjax -->
-        <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-        <!-- MathJax configuration -->
-        <script type="text/x-mathjax-config">
-        MathJax.Hub.Config({
-            //TeX: { equationNumbers: { autoNumber: "AMS" } },
-             tex2jax: {
-                inlineMath: [['$','$']],
-                displayMath: [['$$','$$']],
-                processEscapes: true,
-                processEnvironments: true
-            },
-            // Center justify equations in code and markdown cells. Elsewhere
-            // we use CSS to left justify single line equations in code cells.
-            displayAlign: 'center',
-            //"HTML-CSS": {
-            //    styles: {'.MathJax_Display': {"margin": 0}},
-            //    linebreaks: { automatic: true },
-            //    availableFonts: ["TeX"]
-            //    }
-            //}
-        });
-        </script>
-        <!-- End of mathjax configuration -->
-    """
         self.header += """
         <!-- Get Font-awesome from cdn -->
         <!-- <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css"> -->
@@ -82,7 +55,6 @@ class Slides:
         </div>
     </div>
 
-    // <script src="{reveal_path}lib/js/head.min.js"></script>
     <script src="{reveal_path}dist/reveal.js"></script>
     <script src="{reveal_path}plugin/zoom/zoom.js"></script>
     <script src="{reveal_path}plugin/notes/notes.js"></script>
@@ -118,7 +90,7 @@ class Slides:
                 //history: false,
 
                 // Vertical centering of slides
-                center: false,
+                center: true,
 
                 // Enables touch navigation on devices with touch input
                 touch: true,
@@ -135,26 +107,6 @@ class Slides:
 
                 // Enable the slide overview mode
                 overview: true,
-
-                // Loop the presentation
-                //loop: false,
-
-                // Change the presentation direction to be RTL
-                //rtl: false,
-
-                // Number of milliseconds between automatically proceeding to the
-                // next slide, disabled when set to 0, this value can be overwritten
-                // by using a data-autoslide attribute on your slides
-                //autoSlide: 0,
-
-                // Enable slide navigation via mouse wheel
-                //mouseWheel: false,
-
-                // Parallax background image
-                //parallaxBackgroundImage: '/Users/laurentperrinet/cloud_nas/2015_RTC/2014-04-17_HDR/figures/p4100011.jpg', // e.g. "https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg"
-
-                // Parallax background size
-                //parallaxBackgroundSize: '3200px 2000px', // CSS syntax, e.g. "2100px 900px" - currently only pixels are supported (don't use % or auto)
 
                 // This slide transition gives best results:
                 transition: 'fade', // default/cube/page/concave/zoom/linear/fade/none
@@ -174,8 +126,8 @@ class Slides:
         """.format(**meta)
         if self.meta['draft']:
             self.footer +="""
-                // Notes are only visible to the speaker inside of the speaker view. If you wish to share your notes with others you can initialize reveal.js with the showNotes config value set to true. Notes will appear along the bottom of the presentations.
-                showNotes: 'true',
+                // Notes are only visible to the speaker inside of the speaker view. If you wish to share your notes with others you can initialize reveal.js with the showNotes config value set to true. Notes will appear along the bottom of the presentations. https://revealjs.com/speaker-view/
+                showNotes: true,
         """
         self.footer +="""
                 math: {{
