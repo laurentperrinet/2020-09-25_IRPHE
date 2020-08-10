@@ -182,52 +182,15 @@ class Slides:
             		mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
                     config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
                 }},
-            	chalkboard: {{
-            		// optionally load pre-recorded chalkboard drawing from file
-            		src: "chalkboard.json",
-            	}},
-                // Optional reveal.js plugins
-                dependencies: [
-                        {{ src: '{reveal_path}lib/js/classList.js', condition: function() {{ return !document.body.classList; }} }},
-                        {{ src: '{reveal_path}plugin/markdown/marked.js', condition: function() {{ return !!document.querySelector( '[data-markdown]' ); }} }},
-                        {{ src: '{reveal_path}plugin/markdown/markdown.js', condition: function() {{ return !!document.querySelector( '[data-markdown]' ); }} }},
-                        {{ src: '{reveal_path}plugin/highlight/highlight.js', async: true, callback: function() {{ hljs.initHighlightingOnLoad(); }} }},
-                        {{ src: '{reveal_path}plugin/chalkboard/chalkboard.js' }},
-                        {{ src: '{reveal_path}plugin/zoom-js/zoom.js', async: true }},
-                        {{ src: '{reveal_path}plugin/notes/notes.js', async: true }},
-                        {{ src: '{reveal_path}plugin/math/math.js', async: true }},
-                        {{ src: '{reveal_path}plugin/mathsvg/math.js', async: true }},
-        """.format(reveal_path=self.meta['reveal_path'])#.replace('file://', ''))
-                        # {{ src: '{reveal_path}plugin/search/search.js', async: true }},
 
-# http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.html
-# https://cdn.jsdelivr.net/npm/reveal.js@3.6.0/plugin/notes/notes.js
-# http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/notes/notes.js
-#                         {{ src: '{reveal_path}plugin/notes/notes.js', async: true }},
-#  reveal_path='https://cdn.jsdelivr.net/npm/reveal.js@3.7.0/',
-#  .reveal section
-# -  margin: 15px 0px;
-# +  margin: 0px 0px;
-#    background: rgba(255, 255, 255, 0.12);
-# -  border: 4px solid #eee;
-# -  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); }
-# +  border: 0px solid #eee;
-# +  /* box-shadow: 0 0 10px rgba(0, 0, 0, 0.15); */
-# +}
+                // Learn about plugins: https://revealjs.com/plugins/
+                plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
 
+        """.format(reveal_path=self.meta['reveal_path'])
         self.footer +="""
                 ],
-	keyboard: {
-	    67: function() {{ RevealChalkboard.toggleNotesCanvas() }},	// toggle notes canvas when 'c' is pressed
-	    66: function() {{ RevealChalkboard.toggleChalkboard() }},	// toggle chalkboard when 'b' is pressed
-	    46: function() {{ RevealChalkboard.clear() }},	// clear chalkboard when 'DEL' is pressed
-	     8: function() {{ RevealChalkboard.reset() }},	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
-	    68: function() {{ RevealChalkboard.download() }},	// downlad recorded chalkboard drawing when 'd' is pressed
-	},
         });
         </script>
-
-
 
     </body>
 </html>

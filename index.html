@@ -413,34 +413,14 @@ simple slides...</li>
             		mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
                     config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
                 },
-            	chalkboard: {
-            		// optionally load pre-recorded chalkboard drawing from file
-            		src: "chalkboard.json",
-            	},
-                // Optional reveal.js plugins
-                dependencies: [
-                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/lib/js/classList.js', condition: function() { return !document.body.classList; } },
-                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
-                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
-                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/plugin/chalkboard/chalkboard.js' },
-                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/plugin/zoom-js/zoom.js', async: true },
-                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/plugin/notes/notes.js', async: true },
-                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/plugin/math/math.js', async: true },
-                        { src: 'https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/plugin/mathsvg/math.js', async: true },
+
+                // Learn about plugins: https://revealjs.com/plugins/
+                plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
+
         
                 ],
-	keyboard: {
-	    67: function() {{ RevealChalkboard.toggleNotesCanvas() }},	// toggle notes canvas when 'c' is pressed
-	    66: function() {{ RevealChalkboard.toggleChalkboard() }},	// toggle chalkboard when 'b' is pressed
-	    46: function() {{ RevealChalkboard.clear() }},	// clear chalkboard when 'DEL' is pressed
-	     8: function() {{ RevealChalkboard.reset() }},	// reset chalkboard data on current slide when 'BACKSPACE' is pressed
-	    68: function() {{ RevealChalkboard.download() }},	// downlad recorded chalkboard drawing when 'd' is pressed
-	},
         });
         </script>
-
-
 
     </body>
 </html>
