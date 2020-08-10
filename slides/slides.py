@@ -69,7 +69,6 @@ class Slides:
             // Full list of configuration options available at:
             // https://github.com/hakimel/reveal.js#configuration
             Reveal.initialize({
-
         """
         self.footer +="""
                 // The "normal" size of the presentation, aspect ratio will be preserved
@@ -127,7 +126,7 @@ class Slides:
         if self.meta['draft']:
             self.footer +="""
                 // Notes are only visible to the speaker inside of the speaker view. If you wish to share your notes with others you can initialize reveal.js with the showNotes config value set to true. Notes will appear along the bottom of the presentations. https://revealjs.com/speaker-view/
-                showNotes: true,
+                showNotes: false,
         """
         self.footer +="""
 
