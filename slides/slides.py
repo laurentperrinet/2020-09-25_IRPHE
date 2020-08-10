@@ -84,6 +84,9 @@ class Slides:
 
     // <script src="{reveal_path}lib/js/head.min.js"></script>
     <script src="{reveal_path}dist/reveal.js"></script>
+    <script src="{reveal_path}plugin/zoom/zoom.js"></script>
+    <script src="{reveal_path}plugin/notes/notes.js"></script>
+    <script src="{reveal_path}plugin/search/search.js"></script>
     <script src="{reveal_path}plugin/markdown/markdown.js"></script>
     <script src="{reveal_path}plugin/highlight/highlight.js"></script>
 
