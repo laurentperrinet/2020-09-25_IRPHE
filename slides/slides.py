@@ -294,7 +294,7 @@ class Slides:
             height = self.meta['height']
         content += """
             <div align="center">
-            <table border=0px VALIGN="center" bgcolor={bgcolor} height={height}>
+            <table border=0px valign="top" bgcolor={bgcolor} height={height}>
             """.format(bgcolor=bgcolor, height=height)
 
         n_fig = len(list_of_figures)
@@ -306,7 +306,7 @@ class Slides:
             # print(sizes)
         if not transpose: # one line many columns
             content += """
-            <tr padding=0px style="vertical-align:middle" bgcolor={bgcolor}>
+            <tr padding=0px style="vertical-align:top" bgcolor={bgcolor}>
             """.format(bgcolor=bgcolor)
 
         for i_, (size, image_fname) in enumerate(zip(sizes, list_of_figures)):
@@ -336,7 +336,7 @@ class Slides:
 
             if not transpose: # one line many columns
                 content += """
-                <td height={height} width="{width}" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:middle" bgcolor="{cell_bgcolor}" >
+                <td height={height} width="{width}" padding-top=0px padding-bottom=0px style="text-align:center; vertical-align:top" bgcolor="{cell_bgcolor}" >
                 {fragment_begin}
                     <img class="plain" data-src="{fname}"  height="{height}px" {width_str} />
                 {fragment_end}
@@ -347,7 +347,7 @@ class Slides:
             else:
                 content += """
                 <tr style="vertical-align:middle" bgcolor="{cell_bgcolor}"  height="{height_}px">
-                    <td width="100%" style="text-align:center; vertical-align:middle" bgcolor="{cell_bgcolor}" >
+                    <td width="100%" style="text-align:top; vertical-align:top" bgcolor="{cell_bgcolor}" >
                     {fragment_begin}
                         <img class="plain" data-src="{fname}"  height="{height_}px"  />
                     {fragment_end}
