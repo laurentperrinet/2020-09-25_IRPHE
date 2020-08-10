@@ -130,19 +130,11 @@ class Slides:
                 showNotes: true,
         """
         self.footer +="""
-                math: {{
-            		mathjax: 'https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.0/MathJax.js',
-                    config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
-                }},
 
                 // Learn about plugins: https://revealjs.com/plugins/
                 plugins: [ RevealZoom, RevealNotes, RevealSearch, RevealMarkdown, RevealHighlight ]
-
-        """.format(reveal_path=self.meta['reveal_path'])
-        self.footer +="""
-                ],
-        });
-        </script>
+            });
+    </script>
 
     </body>
 </html>
