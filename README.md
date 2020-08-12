@@ -13,6 +13,7 @@ Some presentations done with ``slides.py``:
 
 * example slides: http://laurentperrinet.github.io/slides.py/
 * full list https://laurentperrinet.github.io/talk/ 
+ * https://laurentperrinet.github.io/2020-09-14_IWAI/
  * https://laurentperrinet.github.io/2019-01-18_LACONEU
  * https://laurentperrinet.github.io/2019-01-17_LACONEU
  * https://laurentperrinet.github.io/2019-01-16_LACONEU
