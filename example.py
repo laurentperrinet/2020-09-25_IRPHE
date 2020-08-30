@@ -196,8 +196,8 @@ s.close_section()
 ###############################################################################
 ###############################################################################
 s.open_section()
-i_section += 1
 s.add_slide_outline(i_section)
+i_section += 1
 s.add_slide_summary(
     ['Go fullscreen using the ``f`` key',
      'You can have an overlook using the ``o`` key',
@@ -213,8 +213,8 @@ s.close_section()
 ###############################################################################
 ###############################################################################
 s.open_section()
-i_section += 1
 s.add_slide_outline(i_section)
+i_section += 1
 s.add_slide(content=s.content_figures(
     [os.path.join(figpath_slides, "troislogos.png")], bgcolor="black",
     height=s.meta['height']*.3, width=s.meta['height']*1.2),
