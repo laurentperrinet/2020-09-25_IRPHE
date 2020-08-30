@@ -14,7 +14,8 @@ fig_width = 12
 import os
 home = os.environ['HOME']
 figpath_talk = 'figures'
-figpath_slides = os.path.join(home, 'nextcloud/libs/slides.py/figures/')
+# figpath_slides = os.path.join(home, 'quantic/libraries/slides.py/figures/')
+figpath_slides = 'https://laurentperrinet.github.io/slides.py/figures/'
 #
 import sys
 print(sys.argv)
