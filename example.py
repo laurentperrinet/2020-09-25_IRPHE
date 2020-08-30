@@ -91,12 +91,32 @@ print(meta['sections'])
 s = Slides(meta)
 #
 url_people = 'https://laurentperrinet.github.io/authors/'
+# ./content/authors/james-a-bednar/avatar.jpg
+# ./content/authors/wahiba-taouali/avatar.jpg
+# ./content/authors/simon-j-thorpe/avatar.jpg
+# ./content/authors/mina-a-khoei/avatar.jpg
+# ./content/authors/manuel-samuelides/avatar.jpg
+# ./content/authors/etienne-rey/avatar.jpg
+# ./content/authors/hugo-ladret/avatar.jpg
+# ./content/authors/rick-a-adams/avatar.jpg
+# ./content/authors/yves-fregnac/avatar.jpg
+# ./content/authors/victor-boutin/avatar.jpg
+# ./content/authors/maria-jose-escobar/avatar.jpg
+# ./content/authors/kiana-mansour-pour/avatar.jpg
+# ./content/authors/stephane-viollet/avatar.jpg
+# ./content/authors/jens-kremkow/avatar.jpg
+# ./content/authors/angelo-franciosini/avatar.jpg
+# ./content/authors/chloe-pasturel/avatar.png
+# ./content/authors/nicole-voges/avatar.gif
+# ./content/authors/paula-s-leon/avatar.jpeg
+# ./content/authors/laurent-u-perrinet/avatar.jpeg
+# ./content/authors/alberto-vergani/avatar.jpeg
 Karl = s.content_imagelet(os.path.join(url_people, 'karl-friston/avatar.jpg'), height_px)
-Rick = s.content_imagelet(os.path.join(url_people, 'rick-a.-adams/avatar.jpg'), height_px)
+Rick = s.content_imagelet(os.path.join(url_people, 'rick-a-adams/avatar.jpg'), height_px)
 Anna = s.content_imagelet(os.path.join(url_people, 'anna-montagnini/avatar.jpg'), height_px)
 LM = s.content_imagelet(os.path.join(url_people, 'laurent-madelain/avatar.png'), height_px)
 JB = s.content_imagelet(os.path.join(url_people, 'jean-bernard-damasse/avatar.jpg'), height_px)
-Fredo = s.content_imagelet(os.path.join(url_people, 'frédéric-chavane/avatar.png'), height_px)
+Fredo = s.content_imagelet(os.path.join(url_people, 'frederic-y-chavane/avatar.png'), height_px)
 Python = s.content_imagelet('https://www.python.org/static/community_logos/python-powered-h-140x182.png', height_px)
 s.meta['Acknowledgements'] =f"""
 <small>
