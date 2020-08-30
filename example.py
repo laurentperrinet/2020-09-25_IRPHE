@@ -247,8 +247,8 @@ s.close_section()
 ###############################################################################
 s.open_section()
 s.add_slide_outline()
-s.add_slide_summary(
-    ['install using instructions on <a href=https://github.com/laurentperrinet/slides.py>https://github.com/laurentperrinet/slides.py</a>',
+s.add_slide_summary(title='Conclusion',
+    list_of_points =['install using instructions on <a href=https://github.com/laurentperrinet/slides.py>https://github.com/laurentperrinet/slides.py</a>',
      'suggest <a href="https://github.com/laurentperrinet/slides.py/issues">improvments or issues</a>, ',
      'fork!'],
     notes="""
