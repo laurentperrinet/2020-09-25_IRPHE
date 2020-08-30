@@ -21,7 +21,7 @@ show: html
 github: html
 	git commit --dry-run -am 'Test' | grep -q -v 'nothing to commit' && git commit -am' updating slides'
 	git push
-	open http://laurentperrinet.github.io/slides.py/
+	open https://laurentperrinet.github.io/slides.py/
 	# open https://laurentperrinet.github.io/$(SRC)
 
 print: html
