@@ -196,7 +196,8 @@ s.close_section()
 ###############################################################################
 ###############################################################################
 s.open_section()
-s.add_slide_outline(1)
+i_section += 1
+s.add_slide_outline(i_section)
 s.add_slide_summary(
     ['Go fullscreen using the ``f`` key',
      'You can have an overlook using the ``o`` key',
@@ -212,8 +213,8 @@ s.close_section()
 ###############################################################################
 ###############################################################################
 s.open_section()
-s.add_slide_outline(2)
-
+i_section += 1
+s.add_slide_outline(i_section)
 s.add_slide(content=s.content_figures(
     [os.path.join(figpath_slides, "troislogos.png")], bgcolor="black",
     height=s.meta['height']*.3, width=s.meta['height']*1.2),
@@ -229,7 +230,6 @@ s.add_slide(content="""
             notes="""
 You can also embed videos.
 """)
-
 
 myurl = 'https://docs.python.org/3/_static/py.png'
 myurl = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Gruenebaumpython4cele4.jpg/1200px-Gruenebaumpython4cele4.jpg"
