@@ -1,18 +1,18 @@
 # slides.py
 
-**slides.py** is a framework to programmatically generate presentations.
+**slides.py** is a framework I use to programmatically generate presentations.
 
-It is a wrapper around http://lab.hakim.se/reveal-js/ with a python-based interface.
+It is a wrapper around https://revealjs.com/ with a python-based interface and generates a web-page which I mostly serve using Github's pages.
 
 * to install the package, run:
 ````
-pip3 install git+https://github.com/laurentperrinet/slides.py
+pip install git+https://github.com/laurentperrinet/slides.py
 ````
 
 Some presentations done with ``slides.py``:
 
 * example slides: http://laurentperrinet.github.io/slides.py/
-* full list https://laurentperrinet.github.io/talk/ 
+* full list @ https://laurentperrinet.github.io/talk/ - some examples:
  * https://laurentperrinet.github.io/2020-09-14_IWAI/
  * https://laurentperrinet.github.io/2019-01-18_LACONEU
  * https://laurentperrinet.github.io/2019-01-17_LACONEU

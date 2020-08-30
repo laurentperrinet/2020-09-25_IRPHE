@@ -99,7 +99,7 @@ Python = s.content_imagelet('https://www.python.org/static/community_logos/pytho
 s.meta['Acknowledgements'] =f"""
 <small>
 <h5>Acknowledgements:</h5>
-<ul><li> Hakim El Hattab for <a href="http://lab.hakim.se/reveal-js">reveal-js</a>
+<ul><li> Hakim El Hattab for <a href="https://revealjs.com/">reveal-js</a>
 <li>Some people...</li>
 <li>Lots more people...</li>
 </ul>
