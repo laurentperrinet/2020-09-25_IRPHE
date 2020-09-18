@@ -66,7 +66,7 @@ meta = dict(
  short_title="Understanding natural vision using deep predictive coding",
  conference="Seminar at IRPHE",
  conference_url='https://laurentperrinet.github.io/talk/2020-09-25-irphe',
- short_conference='Ex conf',
+ short_conference='',
  location='Marseille (France)',
  abstract="""Building models which efficiently process images is a great source of inspiration to better understand the processes which underly our visual perception. I will present some classical models stemming from the Machine Learning community and propose some extensions inspired by Nature. For instance, Sparse Coding (SC) is one of the most successful frameworks to model neural computation at the local scale in the visual cortex. It directly derives from the efficient coding hypothesis and could be thought of as a competitive mechanism that describes visual stimulus using the activity of a small fraction of neurons. At the structural scale of the ventral visual pathways, feedforward models of vision (CNNs in the terminology  of deep learning) take into account neurophysiological observations and provide as of today the most successful framework for object recognition tasks. Nevertheless, these models do not leverage the high density of feedback and lateral interactions observed in the visual cortex. In particular, these connections are known to integrate contextual and attentional modulations to feedforward signals. The Predictive Coding (PC) theory has been proposed to model top-down and bottom-up interaction between cortical regions. We will here introduce a model combining Sparse Coding and Predictive Coding in a hierarchical and convolutional architecture. Our model, called Sparse Deep Predictive Coding (SDPC), was trained on several different databases including faces and natural images. We analyze the SPDC from a computational and a biological perspective and we combine neuroscientific evidence with machine learning methods to analyze the impact of recurrent processing at both the neural organization and representational levels. These results from the SDPC model additionally demonstrate that neuro-inspiration might be the right methodology to design more powerful and more robust computer vision algorithms.""",
  YYYY=YYYY, MM=MM, DD=DD,
@@ -163,7 +163,7 @@ intro += s.content_imagelet('https://laurentperrinet.github.io/slides.py/figures
                             s.meta['height']*.32,
                             embed=False) #bgcolor="black",
 intro += """
-<h4><a href="{conference_url}">{conference} ({short_conference})</a>, {DD}/{MM}/{YYYY} </h4>
+<h4><a href="{conference_url}">{conference} {short_conference}</a>, {DD}/{MM}/{YYYY} </h4>
 
 {Acknowledgements}
 """.format(**meta)
@@ -304,7 +304,7 @@ if slides_filename is None:
         text_file.write("""\
 # {title}
 
-* What:: talk @ [{conference} ({short_conference})]({conference_url})
+* What:: talk @ [{conference}{short_conference}]({conference_url})
 * Who:: {author}
 * Where: {location}, see {url}
 * When: {DD:02d}/{MM:02d}/{YYYY}, time: {time_start}-{time_end}
