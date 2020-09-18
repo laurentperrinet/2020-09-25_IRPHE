@@ -1,6 +1,6 @@
 default: github
 
-SRC=example
+SRC=2020-09-25_IRPHE
 CHROMIUM=chromium
 CHROMIUM=/Applications/Chromium.app/Contents/MacOS/Chromium
 

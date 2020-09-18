@@ -3,12 +3,7 @@ __licence__ = 'GPL licence'
 DEBUG = True
 DEBUG = False
 """
-
-Documentation for slides.py - serves as a template for future presentations,
-just fork :
-
-https://github.com/laurentperrinet/slides.py
-
+2020-09-25_IRPHE
 """
 
 fig_width = 12
@@ -62,28 +57,24 @@ meta = dict(
  width= 1600,
  height= 1000,
  margin= 0.1618,#
- # reveal_path='https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.0.2/',
- # reveal_path='https://raw.githubusercontent.com/laurentperrinet/2020-09-14_IWAI/master/reveal.js-master/',
  reveal_path='https://laurentperrinet.github.io/2020-09-14_IWAI/reveal.js-master/',
- #reveal_path='https://s3.amazonaws.com/hakim-static/reveal-js/',
  theme='simple',
  bgcolor="white",
  author='Perrinet, Laurent U',
  author_link=f'<a href="https://laurentperrinet.github.io/talk/{slugify(tag)}/">Laurent Perrinet</a>',
- title="""A simple way to make slideshows?""",
- short_title="What's slides.py?",
- conference="Example conference",
- conference_url='https://github.com/laurentperrinet/slides.py',
+ title="Understanding natural vision using deep predictive coding",
+ short_title="Understanding natural vision using deep predictive coding",
+ conference="Semainar at IRPHE",
+ conference_url='https://laurentperrinet.github.io/talk/2020-09-25-irphe',
  short_conference='Ex conf',
- location='INT, Marseille (France)',
- abstract="""This is a simple template for the slides package.""",
+ location='Marseille (France)',
+ abstract="""Building models which efficiently process images is a great source of inspiration to better understand the processes which underly our visual perception. I will present some classical models stemming from the Machine Learning community and propose some extensions inspired by Nature. For instance, Sparse Coding (SC) is one of the most successful frameworks to model neural computation at the local scale in the visual cortex. It directly derives from the efficient coding hypothesis and could be thought of as a competitive mechanism that describes visual stimulus using the activity of a small fraction of neurons. At the structural scale of the ventral visual pathways, feedforward models of vision (CNNs in the terminology  of deep learning) take into account neurophysiological observations and provide as of today the most successful framework for object recognition tasks. Nevertheless, these models do not leverage the high density of feedback and lateral interactions observed in the visual cortex. In particular, these connections are known to integrate contextual and attentional modulations to feedforward signals. The Predictive Coding (PC) theory has been proposed to model top-down and bottom-up interaction between cortical regions. We will here introduce a model combining Sparse Coding and Predictive Coding in a hierarchical and convolutional architecture. Our model, called Sparse Deep Predictive Coding (SDPC), was trained on several different databases including faces and natural images. We analyze the SPDC from a computational and a biological perspective and we combine neuroscientific evidence with machine learning methods to analyze the impact of recurrent processing at both the neural organization and representational levels. These results from the SDPC model additionally demonstrate that neuro-inspiration might be the right methodology to design more powerful and more robust computer vision algorithms.""",
  YYYY=YYYY, MM=MM, DD=DD,
  tag=tag,
- projects='anr-causal',
+ projects='aprovis-3-d',
  time_start = '15:45:00',
  time_end = '16:30:00',
- # url=f'https://laurentperrinet.github.io/talk/{slugify(tag)}',
- url='https://laurentperrinet.github.io/slides.py',
+ url=f'https://laurentperrinet.github.io/talk/{slugify(tag)}',
  sections=['Intro', 'Methods', 'Results']
 )
 
