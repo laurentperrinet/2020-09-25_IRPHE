@@ -221,7 +221,8 @@ s.add_slide_summary(
      'You can have an overlook using the ``o`` key',
      'Navigate using the arrow keys',
      'see notes using the ``n`` key',
-     'getting help using the ``?`` key'], title='Useful shortcuts',
+     'getting help using the ``?`` key'],
+     title='Useful shortcuts', fragment_type='grow',
     notes="""
 * and write notes using markdown
 
