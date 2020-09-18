@@ -1,24 +1,12 @@
-# slides.py
+# A simple way to make slideshows?
 
-**slides.py** is a framework I use to programmatically generate presentations.
+* What:: talk @ [Example conference (Ex conf)](https://github.com/laurentperrinet/slides.py)
+* Who:: Perrinet, Laurent U
+* Where: INT, Marseille (France), see https://laurentperrinet.github.io/slides.py
+* When: 18/09/2020, time: 15:45:00-16:30:00
 
-It is a wrapper around https://revealjs.com/ with a python-based interface and generates a web-page which I mostly serve using Github's pages.
+* What:
+  * Slides @ https://laurentperrinet.github.io/example
+  * Code for slides @ https://github.com/laurentperrinet/example/
+  * Abstract: This is a simple template for the slides package.
 
-* to install the package, run:
-````
-pip install git+https://github.com/laurentperrinet/slides.py
-````
-
-Some presentations done with ``slides.py``:
-
-* example slides: http://laurentperrinet.github.io/slides.py/
-* full list @ https://laurentperrinet.github.io/talk/ - some examples:
- * https://laurentperrinet.github.io/2020-09-14_IWAI/
- * https://laurentperrinet.github.io/2019-01-18_LACONEU
- * https://laurentperrinet.github.io/2019-01-17_LACONEU
- * https://laurentperrinet.github.io/2019-01-16_LACONEU
- * https://laurentperrinet.github.io/2019-01-14_LACONEU
- * https://laurentperrinet.github.io/2018-04-05_BCP_talk  / code: https://github.com/laurentperrinet/2018-04-05_BCP_talk
- * https://laurentperrinet.github.io/sciblog/files/2016-10-26_Perrinet16EUVIP_talk.html
- * https://laurentperrinet.github.io/sciblog/files/2016-10-26_Perrinet16EUVIP_talk.html
- * https://laurentperrinet.github.io/sciblog/files/2016-10-13_LAW.html

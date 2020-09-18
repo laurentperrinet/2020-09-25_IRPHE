@@ -12,8 +12,15 @@ Documentation for slides.py - serves as a template for future presentations.
 fig_width = 12
 
 import os
-home = os.environ['HOME']
-figpath_talk = 'figures'
+# import pathlib
+from pathlib import Path
+
+home = Path(os.environ['HOME'])
+
+figpath_talk = Path('.').joinpath('figures')
+figpath_talk.mkdir(parents=True, exist_ok=True)
+
+# print(figpath_talk)
 # figpath_slides = os.path.join(home, 'quantic/libraries/slides.py/figures/')
 figpath_slides = 'https://laurentperrinet.github.io/slides.py/figures/'
 #
@@ -84,11 +91,8 @@ meta = dict(
 # pip3 install pyqrcode
 # pip3 install pypng
 
-import pathlib
-pathlib.Path(figpath_talk).mkdir(parents=True, exist_ok=True)
-
-figname_qr = os.path.join(figpath_talk, 'qr.png')
-if DEBUG or not os.path.isfile(figname_qr):
+figname_qr = figpath_talk.joinpath('qr.png')
+if DEBUG or not figname_qr.is_file():
     import pyqrcode as pq
     code = pq.create(meta['url'])
     code.png(figname_qr, scale=5)
@@ -100,36 +104,36 @@ s = Slides(meta)
 # 🏄🏄🏄🏄🏄🏄🏄🏄                INTRO                    🏄🏄🏄🏄🏄🏄🏄🏄
 ###############################################################################
 # path_people = os.path.join(home, 'ownCNRS/2019-01_LACONEU/people')
-path_people = os.path.join(home, '/github/hugo_academic/content/authors')
+path_people = home.joinpath('github/hugo_academic/content/authors')
 # path_people = 'https://laurentperrinet.github.io/authors/'
  # ls ~/github/hugo_academic/content/authors/**/avat*
 People = ''
-People += s.content_imagelet(os.path.join(path_people, 'chloe-pasturel/avatar.png'), height_px)
-People += s.content_imagelet(os.path.join(path_people, 'emmanuel-dauce/avatar.jpg'), height_px)
-People += s.content_imagelet(os.path.join(path_people, 'etienne-rey/avatar.jpg'), height_px)
-People += s.content_imagelet(os.path.join(path_people, 'hugo-ladret/avatar.jpg'), height_px)
-People += s.content_imagelet(os.path.join(path_people, 'james-a-bednar/avatar.jpg'), height_px)
-People += s.content_imagelet(os.path.join(path_people, 'jens-kremkow/avatar.jpg'), height_px)
-People += s.content_imagelet(os.path.join(path_people, 'karl-friston/avatar.jpg'), height_px)
-People += s.content_imagelet(os.path.join(path_people, 'kiana-mansour-pour/avatar.jpg'), height_px)
-People += s.content_imagelet(os.path.join(path_people, 'laurent-u-perrinet/avatar.jpg'), height_px)
-People += s.content_imagelet(os.path.join(path_people, 'manuel-samuelides/avatar.jpg'), height_px)
-People += s.content_imagelet(os.path.join(path_people, 'maria-jose-escobar/avatar.jpg'), height_px)
-People += s.content_imagelet(os.path.join(path_people, 'mina-a-khoei/avatar.jpg'), height_px)
-People += s.content_imagelet(os.path.join(path_people, 'nicole-voges/avatar.gif'), height_px)
-People += s.content_imagelet(os.path.join(path_people, 'paula-s-leon/avatar.jpg'), height_px)
-People += s.content_imagelet(os.path.join(path_people, 'simon-j-thorpe/avatar.jpg'), height_px)
-People += s.content_imagelet(os.path.join(path_people, 'victor-boutin/avatar.jpg'), height_px)
-People += s.content_imagelet(os.path.join(path_people, 'wahiba-taouali/avatar.jpg'), height_px)
-People += s.content_imagelet(os.path.join(path_people, 'yves-fregnac/avatar.jpg'), height_px)
-People += s.content_imagelet(os.path.join(path_people, 'rick-a.-adams/avatar.jpg'), height_px)
-People += s.content_imagelet(os.path.join(path_people, 'anna-montagnini/avatar.jpg'), height_px)
-People += s.content_imagelet(os.path.join(path_people, 'laurent-madelain/avatar.png'), height_px)
-People += s.content_imagelet(os.path.join(path_people, 'jean-bernard-damasse/avatar.jpg'), height_px)
-People += s.content_imagelet(os.path.join(path_people, 'stephane-viollet/avatar.jpg'), height_px)
-People += s.content_imagelet(os.path.join(path_people, 'alberto-vergani/avatar.jpg'), height_px)
-People += s.content_imagelet(os.path.join(path_people, 'angelo-franciosini/avatar.jpg'), height_px)
-People += s.content_imagelet(os.path.join(path_people, 'frederic-y-chavane/avatar.png'), height_px)
+People += s.content_imagelet(path_people.joinpath('chloe-pasturel/avatar.png'), height_px)
+People += s.content_imagelet(path_people.joinpath('emmanuel-dauce/avatar.jpg'), height_px)
+People += s.content_imagelet(path_people.joinpath('etienne-rey/avatar.jpg'), height_px)
+People += s.content_imagelet(path_people.joinpath('hugo-ladret/avatar.jpg'), height_px)
+People += s.content_imagelet(path_people.joinpath('james-a-bednar/avatar.jpg'), height_px)
+People += s.content_imagelet(path_people.joinpath('jens-kremkow/avatar.jpg'), height_px)
+People += s.content_imagelet(path_people.joinpath('karl-friston/avatar.jpg'), height_px)
+People += s.content_imagelet(path_people.joinpath('kiana-mansour-pour/avatar.jpg'), height_px)
+People += s.content_imagelet(path_people.joinpath('laurent-u-perrinet/avatar.jpg'), height_px)
+People += s.content_imagelet(path_people.joinpath('manuel-samuelides/avatar.jpg'), height_px)
+People += s.content_imagelet(path_people.joinpath('maria-jose-escobar/avatar.jpg'), height_px)
+People += s.content_imagelet(path_people.joinpath('mina-a-khoei/avatar.jpg'), height_px)
+People += s.content_imagelet(path_people.joinpath('nicole-voges/avatar.gif'), height_px)
+People += s.content_imagelet(path_people.joinpath('paula-s-leon/avatar.jpg'), height_px)
+People += s.content_imagelet(path_people.joinpath('simon-j-thorpe/avatar.jpg'), height_px)
+People += s.content_imagelet(path_people.joinpath('victor-boutin/avatar.jpg'), height_px)
+People += s.content_imagelet(path_people.joinpath('wahiba-taouali/avatar.jpg'), height_px)
+People += s.content_imagelet(path_people.joinpath('yves-fregnac/avatar.jpg'), height_px)
+People += s.content_imagelet(path_people.joinpath('rick-a.-adams/avatar.jpg'), height_px)
+People += s.content_imagelet(path_people.joinpath('anna-montagnini/avatar.jpg'), height_px)
+People += s.content_imagelet(path_people.joinpath('laurent-madelain/avatar.png'), height_px)
+People += s.content_imagelet(path_people.joinpath('jean-bernard-damasse/avatar.jpg'), height_px)
+People += s.content_imagelet(path_people.joinpath('stephane-viollet/avatar.jpg'), height_px)
+People += s.content_imagelet(path_people.joinpath('alberto-vergani/avatar.jpg'), height_px)
+People += s.content_imagelet(path_people.joinpath('angelo-franciosini/avatar.jpg'), height_px)
+People += s.content_imagelet(path_people.joinpath('frederic-y-chavane/avatar.png'), height_px)
 People += s.content_imagelet('https://www.python.org/static/community_logos/python-powered-h-140x182.png', height_px)
 s.meta['Acknowledgements'] =f"""
 <small>
@@ -145,6 +149,7 @@ s.meta['Acknowledgements'] =f"""
 </small>
 
 """
+print(path_people, path_people.joinpath('chloe-pasturel/avatar.png'))
 ###############################################################################
 # 🏄🏄🏄🏄🏄🏄🏄🏄 Should I stay or should I go? 🏄🏄🏄🏄🏄🏄🏄🏄
 ###############################################################################
