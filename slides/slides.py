@@ -251,27 +251,48 @@ class Slides:
                     """
         self.add_slide(content=content, notes=notes)
 
-    def add_slide_summary(self, list_of_points, title='Interim summary', fragment=False, notes=''):
+    def add_slide_summary(self, list_of_points, title='Interim summary', fragment_type=None, notes=''):
+        """
+        fragment_type to be chosen from:
+
+        fade-in	Start visible, fade in
+        fade-out	Start visible, fade out
+        fade-up	Slide up while fading in
+        fade-down	Slide down while fading in
+        fade-left	Slide left while fading in
+        fade-right	Slide right while fading in
+        fade-in-then-out	Fades in, then out on the next step
+        fade-in-then-semi-out	Fades in, then to 50% on the next step
+        grow	Scale up
+        shrink	Scale down
+        strike	Strike through
+        highlight-red	Turn text red
+        highlight-green	Turn text green
+        highlight-blue	Turn text blue
+        highlight-current-red	Turn text red, then back to original on next step
+        highlight-current-green	Turn text green, then back to original on next step
+        highlight-current-blue	Turn text blue, then back to original on next step
+
+        https://revealjs.com/fragments/
+        """
         content = self.content_title(title) + """
             <ul>
             """
-
-        if fragment :
-            fragment_begin = '<p class="fragment">'
+        if not fragment_type is None :
+            fragment_begin = f'<p class="fragment {fragment_type}">'
         else:
             fragment_begin = '<p>'
         fragment_end = '</p>'
 
 
         for point in list_of_points:
-#                        <p class="fragment grow"><li> {} </li></p>
-            content += """
-            {}
+            content += f"""
+            {fragment_begin}
             <li>
-                        {}
+                        {point}
             </li>
-            {}
-                        """.format(point, fragment_begin, fragment_end)
+            {fragment_end}
+                        """
         content += """
                      </ul>
                     """
