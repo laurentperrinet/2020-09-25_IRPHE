@@ -4,7 +4,8 @@ DEBUG = True
 DEBUG = False
 """
 
-Documentation for slides.py - serves as a template for future presentations.
+Documentation for slides.py - serves as a template for future presentations,
+just fork :
 
 https://github.com/laurentperrinet/slides.py
 
@@ -290,7 +291,7 @@ s.add_slide(content=intro,
 * Thanks for your attention!
 """)
 
-
+print(figname_qr)
 s.add_slide(content=s.content_figures([figname_qr], cell_bgcolor=meta['bgcolor'], height=s.meta['height']*height_ratio) + '<BR><a href="{url}"> {url} </a>'.format(url=meta['url']),
             notes="All the material is available online - please flash this code this leads to a page with links to further references and code ")
 
