@@ -71,7 +71,8 @@ meta = dict(
  projects='anr-causal',
  time_start = '15:45:00',
  time_end = '16:30:00',
- url=f'https://laurentperrinet.github.io/talk/{slugify(tag)}',
+ # url=f'https://laurentperrinet.github.io/talk/{slugify(tag)}',
+ url='https://laurentperrinet.github.io/slides.py',
  sections=['Intro', 'Methods', 'Results']
 )
 
@@ -87,7 +88,7 @@ import pathlib
 pathlib.Path(figpath_talk).mkdir(parents=True, exist_ok=True)
 
 figname_qr = os.path.join(figpath_talk, 'qr.png')
-if not os.path.isfile(figname_qr):
+if DEBUG or not os.path.isfile(figname_qr):
     import pyqrcode as pq
     code = pq.create(meta['url'])
     code.png(figname_qr, scale=5)
