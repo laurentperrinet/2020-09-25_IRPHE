@@ -29,8 +29,7 @@ github: html
 	git add figures
 	git commit --dry-run -am 'Test' | grep -q -v 'nothing to commit' && git commit -am' updating slides'
 	git push
-	open https://laurentperrinet.github.io/slides.py/
-	# open https://laurentperrinet.github.io/$(SRC)
+	open https://laurentperrinet.github.io/$(SRC)
 
 print: html
 	#open -a /Applications/Chromium.app https://laurentperrinet.github.io/$(SRC)/?print-pdf&showNotes=true
