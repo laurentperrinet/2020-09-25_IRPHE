@@ -17,7 +17,7 @@ page:
 	python3 $(SRC).py
 	#
 	cat /tmp/talk.bib |pbcopy
-	atom ~/pool/blog/perrinet_curriculum-vitae_tex/LaurentPerrinet_Presentations.bib
+	# atom ~/pool/blog/perrinet_curriculum-vitae_tex/LaurentPerrinet_Presentations.bib
 	# academic ...
 
 show: html
