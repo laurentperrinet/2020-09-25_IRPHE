@@ -6,6 +6,7 @@ DEBUG = False
 
 Documentation for slides.py - serves as a template for future presentations.
 
+https://github.com/laurentperrinet/slides.py
 
 """
 
@@ -18,8 +19,9 @@ from pathlib import Path
 
 home = Path(os.environ['HOME'])
 
-figpath_talk = Path.cwd().joinpath('figures')
-figpath_talk.mkdir(parents=True, exist_ok=True)
+# figpath_talk = Path.cwd().joinpath('figures')
+figpath_talk = 'figures'
+Path.cwd().joinpath(figpath_talk).mkdir(parents=True, exist_ok=True)
 
 # print(figpath_talk)
 # figpath_slides = os.path.join(home, 'quantic/libraries/slides.py/figures/')
@@ -92,7 +94,7 @@ meta = dict(
 # pip3 install pyqrcode
 # pip3 install pypng
 
-figname_qr = figpath_talk.joinpath('qr.png')
+figname_qr = Path.cwd().joinpath(figpath_talk).joinpath('qr.png')
 if DEBUG or (not figname_qr.is_file()):
     import pyqrcode as pq
     code = pq.create(meta['url'])
@@ -150,7 +152,6 @@ s.meta['Acknowledgements'] =f"""
 </small>
 
 """
-print(path_people, path_people.joinpath('chloe-pasturel/avatar.png'))
 ###############################################################################
 # 🏄🏄🏄🏄🏄🏄🏄🏄 Should I stay or should I go? 🏄🏄🏄🏄🏄🏄🏄🏄
 ###############################################################################
