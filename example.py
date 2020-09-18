@@ -289,7 +289,7 @@ s.add_slide(content=intro,
 """)
 
 
-s.add_slide(content=s.content_figures([figname_qr], embed=True, cell_bgcolor=meta['bgcolor'], height=s.meta['height']*height_ratio) + '<BR><a href="{url}"> {url} </a>'.format(url=meta['url']),
+s.add_slide(content=s.content_figures([figname_qr], cell_bgcolor=meta['bgcolor'], height=s.meta['height']*height_ratio) + '<BR><a href="{url}"> {url} </a>'.format(url=meta['url']),
             notes="All the material is available online - please flash this code this leads to a page with links to further references and code ")
 
 s.close_section()
