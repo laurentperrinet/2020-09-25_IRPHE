@@ -154,7 +154,7 @@ class Slides:
         """
         reads an image and transforms it to a sequence of bytes
         """
-        if fname[:4] == 'http':
+        if str(fname)[:4] == 'http':
             from urllib.request import urlopen
             fread = urlopen(fname).read()
         else:
@@ -169,7 +169,7 @@ class Slides:
 
         """
         data_uri = self.data_uri(fname)
-        ext = fname[-3:]
+        ext = str(fname)[-3:]
         data_str = f'data:{ftype}/{ext};base64,{data_uri}'
         return data_str
 
