@@ -75,6 +75,10 @@ meta = dict(
  sections=['Intro', 'Methods', 'Results']
 )
 
+###############################################################################
+# 🏄🏄🏄🏄🏄🏄🏄🏄            QR CODE                      🏄🏄🏄🏄🏄🏄🏄🏄
+###############################################################################
+
 # https://pythonhosted.org/PyQRCode/rendering.html
 # pip3 install pyqrcode
 # pip3 install pypng
@@ -91,7 +95,9 @@ if not os.path.isfile(figname_qr):
 print(meta['sections'])
 s = Slides(meta)
 
-# TODO : adapt Acknowledgements
+###############################################################################
+# 🏄🏄🏄🏄🏄🏄🏄🏄                INTRO                    🏄🏄🏄🏄🏄🏄🏄🏄
+###############################################################################
 # path_people = os.path.join(home, 'ownCNRS/2019-01_LACONEU/people')
 path_people = os.path.join(home, '/github/hugo_academic/content/authors')
 # path_people = 'https://laurentperrinet.github.io/authors/'
