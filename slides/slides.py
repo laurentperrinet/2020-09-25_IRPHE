@@ -282,20 +282,15 @@ class Slides:
             fragment_begin = f'<p class="fragment {fragment_type}">'
         else:
             fragment_begin = '<p>'
-        fragment_end = '</p>'
-
-
         for point in list_of_points:
             content += f"""
-            {fragment_begin}
-            <li>
-                        {point}
-            </li>
-            {fragment_end}
-                        """
-        content += """
-                     </ul>
-                    """
+{fragment_begin}
+<li>
+        {markdown.markdown(point)}
+</li>
+</p>
+"""
+        content += "</ul>"
         self.add_slide(content=content, notes=notes)
 
     def content_title(self, title):
