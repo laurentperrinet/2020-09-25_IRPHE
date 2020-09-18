@@ -92,8 +92,10 @@ print(meta['sections'])
 s = Slides(meta)
 
 # TODO : adapt Acknowledgements
-# figpath_people = os.path.join(home, 'ownCNRS/2019-01_LACONEU/people')
-url_people = 'https://laurentperrinet.github.io/authors/'
+# path_people = os.path.join(home, 'ownCNRS/2019-01_LACONEU/people')
+path_people = os.path.join(home, '/github/hugo_academic/content/authors')
+# path_people = 'https://laurentperrinet.github.io/authors/'
+ # ls ~/github/hugo_academic/content/authors/**/avat*
 # /Users/laurentperrinet/github/hugo_academic/content/authors/alberto-vergani/avatar.jpg
 # /Users/laurentperrinet/github/hugo_academic/content/authors/angelo-franciosini/avatar.jpg
 # /Users/laurentperrinet/github/hugo_academic/content/authors/anna-montagnini/avatar.jpg
@@ -120,12 +122,12 @@ url_people = 'https://laurentperrinet.github.io/authors/'
 # /Users/laurentperrinet/github/hugo_academic/content/authors/victor-boutin/avatar.jpg
 # /Users/laurentperrinet/github/hugo_academic/content/authors/wahiba-taouali/avatar.jpg
 # /Users/laurentperrinet/github/hugo_academic/content/authors/yves-fregnac/avatar.jpg
-Karl = s.content_imagelet(os.path.join(url_people, 'karl-friston/avatar.jpg'), height_px)
-Rick = s.content_imagelet(os.path.join(url_people, 'rick-a.-adams/avatar.jpg'), height_px)
-Anna = s.content_imagelet(os.path.join(url_people, 'anna-montagnini/avatar.jpg'), height_px)
-LM = s.content_imagelet(os.path.join(url_people, 'laurent-madelain/avatar.png'), height_px)
-JB = s.content_imagelet(os.path.join(url_people, 'jean-bernard-damasse/avatar.jpg'), height_px)
-Fredo = s.content_imagelet(os.path.join(url_people, 'frederic-chavane/avatar.png'), height_px)
+Karl = s.content_imagelet(os.path.join(path_people, 'karl-friston/avatar.jpg'), height_px)
+Rick = s.content_imagelet(os.path.join(path_people, 'rick-a.-adams/avatar.jpg'), height_px)
+Anna = s.content_imagelet(os.path.join(path_people, 'anna-montagnini/avatar.jpg'), height_px)
+LM = s.content_imagelet(os.path.join(path_people, 'laurent-madelain/avatar.png'), height_px)
+JB = s.content_imagelet(os.path.join(path_people, 'jean-bernard-damasse/avatar.jpg'), height_px)
+Fredo = s.content_imagelet(os.path.join(path_people, 'frederic-chavane/avatar.png'), height_px)
 Python = s.content_imagelet('https://www.python.org/static/community_logos/python-powered-h-140x182.png', height_px)
 s.meta['Acknowledgements'] =f"""
 <small>
