@@ -26,6 +26,7 @@ else:
     slides_filename = None
 
 from academic.cli import slugify
+slugified = slugify(tag)
 
 print('😎 Welcome to the script generating the slides for ', tag)
 try:
@@ -89,7 +90,9 @@ if not os.path.isfile(figname_qr):
 
 print(meta['sections'])
 s = Slides(meta)
-#
+
+# TODO : adapt Acknowledgements
+# figpath_people = os.path.join(home, 'ownCNRS/2019-01_LACONEU/people')
 url_people = 'https://laurentperrinet.github.io/authors/'
 # ./content/authors/james-a-bednar/avatar.jpg
 # ./content/authors/wahiba-taouali/avatar.jpg
@@ -112,11 +115,11 @@ url_people = 'https://laurentperrinet.github.io/authors/'
 # ./content/authors/laurent-u-perrinet/avatar.jpeg
 # ./content/authors/alberto-vergani/avatar.jpeg
 Karl = s.content_imagelet(os.path.join(url_people, 'karl-friston/avatar.jpg'), height_px)
-Rick = s.content_imagelet(os.path.join(url_people, 'rick-a-adams/avatar.jpg'), height_px)
+Rick = s.content_imagelet(os.path.join(url_people, 'rick-a.-adams/avatar.jpg'), height_px)
 Anna = s.content_imagelet(os.path.join(url_people, 'anna-montagnini/avatar.jpg'), height_px)
 LM = s.content_imagelet(os.path.join(url_people, 'laurent-madelain/avatar.png'), height_px)
 JB = s.content_imagelet(os.path.join(url_people, 'jean-bernard-damasse/avatar.jpg'), height_px)
-Fredo = s.content_imagelet(os.path.join(url_people, 'frederic-y-chavane/avatar.png'), height_px)
+Fredo = s.content_imagelet(os.path.join(url_people, 'frederic-chavane/avatar.png'), height_px)
 Python = s.content_imagelet('https://www.python.org/static/community_logos/python-powered-h-140x182.png', height_px)
 s.meta['Acknowledgements'] =f"""
 <small>
@@ -142,9 +145,14 @@ intro = """
 <h2 class="title">{title}</h2>
 <h3>{author_link}</h3>
 """.format(**meta)
-intro += s.content_imagelet('https://laurentperrinet.github.io/slides.py/figures/troislogos.png', s.meta['height']*.2, embed=False) #bgcolor="black",
+# intro += s.content_imagelet('figures/ins-logo.png',
+#                             s.meta['height']*.24,
+#                             embed=False)
+intro += s.content_imagelet('https://laurentperrinet.github.io/slides.py/figures/troislogos.png',
+                            s.meta['height']*.32,
+                            embed=False) #bgcolor="black",
 intro += """
-<h4><a href="{conference_url}">{conference}</a>, {DD}/{MM}/{YYYY} </h4>
+<h4><a href="{conference_url}">{conference} ({short_conference})</a>, {DD}/{MM}/{YYYY} </h4>
 
 {Acknowledgements}
 """.format(**meta)
@@ -283,7 +291,7 @@ if slides_filename is None:
         text_file.write("""\
 # {title}
 
-* What:: talk @ [conference]({conference_url})
+* What:: talk @ [{conference} ({short_conference})]({conference_url})
 * Who:: {author}
 * Where: {location}, see {url}
 * When: {DD:02d}/{MM:02d}/{YYYY}, time: {time_start}-{time_end}

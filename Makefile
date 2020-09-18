@@ -1,6 +1,11 @@
 default: github
 
 SRC=example
+CHROMIUM=chromium
+CHROMIUM=/Applications/Chromium.app/Contents/MacOS/Chromium
+
+install:
+	pip3 install git+https://github.com/laurentperrinet/slides.py
 
 edit:
 	atom src/slides/slides.py $(SRC).py
@@ -10,6 +15,7 @@ html:
 
 page:
 	python3 $(SRC).py
+	#
 	cat /tmp/talk.bib |pbcopy
 	atom ~/pool/blog/perrinet_curriculum-vitae_tex/LaurentPerrinet_Presentations.bib
 	# academic ...
@@ -19,6 +25,8 @@ show: html
 	open /Applications/Safari.app/Contents/MacOS/Safari  index.html
 
 github: html
+	git pull
+	git add figures
 	git commit --dry-run -am 'Test' | grep -q -v 'nothing to commit' && git commit -am' updating slides'
 	git push
 	open https://laurentperrinet.github.io/slides.py/
@@ -27,7 +35,7 @@ github: html
 print: html
 	#open -a /Applications/Chromium.app https://laurentperrinet.github.io/$(SRC)/?print-pdf&showNotes=true
 	#open "https://laurentperrinet.github.io/$(SRC)/?print-pdf&showNotes=true"
-	/Applications/Chromium.app/Contents/MacOS/Chromium --headless --disable-gpu --print-to-pdf=$(SRC).pdf "https://laurentperrinet.github.io/$(SRC)/?print-pdf"
+    $(CHROMIUM) --headless --disable-gpu --pageWidth=1600 --pageHeight=1000 --print-to-pdf=$(SRC).pdf "https://laurentperrinet.github.io/$(SRC)/?print-pdf"
 
 
 # https://docs.python.org/2/distutils/packageindex.html
