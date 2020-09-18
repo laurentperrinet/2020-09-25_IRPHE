@@ -96,39 +96,34 @@ s = Slides(meta)
 path_people = os.path.join(home, '/github/hugo_academic/content/authors')
 # path_people = 'https://laurentperrinet.github.io/authors/'
  # ls ~/github/hugo_academic/content/authors/**/avat*
-# /Users/laurentperrinet/github/hugo_academic/content/authors/alberto-vergani/avatar.jpg
-# /Users/laurentperrinet/github/hugo_academic/content/authors/angelo-franciosini/avatar.jpg
-# /Users/laurentperrinet/github/hugo_academic/content/authors/anna-montagnini/avatar.jpg
-# /Users/laurentperrinet/github/hugo_academic/content/authors/chloe-pasturel/avatar.png
-# /Users/laurentperrinet/github/hugo_academic/content/authors/emmanuel-dauce/avatar.jpg
-# /Users/laurentperrinet/github/hugo_academic/content/authors/etienne-rey/avatar.jpg
-# /Users/laurentperrinet/github/hugo_academic/content/authors/frederic-y-chavane/avatar.png
-# /Users/laurentperrinet/github/hugo_academic/content/authors/hugo-ladret/avatar.jpg
-# /Users/laurentperrinet/github/hugo_academic/content/authors/james-a-bednar/avatar.jpg
-# /Users/laurentperrinet/github/hugo_academic/content/authors/jean-bernard-damasse/avatar.jpg
-# /Users/laurentperrinet/github/hugo_academic/content/authors/jens-kremkow/avatar.jpg
-# /Users/laurentperrinet/github/hugo_academic/content/authors/karl-friston/avatar.jpg
-# /Users/laurentperrinet/github/hugo_academic/content/authors/kiana-mansour-pour/avatar.jpg
-# /Users/laurentperrinet/github/hugo_academic/content/authors/laurent-madelain/avatar.png
-# /Users/laurentperrinet/github/hugo_academic/content/authors/laurent-u-perrinet/avatar.jpg
-# /Users/laurentperrinet/github/hugo_academic/content/authors/manuel-samuelides/avatar.jpg
-# /Users/laurentperrinet/github/hugo_academic/content/authors/maria-jose-escobar/avatar.jpg
-# /Users/laurentperrinet/github/hugo_academic/content/authors/mina-a-khoei/avatar.jpg
-# /Users/laurentperrinet/github/hugo_academic/content/authors/nicole-voges/avatar.gif
-# /Users/laurentperrinet/github/hugo_academic/content/authors/paula-s-leon/avatar.jpg
-# /Users/laurentperrinet/github/hugo_academic/content/authors/rick-a-adams/avatar.jpg
-# /Users/laurentperrinet/github/hugo_academic/content/authors/simon-j-thorpe/avatar.jpg
-# /Users/laurentperrinet/github/hugo_academic/content/authors/stephane-viollet/avatar.jpg
-# /Users/laurentperrinet/github/hugo_academic/content/authors/victor-boutin/avatar.jpg
-# /Users/laurentperrinet/github/hugo_academic/content/authors/wahiba-taouali/avatar.jpg
-# /Users/laurentperrinet/github/hugo_academic/content/authors/yves-fregnac/avatar.jpg
-Karl = s.content_imagelet(os.path.join(path_people, 'karl-friston/avatar.jpg'), height_px)
-Rick = s.content_imagelet(os.path.join(path_people, 'rick-a.-adams/avatar.jpg'), height_px)
-Anna = s.content_imagelet(os.path.join(path_people, 'anna-montagnini/avatar.jpg'), height_px)
-LM = s.content_imagelet(os.path.join(path_people, 'laurent-madelain/avatar.png'), height_px)
-JB = s.content_imagelet(os.path.join(path_people, 'jean-bernard-damasse/avatar.jpg'), height_px)
-Fredo = s.content_imagelet(os.path.join(path_people, 'frederic-chavane/avatar.png'), height_px)
-Python = s.content_imagelet('https://www.python.org/static/community_logos/python-powered-h-140x182.png', height_px)
+People = ''
+People += s.content_imagelet(os.path.join(path_people, 'chloe-pasturel/avatar.png'), height_px)
+People += s.content_imagelet(os.path.join(path_people, 'emmanuel-dauce/avatar.jpg'), height_px)
+People += s.content_imagelet(os.path.join(path_people, 'etienne-rey/avatar.jpg'), height_px)
+People += s.content_imagelet(os.path.join(path_people, 'hugo-ladret/avatar.jpg'), height_px)
+People += s.content_imagelet(os.path.join(path_people, 'james-a-bednar/avatar.jpg'), height_px)
+People += s.content_imagelet(os.path.join(path_people, 'jens-kremkow/avatar.jpg'), height_px)
+People += s.content_imagelet(os.path.join(path_people, 'karl-friston/avatar.jpg'), height_px)
+People += s.content_imagelet(os.path.join(path_people, 'kiana-mansour-pour/avatar.jpg'), height_px)
+People += s.content_imagelet(os.path.join(path_people, 'laurent-u-perrinet/avatar.jpg'), height_px)
+People += s.content_imagelet(os.path.join(path_people, 'manuel-samuelides/avatar.jpg'), height_px)
+People += s.content_imagelet(os.path.join(path_people, 'maria-jose-escobar/avatar.jpg'), height_px)
+People += s.content_imagelet(os.path.join(path_people, 'mina-a-khoei/avatar.jpg'), height_px)
+People += s.content_imagelet(os.path.join(path_people, 'nicole-voges/avatar.gif'), height_px)
+People += s.content_imagelet(os.path.join(path_people, 'paula-s-leon/avatar.jpg'), height_px)
+People += s.content_imagelet(os.path.join(path_people, 'simon-j-thorpe/avatar.jpg'), height_px)
+People += s.content_imagelet(os.path.join(path_people, 'victor-boutin/avatar.jpg'), height_px)
+People += s.content_imagelet(os.path.join(path_people, 'wahiba-taouali/avatar.jpg'), height_px)
+People += s.content_imagelet(os.path.join(path_people, 'yves-fregnac/avatar.jpg'), height_px)
+People += s.content_imagelet(os.path.join(path_people, 'rick-a.-adams/avatar.jpg'), height_px)
+People += s.content_imagelet(os.path.join(path_people, 'anna-montagnini/avatar.jpg'), height_px)
+People += s.content_imagelet(os.path.join(path_people, 'laurent-madelain/avatar.png'), height_px)
+People += s.content_imagelet(os.path.join(path_people, 'jean-bernard-damasse/avatar.jpg'), height_px)
+People += s.content_imagelet(os.path.join(path_people, 'stephane-viollet/avatar.jpg'), height_px)
+People += s.content_imagelet(os.path.join(path_people, 'alberto-vergani/avatar.jpg'), height_px)
+People += s.content_imagelet(os.path.join(path_people, 'angelo-franciosini/avatar.jpg'), height_px)
+People += s.content_imagelet(os.path.join(path_people, 'frederic-y-chavane/avatar.png'), height_px)
+People += s.content_imagelet('https://www.python.org/static/community_logos/python-powered-h-140x182.png', height_px)
 s.meta['Acknowledgements'] =f"""
 <small>
 <h5>Acknowledgements:</h5>
@@ -137,7 +132,7 @@ s.meta['Acknowledgements'] =f"""
 <li>Lots more people...</li>
 </ul>
 <BR>
-{Rick}{Karl}{JB}{LM}{Anna}{Fredo}<a href="https://github.com/laurentperrinet/slides.py">{Python}</a>
+{People}</a>
 <BR>
     This work was supported by ....
 </small>
