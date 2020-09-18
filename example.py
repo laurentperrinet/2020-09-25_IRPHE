@@ -12,6 +12,7 @@ Documentation for slides.py - serves as a template for future presentations.
 fig_width = 12
 
 import os
+# https://docs.python.org/3.8/library/pathlib.html
 # import pathlib
 from pathlib import Path
 
