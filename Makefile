@@ -1,4 +1,4 @@
-default: github
+default: html
 
 SRC=2020-09-25_IRPHE
 CHROMIUM=chromium

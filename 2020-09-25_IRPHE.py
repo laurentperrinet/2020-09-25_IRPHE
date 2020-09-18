@@ -52,11 +52,11 @@ height_px = 80
 height_ratio = .7
 
 meta = dict(
- embed = False,
- draft = DEBUG, # show notes etc
- width= 1600,
- height= 1000,
- margin= 0.1618,#
+ embed=False,
+ draft=DEBUG,  # show notes etc
+ width=1600,
+ height=1000,
+ margin=0.01,
  reveal_path='https://laurentperrinet.github.io/2020-09-14_IWAI/reveal.js-master/',
  theme='simple',
  bgcolor="white",
@@ -66,16 +66,16 @@ meta = dict(
  short_title="Understanding natural vision using deep predictive coding",
  conference="Seminar at IRPHE",
  conference_url='https://laurentperrinet.github.io/talk/2020-09-25-irphe',
- short_conference='',
+ short_conference=' (IRPHÉ)',
  location='Marseille (France)',
- abstract="""Building models which efficiently process images is a great source of inspiration to better understand the processes which underly our visual perception. I will present some classical models stemming from the Machine Learning community and propose some extensions inspired by Nature. For instance, Sparse Coding (SC) is one of the most successful frameworks to model neural computation at the local scale in the visual cortex. It directly derives from the efficient coding hypothesis and could be thought of as a competitive mechanism that describes visual stimulus using the activity of a small fraction of neurons. At the structural scale of the ventral visual pathways, feedforward models of vision (CNNs in the terminology  of deep learning) take into account neurophysiological observations and provide as of today the most successful framework for object recognition tasks. Nevertheless, these models do not leverage the high density of feedback and lateral interactions observed in the visual cortex. In particular, these connections are known to integrate contextual and attentional modulations to feedforward signals. The Predictive Coding (PC) theory has been proposed to model top-down and bottom-up interaction between cortical regions. We will here introduce a model combining Sparse Coding and Predictive Coding in a hierarchical and convolutional architecture. Our model, called Sparse Deep Predictive Coding (SDPC), was trained on several different databases including faces and natural images. We analyze the SPDC from a computational and a biological perspective and we combine neuroscientific evidence with machine learning methods to analyze the impact of recurrent processing at both the neural organization and representational levels. These results from the SDPC model additionally demonstrate that neuro-inspiration might be the right methodology to design more powerful and more robust computer vision algorithms.""",
+ abstract="""Building models which efficiently process images is a great source of inspiration to better understand the processes which underly our visual perception. I will present some classical models stemming from the Machine Learning community and propose some extensions inspired by Nature. For instance, Sparse Coding (SC) is one of the most successful frameworks to model neural computations at the local scale in the visual cortex. It directly derives from the efficient coding hypothesis and could be thought of as a competitive mechanism that describes visual stimulus using the activity of a small fraction of neurons. At the structural scale of the ventral visual pathways, feedforward models of vision (CNNs in the terminology  of deep learning) take into account neurophysiological observations and provide as of today the most successful framework for object recognition tasks. Nevertheless, these models do not leverage the high density of feedback and lateral interactions observed in the visual cortex. In particular, these connections are known to integrate contextual and attentional modulations to feedforward signals. The Predictive Coding (PC) theory has been proposed to model top-down and bottom-up interaction between cortical regions. We will here introduce a model combining Sparse Coding and Predictive Coding in a hierarchical and convolutional architecture. Our model, called Sparse Deep Predictive Coding (SDPC), was trained on several different databases including faces and natural images. We analyze the SPDC from a computational and a biological perspective and we combine neuroscientific evidence with machine learning methods to analyze the impact of recurrent processing at both the neural organization and representational levels. These results from the SDPC model additionally demonstrate that neuro-inspiration might be the right methodology to design more powerful and more robust computer vision algorithms.""",
  YYYY=YYYY, MM=MM, DD=DD,
  tag=tag,
  projects='aprovis-3-d',
- time_start = '15:45:00',
- time_end = '16:30:00',
+ time_start='15:45:00',
+ time_end='16:30:00',
  url=f'https://laurentperrinet.github.io/talk/{slugify(tag)}',
- sections=['Intro', 'Methods', 'Results']
+ sections=['Vision', 'Deep Learning', 'Sparse Coding', 'Predictive processes', 'Perspectives']
 )
 
 ###############################################################################
@@ -161,37 +161,13 @@ intro = """
 #                             embed=False)
 intro += s.content_imagelet('https://laurentperrinet.github.io/slides.py/figures/troislogos.png',
                             s.meta['height']*.32,
-                            embed=False) #bgcolor="black",
+                            embed=False)  # bgcolor="black",
 intro += """
-<h4><a href="{conference_url}">{conference} {short_conference}</a>, {DD}/{MM}/{YYYY} </h4>
+<h4><a href="{conference_url}">{conference}{short_conference}</a> {DD}/{MM}/{YYYY} </h4>
 
 {Acknowledgements}
 """.format(**meta)
 ###############################################################################
-# s.add_slide(content=intro)
-#
-# s.add_slide(content=s.content_figures(
-#     #[os.path.join(figpath_talk, 'qr.png')], bgcolor="black",
-#     [os.path.join(figpath_slides, 'mire.png')], bgcolor=meta['bgcolor'],
-#     height=s.meta['height']*1.),
-#     #image_fname=os.path.join(figpath_aSPEM, 'mire.png'),
-#     notes="""
-# Check-list:
-# -----------
-#
-# * (before) bring VGA adaptors, AC plug, remote, pointer
-# * (avoid distractions) turn off airport, screen-saver, mobile, sound, ... other running applications...
-# * (VP) open monitor preferences / calibrate / title page
-# * (timer) start up timer
-# * (look) @ audience
-#
-# http://pne.people.si.umich.edu/PDF/howtotalk.pdf
-#
-#  """)
-#
-# s.add_slide(content=s.content_figures([figname_qr], cell_bgcolor=meta['bgcolor'], height=s.meta['height']*height_ratio) + '<BR><a href="{url}"> {url} </a>'.format(url=meta['url']),
-#             notes="All the material is available online - please flash this QRcode this leads to a page with links to further references and code ")
-
 ###############################################################################
 ###############################################################################
 ###############################################################################
@@ -256,7 +232,7 @@ myurl = 'https://docs.python.org/3/_static/py.png'
 myurl = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Gruenebaumpython4cele4.jpg/1200px-Gruenebaumpython4cele4.jpg"
 s.add_slide(content=s.content_figures(
                     [myurl], bgcolor="black",
-                    height=s.meta['height']*.3, width=s.meta['height']*1.2),
+                    height=s.meta['height']*1.), #, width=s.meta['height']*1.2),
             notes="""
 You can embed images from an URL.
 """)
@@ -283,7 +259,6 @@ s.add_slide(content=intro,
 * Thanks for your attention!
 """)
 
-print(figname_qr)
 s.add_slide(content=s.content_figures([figname_qr], cell_bgcolor=meta['bgcolor'], height=s.meta['height']*height_ratio) + '<BR><a href="{url}"> {url} </a>'.format(url=meta['url']),
             notes="All the material is available online - please flash this code this leads to a page with links to further references and code ")
 
