@@ -94,8 +94,9 @@ meta = dict(
 # pip3 install pyqrcode
 # pip3 install pypng
 
-figname_qr = Path.cwd().joinpath(figpath_talk).joinpath('qr.png')
-if DEBUG or (not figname_qr.is_file()):
+# figname_qr = Path.cwd().joinpath(figpath_talk).joinpath('qr.png')
+figname_qr = os.path.join(figpath_talk, 'qr.png')
+if DEBUG or (not Path(figname_qr).is_file()):
     import pyqrcode as pq
     code = pq.create(meta['url'])
     code.png(figname_qr, scale=5)
