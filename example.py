@@ -94,26 +94,32 @@ s = Slides(meta)
 # TODO : adapt Acknowledgements
 # figpath_people = os.path.join(home, 'ownCNRS/2019-01_LACONEU/people')
 url_people = 'https://laurentperrinet.github.io/authors/'
-# ./content/authors/james-a-bednar/avatar.jpg
-# ./content/authors/wahiba-taouali/avatar.jpg
-# ./content/authors/simon-j-thorpe/avatar.jpg
-# ./content/authors/mina-a-khoei/avatar.jpg
-# ./content/authors/manuel-samuelides/avatar.jpg
-# ./content/authors/etienne-rey/avatar.jpg
-# ./content/authors/hugo-ladret/avatar.jpg
-# ./content/authors/rick-a-adams/avatar.jpg
-# ./content/authors/yves-fregnac/avatar.jpg
-# ./content/authors/victor-boutin/avatar.jpg
-# ./content/authors/maria-jose-escobar/avatar.jpg
-# ./content/authors/kiana-mansour-pour/avatar.jpg
-# ./content/authors/stephane-viollet/avatar.jpg
-# ./content/authors/jens-kremkow/avatar.jpg
-# ./content/authors/angelo-franciosini/avatar.jpg
-# ./content/authors/chloe-pasturel/avatar.png
-# ./content/authors/nicole-voges/avatar.gif
-# ./content/authors/paula-s-leon/avatar.jpeg
-# ./content/authors/laurent-u-perrinet/avatar.jpeg
-# ./content/authors/alberto-vergani/avatar.jpeg
+# /Users/laurentperrinet/github/hugo_academic/content/authors/alberto-vergani/avatar.jpg
+# /Users/laurentperrinet/github/hugo_academic/content/authors/angelo-franciosini/avatar.jpg
+# /Users/laurentperrinet/github/hugo_academic/content/authors/anna-montagnini/avatar.jpg
+# /Users/laurentperrinet/github/hugo_academic/content/authors/chloe-pasturel/avatar.png
+# /Users/laurentperrinet/github/hugo_academic/content/authors/emmanuel-dauce/avatar.jpg
+# /Users/laurentperrinet/github/hugo_academic/content/authors/etienne-rey/avatar.jpg
+# /Users/laurentperrinet/github/hugo_academic/content/authors/frederic-y-chavane/avatar.png
+# /Users/laurentperrinet/github/hugo_academic/content/authors/hugo-ladret/avatar.jpg
+# /Users/laurentperrinet/github/hugo_academic/content/authors/james-a-bednar/avatar.jpg
+# /Users/laurentperrinet/github/hugo_academic/content/authors/jean-bernard-damasse/avatar.jpg
+# /Users/laurentperrinet/github/hugo_academic/content/authors/jens-kremkow/avatar.jpg
+# /Users/laurentperrinet/github/hugo_academic/content/authors/karl-friston/avatar.jpg
+# /Users/laurentperrinet/github/hugo_academic/content/authors/kiana-mansour-pour/avatar.jpg
+# /Users/laurentperrinet/github/hugo_academic/content/authors/laurent-madelain/avatar.png
+# /Users/laurentperrinet/github/hugo_academic/content/authors/laurent-u-perrinet/avatar.jpg
+# /Users/laurentperrinet/github/hugo_academic/content/authors/manuel-samuelides/avatar.jpg
+# /Users/laurentperrinet/github/hugo_academic/content/authors/maria-jose-escobar/avatar.jpg
+# /Users/laurentperrinet/github/hugo_academic/content/authors/mina-a-khoei/avatar.jpg
+# /Users/laurentperrinet/github/hugo_academic/content/authors/nicole-voges/avatar.gif
+# /Users/laurentperrinet/github/hugo_academic/content/authors/paula-s-leon/avatar.jpg
+# /Users/laurentperrinet/github/hugo_academic/content/authors/rick-a-adams/avatar.jpg
+# /Users/laurentperrinet/github/hugo_academic/content/authors/simon-j-thorpe/avatar.jpg
+# /Users/laurentperrinet/github/hugo_academic/content/authors/stephane-viollet/avatar.jpg
+# /Users/laurentperrinet/github/hugo_academic/content/authors/victor-boutin/avatar.jpg
+# /Users/laurentperrinet/github/hugo_academic/content/authors/wahiba-taouali/avatar.jpg
+# /Users/laurentperrinet/github/hugo_academic/content/authors/yves-fregnac/avatar.jpg
 Karl = s.content_imagelet(os.path.join(url_people, 'karl-friston/avatar.jpg'), height_px)
 Rick = s.content_imagelet(os.path.join(url_people, 'rick-a.-adams/avatar.jpg'), height_px)
 Anna = s.content_imagelet(os.path.join(url_people, 'anna-montagnini/avatar.jpg'), height_px)
@@ -210,7 +216,8 @@ s.add_slide_summary(
     ['Go fullscreen using the ``f`` key',
      'You can have an overlook using the ``o`` key',
      'Navigate using the arrow keys',
-     'see notes using the ``n`` key'],
+     'see notes using the ``n`` key',
+     'getting help using the ``?`` key'], title='Useful shortcuts',
     notes="""
 * and write notes using markdown
 
