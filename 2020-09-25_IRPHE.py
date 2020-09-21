@@ -64,7 +64,7 @@ meta = dict(
  author_link=f'<a href="https://laurentperrinet.github.io/talk/{slugify(tag)}/">Laurent Perrinet</a>',
  title="Understanding natural vision using deep predictive coding",
  short_title="Understanding natural vision using deep predictive coding",
- conference="Seminar at IRPHE",
+ conference="Institut de Recherche sur les Phénomènes Hors Equilibre",
  conference_url='https://laurentperrinet.github.io/talk/2020-09-25-irphe',
  short_conference=' (IRPHÉ)',
  location='Marseille (France)',
