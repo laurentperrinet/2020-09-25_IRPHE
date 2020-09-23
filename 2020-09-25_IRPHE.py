@@ -206,9 +206,14 @@ i_section = 1
 s.open_section()
 s.add_slide_outline(i_section)
 
-s.add_slide(content=s.content_figures(
-            [os.path.join(figpath_talk, "Canonical_Microcircuit.svg")],
-            height=s.meta['height']*height_ratio),
+fig = s.content_figures(
+            [os.path.join(figpath_talk, f"Serre_Fig{i}_DL.png") for i in ['3', '4']],
+            height=s.meta['height']*height_ratio, fragment=True)
+
+# author, year, journal, title='', url=None
+bib = s.content_bib("Matthew Ricci and Thomas Serre", "2020", "Hierarchical Models of the Visual System", url="https://link.springer.com/referenceworkentry/10.1007%2F978-1-4614-7320-6_345-2")
+
+s.add_slide(content=fig + bib,
             notes="""You can embed images.""")
 
 s.close_section()
