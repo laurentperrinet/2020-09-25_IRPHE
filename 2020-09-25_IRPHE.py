@@ -49,14 +49,15 @@ except:
 from slides import Slides
 
 height_px = 80
-height_ratio = .7
+height_ratio = .9
+sections = ['Vision', 'Deep Learning', 'Predictive processes', 'Perspectives']
 
 meta = dict(
  embed=False,
  draft=DEBUG,  # show notes etc
  width=1600,
  height=1000,
- margin=0.01,
+ margin=0.05,
  reveal_path='https://laurentperrinet.github.io/2020-09-14_IWAI/reveal.js-master/',
  theme='simple',
  bgcolor="white",
@@ -75,7 +76,7 @@ meta = dict(
  time_start='15:45:00',
  time_end='16:30:00',
  url=f'https://laurentperrinet.github.io/talk/{slugify(tag)}',
- sections=['Vision', 'Deep Learning', 'Sparse Coding', 'Predictive processes', 'Perspectives']
+ sections=sections
 )
 
 ###############################################################################
@@ -146,10 +147,6 @@ s.meta['Acknowledgements'] = f"""
 </small>
 
 """
-###############################################################################
-# 🏄🏄🏄🏄🏄🏄🏄🏄 Should I stay or should I go? 🏄🏄🏄🏄🏄🏄🏄🏄
-###############################################################################
-i_section = 0
 s.open_section()
 ###############################################################################
 intro = """
@@ -187,67 +184,72 @@ simple slides...
 """)
 s.close_section()
 ###############################################################################
-# Methods - 15''
+# 🏄🏄🏄🏄🏄🏄🏄🏄 Vision 🏄🏄🏄🏄🏄🏄🏄🏄
 ###############################################################################
-###############################################################################
-s.open_section()
-s.add_slide_outline(i_section)
-i_section += 1
-s.add_slide_summary(
-    ['Go fullscreen using the ``f`` key',
-     'You can have an overlook using the ``o`` key',
-     'Navigate using the arrow keys',
-     'see notes using the ``n`` key',
-     'getting help using the ``?`` key'],
-     title='Useful shortcuts', fragment_type='grow',
-    notes="""
-* and write notes using markdown
-
-""")
-s.close_section()
-###############################################################################
-# Results - 15''
-###############################################################################
+i_section = 0
 ###############################################################################
 s.open_section()
 s.add_slide_outline(i_section)
-i_section += 1
-s.add_slide(content=s.content_figures(
-    [os.path.join(figpath_slides, "troislogos.png")], bgcolor="black",
-    height=s.meta['height']*.3, width=s.meta['height']*1.2),
-            notes="""
-You can embed images.
-""")
 
-s.add_slide(content="""
-    <video controls autoplay loop width=60%/>
-      <source type="video/mp4" src="{}">
-    </video>
-    """.format(s.embed_video(os.path.join(figpath_talk, 'video.mp4'))),
-            notes="""
-You can also embed videos.
-""")
-
-myurl = 'https://docs.python.org/3/_static/py.png'
-myurl = "https://upload.wikimedia.org/wikipedia/commons/thumb/2/20/Gruenebaumpython4cele4.jpg/1200px-Gruenebaumpython4cele4.jpg"
 s.add_slide(content=s.content_figures(
-                    [myurl], bgcolor="black",
-                    height=s.meta['height']*1.), #, width=s.meta['height']*1.2),
-            notes="""
-You can embed images from an URL.
-""")
+            [os.path.join(figpath_talk, "architecture_vision.svg")],
+            height=s.meta['height']*height_ratio),
+            notes="""You can embed images.""")
+
 
 s.close_section()
 ###############################################################################
-# Conclusion - 15''
+# 🏄🏄🏄🏄🏄🏄🏄🏄       Deep Learning  - 15''              🏄🏄🏄🏄🏄🏄🏄🏄
+###############################################################################
+i_section = 1
+###############################################################################
+s.open_section()
+s.add_slide_outline(i_section)
+
+s.add_slide(content=s.content_figures(
+            [os.path.join(figpath_talk, "Canonical_Microcircuit.svg")],
+            height=s.meta['height']*height_ratio),
+            notes="""You can embed images.""")
+
+s.close_section()
+###############################################################################
+# 🏄🏄🏄🏄🏄🏄🏄🏄       Predictive processes - 15''        🏄🏄🏄🏄🏄🏄🏄🏄
+###############################################################################
+i_section = 2
+###############################################################################
+s.open_section()
+s.add_slide_outline(i_section)
+
+
+s.add_slide(content=s.content_figures(
+            [os.path.join(figpath_talk, "Canonical_Microcircuit.svg")],
+            height=s.meta['height']*height_ratio),
+            notes="""You can embed images.""")
+
+s.close_section()
+###############################################################################
+# 🏄🏄🏄🏄🏄🏄🏄🏄             Perspectives      10''       🏄🏄🏄🏄🏄🏄🏄🏄
+###############################################################################
+i_section = 3
+###############################################################################
+s.open_section()
+s.add_slide_outline(i_section)
+
+fname = os.path.join(home, 'quantic/science/ActiveVision/2020-09-14_IWAI/2020-09-10_video-abstract.mp4')
+s.add_slide(content=f"""<video controls autoplay loop width=60%/><source type="video/mp4" src="{fname}"></video>""",
+            notes="""You can also embed videos.""")
+
+s.close_section()
+###############################################################################
+# Conclusion - 1''
 ###############################################################################
 ###############################################################################
 s.open_section()
-s.add_slide_outline()
 s.add_slide_summary(title='Conclusion',
-    list_of_points =['install using instructions on <a href=https://github.com/laurentperrinet/slides.py>https://github.com/laurentperrinet/slides.py</a>',
-     'suggest <a href="https://github.com/laurentperrinet/slides.py/issues">improvments or issues</a>, ',
-     'fork!'],
+    list_of_points =['vision is efficient',
+                     'deep learning is great...',
+                     'but predictive coding is better',
+                     '+ let''s make it active ! '],
     notes="""
 * and write notes using markdown
 
