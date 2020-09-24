@@ -48,7 +48,6 @@ except:
 # see https://github.com/laurentperrinet/slides.py
 from slides import Slides
 
-height_px = 80
 height_ratio = .9
 sections = ['*Natural* Vision', 'Deep Learning', 'Predictive processes', 'Perspectives']
 
@@ -57,7 +56,7 @@ meta = dict(
  draft=DEBUG,  # show notes etc
  width=1600,
  height=1000,
- margin=0.05,
+ margin=0.15,
  reveal_path='https://laurentperrinet.github.io/2020-09-14_IWAI/reveal.js-master/',
  theme='simple',
  bgcolor="white",
@@ -100,6 +99,7 @@ s = Slides(meta)
 ###############################################################################
 # 🏄🏄🏄🏄🏄🏄🏄🏄                INTRO                    🏄🏄🏄🏄🏄🏄🏄🏄
 ###############################################################################
+height_px = 120
 # path_people = os.path.join(home, 'ownCNRS/2019-01_LACONEU/people')
 path_people = home.joinpath('github/hugo_academic/content/authors')
 # path_people = 'https://laurentperrinet.github.io/authors/'
@@ -134,19 +134,22 @@ People += s.content_imagelet(path_people.joinpath('etienne-rey/avatar.jpg'), hei
 
 
 s.meta['Acknowledgements'] = f"""
-<small>
-<h5>Acknowledgements:</h5>
-<ul><li> Hakim El Hattab for <a href="https://revealjs.com/">reveal-js</a>
-<li>Some people...</li>
-<li>Lots more people...</li>
-</ul>
-<BR>
-{People}</a>
-<BR>
-    This work was supported by ....
-</small>
-
+{People}
 """
+# s.meta['Acknowledgements'] = f"""
+# <small>
+# <h5>Acknowledgements:</h5>
+# <ul><li> Hakim El Hattab for <a href="https://revealjs.com/">reveal-js</a>
+# <li>Some people...</li>
+# <li>Lots more people...</li>
+# </ul>
+# <BR>
+# {People}</a>
+# <BR>
+#     This work was supported by ....
+# </small>
+#
+# """
 s.open_section()
 ###############################################################################
 intro = """
@@ -203,12 +206,25 @@ for layer in ['brain', 'pathways', 'ventral']:
 # author, year, journal, title='', url=None
 bib = s.content_bib("LP", "2019", "Illusions et hallucinations visuelles : une porte sur la perception ", url="https://theconversation.com/illusions-et-hallucinations-visuelles-une-porte-sur-la-perception-117389")
 
-fig = s.content_figures(
-            ['https://images.theconversation.com/files/277070/original/file-20190529-192383-zy01r.jpg'], bgcolor="black",
-            height=s.meta['height']*height_ratio)
+for url in ['https://laurentperrinet.github.io/2020-09-14_IWAI/figures/CNS-general-II-A.png',
+            'https://images.theconversation.com/files/277070/original/file-20190529-192383-zy01r.jpg']:
+    fig = s.content_figures([url], bgcolor="black", height=s.meta['height']*height_ratio)
 
-s.add_slide(content=fig + bib,
-            notes="""You can embed images.""")
+    s.add_slide(content=fig + bib,
+                notes="""You can embed images.""")
+
+s.close_section()
+
+# author, year, journal, title='', url=None
+bib = s.content_bib("LP", "2020", "Temps et cerveau : comment notre perception nous fait voyager dans le temps", url="https://theconversation.com/temps-et-cerveau-comment-notre-perception-nous-fait-voyager-dans-le-temps-127567")
+
+for url in ['https://laurentperrinet.github.io/2019-04-18_JNLF/figures/scheme_thorpe.jpg',
+            'https://laurentperrinet.github.io/2019-04-18_JNLF/figures/figure-tsonga.png',
+            'https://upload.wikimedia.org/wikipedia/commons/6/60/Flash_lag.gif',
+            ]:
+    fig = s.content_figures([url], bgcolor="black", height=s.meta['height']*height_ratio)
+
+    s.add_slide(content=fig + bib, notes="""You can embed images.""")
 
 s.close_section()
 ###############################################################################
@@ -233,8 +249,21 @@ fig = s.content_figures(
             [os.path.join(figpath_talk, f"Serre_Fig{i}_DL.png") for i in ['3', '4']],
             height=s.meta['height']*height_ratio, fragment=True)
 
-s.add_slide(content=fig + bib,
-            notes="""You can embed images.""")
+s.add_slide(content=fig + bib, notes="""You can embed images.""")
+
+
+# author, year, journal, title='', url=None
+bib = s.content_bib("Thomas Serre", "2019", "Deep Learning: The Good, the Bad, and the Ugly", url="https://www.annualreviews.org/doi/abs/10.1146/annurev-vision-091718-014951")
+
+for url in  [f'https://www.annualreviews.org/na101/home/literatum/publisher/ar/journals/content/vision/2019/vision.2019.5.issue-1/annurev-vision-091718-014951/20190909/images/large/vs50399.f{i}.jpeg' for i in ['3', '4']]:
+    fig = s.content_figures([url], bgcolor="black", height=s.meta['height']*height_ratio)
+
+    s.add_slide(content=fig + bib, notes="""
+Figure 3  Art and image synthesis with deep neural networks. (a) Style transfer with convolutional neural networks (CNNs). The content of an image (top, first panel) is combined with the style of three distinct paintings (top, second, third, and fourth panels) to synthesize a new artistic image (bottom row) using a neural network (Gatys et al. 2017). Image credit: Matthias Bethge (adapted with permission). (b) The Portrait of Edmond Belamy produced by a generative adversarial network (GAN) and sold by Christie's for $432,500 in October 2018. Reproduced with permission from the copyright holder. Sotheby's Contemporary Art Day Auction held in March 2019 also featured a machine installation that used neural networks to generate an infinite stream of portraits. Mainstream artists including Refik Anadol, Trevor Paglen, and Jason Salavon have started to incorporate neural networks as a part of their artistic process. (c) Latest improvements in style transfer by leveraging attentional mechanism to produce transfers that respect the semantic content of the original image (Park & Lee 2019). Image credit: Dae Y. Park and Kwang H. Lee (adapted with permission). (d) Synthetic images generated by a large generative adversarial network named BigGAN (Brock et al. 2019). Adapted with permission from the authors.
+
+    """)
+
+# TODO : lee sedol
 
 s.close_section()
 ###############################################################################
@@ -246,10 +275,91 @@ s.open_section()
 s.add_slide_outline(i_section)
 
 
+# author, year, journal, title='', url=None
+SDPC_bib = s.content_bib('Boutin, Franciosini, Chavane, Ruffier, LP', '2020', 'submitted',
+            url="https://laurentperrinet.github.io/publication/boutin-franciosini-chavane-ruffier-perrinet-20")
+
+bib = s.content_bib("Matthew Ricci and Thomas Serre", "2020", "Hierarchical Models of the Visual System", url="https://link.springer.com/referenceworkentry/10.1007%2F978-1-4614-7320-6_345-2")
+
+# for layer in ['ventral', 'cnn']:
+for layer in ['cnn']:
+    s.add_slide(content=s.content_figures(
+                [os.path.join(figpath_talk, f"architecture_vision_{layer}.svg")],
+                height=s.meta['height']*height_ratio) + bib,
+                notes="""You can embed images.""")
+
+
+
+url_talk = 'https://laurentperrinet.github.io/2019-04-03_a_course_on_vision_and_modelization/figures/'
+# author, year, journal, title='', url=None
+bib = s.content_bib("Bosking et al.", "1997", "Journal of Neuroscience", url="https://laurentperrinet.github.io/2019-04-03_a_course_on_vision_and_modelization/#/0/4")
+fig = s.content_figures([f'{url_talk}Bosking97Fig4.jpg'], bgcolor="black", height=s.meta['height']*height_ratio)
+s.add_slide(content=fig + bib, notes="""You can embed images.""")
+
+
 s.add_slide(content=s.content_figures(
             [os.path.join(figpath_talk, "Canonical_Microcircuit.svg")],
             height=s.meta['height']*height_ratio),
             notes="""You can embed images.""")
+
+
+
+
+for suffix in ['_a', '_b', '_c', '']:
+    s.add_slide(content=s.content_figures(
+        [os.path.join(url_talk, 'boutin-franciosini-ruffier-perrinet-19_figure1' + suffix + '.png')], bgcolor="black",
+    title=None, embed=False, height=s.meta['height']*.85)+SDPC_bib,
+           notes="""
+
+figure 1 of SDPC
+
+cf. research/NN-2018
+
+""")
+
+# s.add_slide(content="""
+#     <video controls loop width=85%/>
+#       <source type="video/mp4" src="{}">
+#     </video>
+#     """.format(f'{url_talk}training_video_ATT.mp4'),
+#     notes="""
+#
+#     Let's now apply that to natural images of faces
+#
+# """)
+s.add_slide(content="""
+    <video controls loop width=85%/>
+      <source type="video/mp4" src="{}">
+    </video>
+    """.format(f'{url_talk}training_video_ATT.mp4'),
+    notes="""
+
+    Let's now apply that to natural images of faces
+
+    """)
+# 20190206-Training of the SDPC model on AT&T database-0CFrmgEcGpw.f135.mp4
+
+for suffix in ['4a', '4b']:
+    s.add_slide(content=s.content_figures(
+        [os.path.join(url_talk, 'boutin-franciosini-ruffier-perrinet-19_figure' + suffix + '.png')], bgcolor="black",
+    title=None, embed=False, height=s.meta['height']*.85),
+           notes="""
+
+Multi-layered unsupervised Learning
+
+Figure 4: Input, features and reconstructed input after the training on the AT&T database.(a) Images pre-processed with Local Contrast Normalization [36]. (b) 32 randomly selectedfirst-layer RFs fromD(1).  (c) First-layer reconstruction, generated by back-projectingγ1into  the  input  space.   (d)  64  second-layer  RFs  (randomly  selected)  of  size  28×28  px,drawn from the effective dictionaryD(2).  (e) Second-layer reconstruction, generated byback-projectingγ2into the input space, showing 3 best examples (left) and the 3 worst.
+
+""")
+
+
+s.add_slide(content=s.content_figures(
+    [os.path.join(url_talk, 'SDPC_' + suffix + '.png') for suffix in ['3', '4']],
+    bgcolor="black", fragment=True,
+    title=None, embed=False, height=s.meta['height']*.75),
+       notes="""
+
+allows for a better classification as here for MNIST digits
+""")
 
 s.close_section()
 ###############################################################################
