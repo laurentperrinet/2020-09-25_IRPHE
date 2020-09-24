@@ -1,5 +1,5 @@
 #!/usr/local/bin/python
-# coding: utf-8
+# -*- coding: utf-8 -*-
 __author__ = "Laurent Perrinet INT - CNRS"
 __licence__ = 'GPL licence'
 DEBUG = True
