@@ -442,7 +442,7 @@ for url in ['https://laurentperrinet.github.io/2020-09-14_IWAI/figures/CNS-gener
             ]:
     fig = s.content_figures([url], bgcolor="black", height=s.meta['height']*height_ratio)
 
-    s.add_slide(content=fig + bib,
+    s.add_slide(content=fig, # + bib,
                 notes="""You can embed images.""")
 
 for i in [0, 4, 8, 9]:
@@ -455,7 +455,7 @@ for i in [0, 4, 8, 9]:
 
 ####################### SLIDE B 2 ##################################
 subtitle = [': Computational Graph']
-for i, fname in enumerate(['CNS-what-where-diagram']):
+for i, fname in enumerate(['fig_methods']): # CNS-what-where-diagram
     s.add_slide(content=s.content_figures(
     [f'{url_talk}{fname}.svg'],
     height=s.meta['height']*height_ratio) + bib,
