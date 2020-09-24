@@ -248,7 +248,7 @@ s.add_slide(content=fig + bib, notes="""You can embed images.""")
 
 
 # author, year, journal, title='', url=None
-bib = s.content_bib("Sadek", "2017", "Convolutional Neural Network", url="http://sqlml.azurewebsites.net/2017/09/12/convolutional-neural-network/")
+bib = s.content_bib("Sadek Alaoui", "2017", "Convolutional Neural Network", url="http://sqlml.azurewebsites.net/2017/09/12/convolutional-neural-network/")
 fig = s.content_figures([os.path.join(figpath_talk, 'null-38.png')], bgcolor="black", height=s.meta['height']*height_ratio)
 s.add_slide(content=fig + bib, notes="""
 
@@ -306,10 +306,14 @@ bib = s.content_bib("Bosking et al.", "1997", "Journal of Neuroscience", url="ht
 fig = s.content_figures([f'{url_talk}Bosking97Fig4.jpg'], bgcolor="black", height=s.meta['height']*height_ratio)
 s.add_slide(content=fig + bib, notes="""You can embed images.""")
 
+bib = s.content_bib("Bastos et al.", "2012", "Canonical Microcircuits for Predictive Coding", url="http://dx.doi.org/10.1016/j.neuron.2012.10.038")
 
 s.add_slide(content=s.content_figures(
-            [os.path.join(figpath_talk, "Canonical_Microcircuit.svg")],
-            height=s.meta['height']*height_ratio),
+            [
+                os.path.join(figpath_talk, "Canonical_Microcircuit.svg"),
+                os.path.join(figpath_talk, "Bastos12Fig5.png"),
+            ],
+            height=s.meta['height']*height_ratio, fragment=True) + bib,
             notes="""You can embed images.""")
 
 
