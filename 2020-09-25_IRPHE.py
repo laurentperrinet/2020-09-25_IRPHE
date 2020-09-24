@@ -50,7 +50,7 @@ from slides import Slides
 
 height_px = 80
 height_ratio = .9
-sections = ['Vision', 'Deep Learning', 'Predictive processes', 'Perspectives']
+sections = ['*Natural* Vision', 'Deep Learning', 'Predictive processes', 'Perspectives']
 
 meta = dict(
  embed=False,
@@ -65,7 +65,7 @@ meta = dict(
  author_link=f'<a href="https://laurentperrinet.github.io/talk/{slugify(tag)}/">Laurent Perrinet</a>',
  title="Understanding natural vision using deep predictive coding",
  short_title="Understanding natural vision using deep predictive coding",
- conference="Institut de Recherche sur les Phénomènes Hors Equilibre",
+ conference="Séminaire à l'Institut de Recherche sur les Phénomènes Hors Equilibre",
  conference_url='https://laurentperrinet.github.io/talk/2020-09-25-irphe',
  short_conference=' (IRPHÉ)',
  location='Marseille (France)',
@@ -191,10 +191,11 @@ i_section = 0
 s.open_section()
 s.add_slide_outline(i_section)
 
-s.add_slide(content=s.content_figures(
-            [os.path.join(figpath_talk, "architecture_vision.svg")],
-            height=s.meta['height']*height_ratio),
-            notes="""You can embed images.""")
+for layer in ['brain', 'pathways', 'ventral']:
+    s.add_slide(content=s.content_figures(
+                [os.path.join(figpath_talk, f"architecture_vision_{layer}.svg")],
+                height=s.meta['height']*height_ratio),
+                notes="""You can embed images.""")
 
 
 s.close_section()
@@ -206,12 +207,19 @@ i_section = 1
 s.open_section()
 s.add_slide_outline(i_section)
 
+# author, year, journal, title='', url=None
+bib = s.content_bib("Matthew Ricci and Thomas Serre", "2020", "Hierarchical Models of the Visual System", url="https://link.springer.com/referenceworkentry/10.1007%2F978-1-4614-7320-6_345-2")
+
+for layer in ['ventral', 'cnn']:
+    s.add_slide(content=s.content_figures(
+                [os.path.join(figpath_talk, f"architecture_vision_{layer}.svg")],
+                height=s.meta['height']*height_ratio) + bib,
+                notes="""You can embed images.""")
+
+
 fig = s.content_figures(
             [os.path.join(figpath_talk, f"Serre_Fig{i}_DL.png") for i in ['3', '4']],
             height=s.meta['height']*height_ratio, fragment=True)
-
-# author, year, journal, title='', url=None
-bib = s.content_bib("Matthew Ricci and Thomas Serre", "2020", "Hierarchical Models of the Visual System", url="https://link.springer.com/referenceworkentry/10.1007%2F978-1-4614-7320-6_345-2")
 
 s.add_slide(content=fig + bib,
             notes="""You can embed images.""")
