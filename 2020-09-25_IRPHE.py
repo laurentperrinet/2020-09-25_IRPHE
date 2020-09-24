@@ -248,6 +248,20 @@ s.add_slide(content=fig + bib, notes="""You can embed images.""")
 
 
 # author, year, journal, title='', url=None
+bib = s.content_bib("Sadek", "2017", "Convolutional Neural Network", url="http://sqlml.azurewebsites.net/2017/09/12/convolutional-neural-network/")
+fig = s.content_figures([os.path.join(figpath_talk, 'null-38.png')], bgcolor="black", height=s.meta['height']*height_ratio)
+s.add_slide(content=fig + bib, notes="""
+
+    """)
+# author, year, journal, title='', url=None
+bib = s.content_bib("Dario Amodei & Danny Hernandez", "2018", "OpenAI", url="https://openai.com/blog/ai-and-compute/")
+fig = s.content_figures([os.path.join(figpath_talk, 'ai-and-compute-all.png')], bgcolor="black", height=s.meta['height']*height_ratio)
+s.add_slide(content=fig + bib, notes="""
+
+    """)
+
+
+# author, year, journal, title='', url=None
 bib = s.content_bib("Thomas Serre", "2019", "Deep Learning: The Good, the Bad, and the Ugly", url="https://www.annualreviews.org/doi/abs/10.1146/annurev-vision-091718-014951")
 
 for url in  [f'https://www.annualreviews.org/na101/home/literatum/publisher/ar/journals/content/vision/2019/vision.2019.5.issue-1/annurev-vision-091718-014951/20190909/images/large/vs50399.f{i}.jpeg' for i in ['3', '4']]:
