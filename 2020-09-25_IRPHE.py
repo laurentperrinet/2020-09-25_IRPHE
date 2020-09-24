@@ -210,8 +210,6 @@ for url in ['https://laurentperrinet.github.io/2020-09-14_IWAI/figures/CNS-gener
     s.add_slide(content=fig + bib,
                 notes="""You can embed images.""")
 
-s.close_section()
-
 # author, year, journal, title='', url=None
 bib = s.content_bib("LP", "2020", "Temps et cerveau : comment notre perception nous fait voyager dans le temps", url="https://theconversation.com/temps-et-cerveau-comment-notre-perception-nous-fait-voyager-dans-le-temps-127567")
 
@@ -288,7 +286,6 @@ for layer in ['cnn']:
                 notes="""You can embed images.""")
 
 
-
 url_talk = 'https://laurentperrinet.github.io/2019-04-03_a_course_on_vision_and_modelization/figures/'
 # author, year, journal, title='', url=None
 bib = s.content_bib("Bosking et al.", "1997", "Journal of Neuroscience", url="https://laurentperrinet.github.io/2019-04-03_a_course_on_vision_and_modelization/#/0/4")
@@ -300,7 +297,6 @@ s.add_slide(content=s.content_figures(
             [os.path.join(figpath_talk, "Canonical_Microcircuit.svg")],
             height=s.meta['height']*height_ratio),
             notes="""You can embed images.""")
-
 
 
 #
@@ -406,10 +402,166 @@ i_section = 3
 ###############################################################################
 s.open_section()
 s.add_slide_outline(i_section)
+#
+# fname = os.path.join(home, 'quantic/science/ActiveVision/2020-09-14_IWAI/2020-09-10_video-abstract.mp4')
+# s.add_slide(content=f"""<video controls autoplay loop width=60%/><source type="video/mp4" src="{fname}"></video>""",
+#             notes="""You can also embed videos.""")
 
-fname = os.path.join(home, 'quantic/science/ActiveVision/2020-09-14_IWAI/2020-09-10_video-abstract.mp4')
-s.add_slide(content=f"""<video controls autoplay loop width=60%/><source type="video/mp4" src="{fname}"></video>""",
-            notes="""You can also embed videos.""")
+bib = s.content_bib("Emmanuel Daucé, Pierre Albigès & LP", "2020", "Journal of Vision", url="https://laurentperrinet.github.io/publication/dauce-20/")
+
+url_talk = 'https://laurentperrinet.github.io/2020-09-14_IWAI/figures/'
+
+for layer in ['brain', 'pathways']:
+    s.add_slide(content=s.content_figures(
+                [os.path.join(figpath_talk, f"architecture_vision_{layer}.svg")],
+                height=s.meta['height']*height_ratio),
+                notes="""You can embed images.""")
+
+
+for url in ['https://laurentperrinet.github.io/2020-09-14_IWAI/figures/CNS-general-II-A.png',
+            # 'https://images.theconversation.com/files/277070/original/file-20190529-192383-zy01r.jpg'
+            ]:
+    fig = s.content_figures([url], bgcolor="black", height=s.meta['height']*height_ratio)
+
+    s.add_slide(content=fig + bib,
+                notes="""You can embed images.""")
+
+for i in [0, 4, 8, 9]:
+    s.add_slide(image_fname=f'{url_talk}film_FIX.png')
+    s.add_slide(image_fname=f'{url_talk}film_display{i}.png')
+    s.add_slide(image_fname=f'{url_talk}film_display{i}_SAC.png')
+    # s.add_slide(image_fname=f'{url_talk}film_ANS.png')
+
+
+
+####################### SLIDE B 2 ##################################
+subtitle = [': Computational Graph']
+for i, fname in enumerate(['CNS-what-where-diagram']):
+    s.add_slide(content=s.content_figures(
+    [f'{url_talk}{fname}.svg'],
+    height=s.meta['height']*height_ratio) + bib,
+    notes="""
+
+COMPUTATIONAL GRAPH :
+
+Here is the general computational graph of our active vision system.
+Two streams of information are separated from the visual primary layers, one stream for processing the central pixels only, the other for processing the periphery with a logpolar encoding. The two streams converge toward a decision layer that compares the central and the peripheral acuracy, in order to decide wether to issue a saccadic or a categorical response. If a saccade is produced, then the center of vision is displaced toward the region that shows the higher accuracy on the accuracy map.
+
+This allows to implement a simple accuracy-seeking policy, that drives the eye toward a new position where the target is categorized from the new foveal data.
+
+    """)
+
+#
+# ####################### SLIDE B 3 ##################################
+# subtitle = [': What']
+# for i, fname in enumerate(['CNS-what-diagram']):
+#     s.add_slide(content=s.content_figures(
+#     [f'{url_talk}{fname}.svg'],
+#     # title=title + subtitle[i],
+#     height=s.meta['height']*height_ratio) + bib,
+#     notes="""
+#
+#
+# WHAT :
+#
+# On the one side, a ventral pathway predicts the target identity from the current foveal data.
+#
+# The what pathway is a classic convolutional clasifier.
+#
+# It shows some translation invariance.
+#
+# It can quantify its uncertainty.
+#
+# It monitors the where pathway.
+#
+#     TODO: mettre le résultat de l'accuracy map pour faire la transition?
+#
+#
+#     """)
+#
+#
+# ####################### SLIDE B 4 ##################################
+# subtitle = [': Where']
+# for i, fname in enumerate(['fig_where']):
+#     s.add_slide(content=s.content_figures(
+#     [f'{url_talk}{fname}.svg'],
+#     # title=title + subtitle[i],
+#     height=s.meta['height']*height_ratio) + bib,
+#     notes="""
+#
+# WHERE :
+#
+# On the other side, a dorsal pathway utilizes all the peripheral visual data.
+#
+# Here we make the assumption that the same logpolar compression pattern is conserved from the retina up to the primary motor layers.
+# **Each possible future saccade has an expected accuracy, that can be trained from the what pathway output**. To accelerate the training, we use a shortcut that is training the network on a translated accuracy map (with logpolar encoding). The ouput is thus a **logpolar accuracy map**, that tells for each possible visuo-motor displacement the value of the future accuracy.Thus, the saccadic motor ouput (colliculus) shows a similar log-polar compression than the visual input. The saccades are more precise at short than at long distance (and severals accades may be necessary to precisely reach distant targets).
+#     """)
+# """The prediction takes the form of an **acuracy map**, that predicts the increase of accuracy for different possible saccades.
+#
+# This accuracy map is organized radially, with a higher spatial definition at the center than at the periphery. """
+
+title = 'Active vision' # meta['sections'][i_section]
+
+#for kind in ['correct', 'error']:
+s.add_slide(content=s.content_figures(
+[f'{url_talk}CNS-saccade-' + str(idx) + '.png' for idx in [8, 20]],
+        # title=title + ': success',
+        height=s.meta['height']*.5, transpose=True) + bib,
+notes="""
+
+** The effect of a saccade is to bring relevant visual data at the fovea**
+
+(from left to right)
+
+1. The full visual field
+
+2. After a log polar encoding, the peripheral target is less visible
+
+3. this is the true acuracy map
+
+4. this is the predicted acc map
+
+5. this is the visual data collected at the fovea after the saccade.
+
+""")
+
+s.add_slide(content=s.content_figures(
+[f'{url_talk}CNS-saccade-' + str(idx) + '.png' for idx in [46, 47, 32] ],
+        # title=title + ': failure',
+        height=s.meta['height']*.6, transpose=True) + bib,
+notes="""
+
+TODO Manu : générer images correctes avec leur saccades + incorrectes (fake)
+
+TODO Manu : je mettrais plus d'exemple de fakes
+
+""")
+
+s.add_slide(content=s.content_figures(
+[f'{url_talk}results-IG.png'],
+     # title="Effect of eccentricity",
+     height=s.meta['height']*height_ratio) + bib,
+notes = """
+
+Finally, we can quantitatively measure the information gain provided by this dual pathway architecture in function of the eccentricity.
+
+
+** The effect of a saccade is to consderably increase the diameter of the visual scene region where you can recognize a target **
+
+
+- Considerable increase of amount of visual information you can process (it is sort of like increasing the surface of the fovea)
+
+- Sub linear processing of the full image
+
+- an increase of the information content, with now both the position and identity information
+           """)
+
+
+
+s.add_slide(content=s.content_figures(
+            [os.path.join(figpath_talk, "2020-05-20_AAPG2020_AgileNeuroBot.png")],
+            height=s.meta['height']*height_ratio),
+            notes="""You can embed images.""")
 
 s.close_section()
 ###############################################################################
@@ -420,11 +572,12 @@ s.open_section()
 s.add_slide_summary(title='Conclusion',
     list_of_points =['vision is efficient',
                      'deep learning is great...',
-                     'but predictive coding is better',
-                     '+ let''s make it active ! '],
+                     '... but predictive coding is better',
+                     '... let''s make it active ! '],
+                     fragment_type=None,
+                     # fragment_type='highlight-green', # BROKEN
     notes="""
 * and write notes using markdown
-
 """)
 s.add_slide(content=intro,
             notes="""
@@ -433,7 +586,7 @@ s.add_slide(content=intro,
 * Thanks for your attention!
 """)
 
-s.add_slide(content=s.content_figures([figname_qr], cell_bgcolor=meta['bgcolor'], height=s.meta['height']*height_ratio) + '<BR><a href="{url}"> {url} </a>'.format(url=meta['url']),
+s.add_slide(content=s.content_figures([figname_qr], title=f"""<a href="{meta['url']}">{meta['url']}</a>""", cell_bgcolor=meta['bgcolor'], height=s.meta['height']*height_ratio) + '<BR><a href="{url}"> {url} </a>'.format(url=meta['url']),
             notes="All the material is available online - please flash this code this leads to a page with links to further references and code ")
 
 s.close_section()
