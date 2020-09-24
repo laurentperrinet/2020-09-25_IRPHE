@@ -57,8 +57,8 @@ meta = dict(
  embed=False,
  draft=DEBUG,  # show notes etc
  width=1600,
- height=1000,
- margin=0.15,
+ height=1200, #1000,
+ margin=0.125,
  reveal_path='https://laurentperrinet.github.io/2020-09-14_IWAI/reveal.js-master/',
  theme='simple',
  bgcolor="white",
@@ -162,7 +162,7 @@ intro = """
 #                             s.meta['height']*.24,
 #                             embed=False)
 intro += s.content_imagelet('https://laurentperrinet.github.io/slides.py/figures/troislogos.png',
-                            s.meta['height']*.32,
+                            s.meta['height']*.25,
                             embed=False)  # bgcolor="black",
 intro += """
 <h4><a href="{conference_url}">{conference}{short_conference}</a> {DD}/{MM}/{YYYY} </h4>
@@ -224,7 +224,7 @@ bib = s.content_bib("LP", "2019", "Illusions et hallucinations visuelles : une p
 
 for url in ['https://laurentperrinet.github.io/2020-09-14_IWAI/figures/CNS-general-II-A.png',
             'https://images.theconversation.com/files/277070/original/file-20190529-192383-zy01r.jpg']:
-    fig = s.content_figures([url], bgcolor="black", height=s.meta['height']*height_ratio)
+    fig = s.content_figures([url], height=s.meta['height']*height_ratio)
 
     s.add_slide(content=fig + bib,
                 notes="""
@@ -244,7 +244,7 @@ for url in ['https://laurentperrinet.github.io/2019-04-18_JNLF/figures/scheme_th
             'https://laurentperrinet.github.io/2019-04-18_JNLF/figures/figure-tsonga.png',
             'https://upload.wikimedia.org/wikipedia/commons/6/60/Flash_lag.gif',
             ]:
-    fig = s.content_figures([url], bgcolor="black", height=s.meta['height']*height_ratio)
+    fig = s.content_figures([url], height=s.meta['height']*height_ratio)
 
     s.add_slide(content=fig + bib, notes="""
 
@@ -322,8 +322,10 @@ On voit ainsi que au fur et à mesure que l’on monte dans la hiérarchie, les 
 
 
 # author, year, journal, title='', url=None
-bib = s.content_bib("Sadek Alaoui", "2017", "Convolutional Neural Network", url="http://sqlml.azurewebsites.net/2017/09/12/convolutional-neural-network/")
-fig = s.content_figures([os.path.join(figpath_talk, 'null-38.png')], bgcolor="black", height=s.meta['height']*height_ratio)
+# bib = s.content_bib("Sadek Alaoui", "2017", "Convolutional Neural Network", url="http://sqlml.azurewebsites.net/2017/09/12/convolutional-neural-network/")
+# fig = s.content_figures([os.path.join(figpath_talk, 'null-38.png')], height=s.meta['height']*height_ratio)
+bib = s.content_bib("Wikipedia", "2020", "ImageNet", url="https://en.wikipedia.org/wiki/ImageNet")
+fig = s.content_figures(['https://upload.wikimedia.org/wikipedia/commons/4/4f/ImageNet_error_rate_history_%28just_systems%29.svg'], height=s.meta['height']*height_ratio)
 s.add_slide(content=fig + bib, notes="""
 15
 
@@ -331,7 +333,7 @@ Grâce notamment aux progrès dans les algorithmes d'apprentissage (la retro pro
     """)
 # author, year, journal, title='', url=None
 bib = s.content_bib("Dario Amodei & Danny Hernandez", "2018", "OpenAI", url="https://openai.com/blog/ai-and-compute/")
-fig = s.content_figures([os.path.join(figpath_talk, 'ai-and-compute-all.png')], bgcolor="black", height=s.meta['height']*height_ratio)
+fig = s.content_figures([os.path.join(figpath_talk, 'ai-and-compute-all.png')], height=s.meta['height']*height_ratio)
 s.add_slide(content=fig + bib, notes="""
 
 16
@@ -345,7 +347,7 @@ En regardant sur une échelle temporelle plus large, on voit que c'est en tendan
 bib = s.content_bib("Thomas Serre", "2019", "Deep Learning: The Good, the Bad, and the Ugly", url="https://www.annualreviews.org/doi/abs/10.1146/annurev-vision-091718-014951")
 
 for url in  [f'https://www.annualreviews.org/na101/home/literatum/publisher/ar/journals/content/vision/2019/vision.2019.5.issue-1/annurev-vision-091718-014951/20190909/images/large/vs50399.f{i}.jpeg' for i in ['3', '4']]:
-    fig = s.content_figures([url], bgcolor="black", height=s.meta['height']*height_ratio)
+    fig = s.content_figures([url], height=s.meta['height']*height_ratio)
 
     s.add_slide(content=fig + bib, notes="""
 
@@ -415,7 +417,7 @@ En effet, nous avons vu que la vision artificielle considère des processus "en 
 url_talk = 'https://laurentperrinet.github.io/2019-04-03_a_course_on_vision_and_modelization/figures/'
 # author, year, journal, title='', url=None
 bib = s.content_bib("Bosking et al.", "1997", "Journal of Neuroscience", url="https://laurentperrinet.github.io/2019-04-03_a_course_on_vision_and_modelization/#/0/4")
-fig = s.content_figures([f'{url_talk}Bosking97Fig4.jpg'], bgcolor="black", height=s.meta['height']*height_ratio)
+fig = s.content_figures([f'{url_talk}Bosking97Fig4.jpg'], height=s.meta['height']*height_ratio)
 s.add_slide(content=fig + bib, notes="""
 22
 
@@ -543,7 +545,7 @@ De façon surprenante, on a aussi vu émerger dans le réseau des pattern de con
 
 # s.add_slide(content=s.content_figures(
 #     [os.path.join(url_talk, 'SDPC_' + suffix + '.png') for suffix in ['3', '4']],
-#     bgcolor="black", fragment=True,
+#     fragment=True,
 #     title=None, embed=False, height=s.meta['height']*.75),
 #        notes="""
 #
@@ -597,7 +599,7 @@ for layer in ['brain', 'pathways']:
 for url in ['https://laurentperrinet.github.io/2020-09-14_IWAI/figures/CNS-general-II-A.png',
             # 'https://images.theconversation.com/files/277070/original/file-20190529-192383-zy01r.jpg'
             ]:
-    fig = s.content_figures([url], bgcolor="black", height=s.meta['height']*height_ratio)
+    fig = s.content_figures([url], height=s.meta['height']*height_ratio)
 
     s.add_slide(content=fig, # + bib,
                 notes="""
@@ -778,7 +780,7 @@ s.open_section()
 s.add_slide_summary(title='Conclusion',
     list_of_points =['vision is efficient',
                      'deep learning is great...',
-                     '... but predictive coding is better',
+                     '... predictive coding is a good alternative ...',
                      '... let''s make it active ! '],
                      fragment_type=None,
                      # fragment_type='highlight-green', # BROKEN
@@ -797,8 +799,8 @@ Merci pour votre attention! et à mes collaborateurs:
 
 """)
 
-s.add_slide(content=s.content_figures([figname_qr], #title=f"""<a href="{meta['url']}">{meta['url']}</a>""",
- cell_bgcolor=meta['bgcolor'], height=s.meta['height']*height_ratio) + '<BR><a href="{url}"> {url} </a>'.format(url=meta['url']),
+s.add_slide(content=s.content_figures([figname_qr], title=f"""<a href="{meta['url']}">{meta['url']}</a>""",
+ cell_bgcolor=meta['bgcolor'], height=s.meta['height']*height_ratio), # + '<BR><a href="{url}">{url}</a>'.format(url=meta['url']),
             notes="All the material is available online - please flash this code this leads to a page with links to further references and code ")
 
 s.close_section()
