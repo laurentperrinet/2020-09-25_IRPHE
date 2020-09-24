@@ -308,10 +308,11 @@ s.add_slide(content=fig + bib, notes="""You can embed images.""")
 
 bib = s.content_bib("Bastos et al.", "2012", "Canonical Microcircuits for Predictive Coding", url="http://dx.doi.org/10.1016/j.neuron.2012.10.038")
 
-s.add_slide(content=s.content_figures(
+for figname in ["Canonical_Microcircuit.svg", "Bastos12Fig5.png"]:
+    s.add_slide(content=s.content_figures(
             [
-                os.path.join(figpath_talk, "Canonical_Microcircuit.svg"),
-                os.path.join(figpath_talk, "Bastos12Fig5.png"),
+                os.path.join(figpath_talk, figname),
+                # os.path.join(figpath_talk, "Bastos12Fig5.png"),
             ],
             height=s.meta['height']*height_ratio, fragment=True) + bib,
             notes="""You can embed images.""")
