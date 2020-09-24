@@ -581,8 +581,6 @@ s.add_slide_summary(title='Conclusion',
 """)
 s.add_slide(content=intro,
             notes="""
-
-
 * Thanks for your attention!
 """)
 
