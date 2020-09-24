@@ -198,6 +198,18 @@ for layer in ['brain', 'pathways', 'ventral']:
                 notes="""You can embed images.""")
 
 
+
+
+# author, year, journal, title='', url=None
+bib = s.content_bib("LP", "2019", "Illusions et hallucinations visuelles : une porte sur la perception ", url="https://theconversation.com/illusions-et-hallucinations-visuelles-une-porte-sur-la-perception-117389")
+
+fig = s.content_figures(
+            ['https://images.theconversation.com/files/277070/original/file-20190529-192383-zy01r.jpg'], bgcolor="black",
+            height=s.meta['height']*height_ratio)
+
+s.add_slide(content=fig + bib,
+            notes="""You can embed images.""")
+
 s.close_section()
 ###############################################################################
 # 🏄🏄🏄🏄🏄🏄🏄🏄       Deep Learning  - 15''              🏄🏄🏄🏄🏄🏄🏄🏄
