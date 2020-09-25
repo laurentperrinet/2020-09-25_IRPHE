@@ -237,24 +237,21 @@ Il faut tout d’abord noter que dès la rétine, l’information visuelle (ici 
 
 7
 
-Un exemple cette illusion dit-il dites dites des serpents qui tournoient. Cette illusion crée par le professeur Akiyoshi Kitaoka induit des hallucinations de mouvements dans une image qui n’en contient pas. Bien que l’image soit totalement statique, l’interférence des patterns concentriques interfèrent avec la géométrie de la rétine. Cela induit des illusions de mouvement et de façon globale la stabilité de la figure géométrique...
+Un exemple d'une telle illusion est celle des serpents qui tournoient. Cette illusion crée par le professeur Akiyoshi Kitaoka induit des hallucinations de mouvements dans une image qui n’en contient pas. Bien que l’image soit totalement statique, l’interférence des arrangements concentriques interfèrent avec la géométrie de la rétine et nos mouvements des yeux. Cela induit des illusions de mouvement et de façon globale perturbe la stabilité de la figure géométrique...
                 """)
 
 # author, year, journal, title='', url=None
 bib = s.content_bib("LP", "2020", "Temps et cerveau : comment notre perception nous fait voyager dans le temps", url="https://theconversation.com/temps-et-cerveau-comment-notre-perception-nous-fait-voyager-dans-le-temps-127567")
 
-for url in ['https://laurentperrinet.github.io/2019-04-18_JNLF/figures/scheme_thorpe.jpg',
+for url, notes in zip(['https://laurentperrinet.github.io/2019-04-18_JNLF/figures/scheme_thorpe.jpg',
             'https://laurentperrinet.github.io/2019-04-18_JNLF/figures/figure-tsonga.png',
             'https://upload.wikimedia.org/wikipedia/commons/6/60/Flash_lag.gif',
-            ]:
-    fig = s.content_figures([url], height=s.meta['height']*height_ratio)
-
-    s.add_slide(content=fig + bib, notes="""
-
+            ], [
+"""
 8
 
-Une autre contrainte auxquelles notre cerveau est confronté et le fait que l’information visuelle mette un certain temps pour passer d’un coté à l’autre le long des voies visuelles. Je reproduis ici une figure établie par Simon Thorpe qui montre chez le macaque les différentes latence de l’information visuelle quand elle voyage depuis la rétine jusqu’à une réponse motrice. Ainsi si une image est présentée au temps zéro elle sortira de la rétine après environ 30 millisecondes, puis sera traité dans l’ère visuelle primaire après 50 millisecondes pour être traité le long de la voie ventrale en 100 millisecondes. Cette information pourra ensuite être traitée pour atteindre les aires motrices pour établir une commande motrice et enfin une réponse en environ 200 ms. C’est l'ordre de grandeur du temps qu’il faut pour répondre à une image et qui est observé aussi chez les humains. Je vais maintenant vous illustrer les conséquences de ses délais neuronaux.
-
+Une autre contrainte à laquelle notre cerveau est confronté et le fait que l’information visuelle mette un certain temps pour passer d’un coté à l’autre le long des voies visuelles. Je reproduis ici une figure établie par Simon Thorpe qui montre chez le macaque les différentes latences de l’information visuelle quand elle voyage depuis la rétine jusqu’à une réponse motrice. Ainsi si une image est présentée au temps zéro elle sortira de la rétine après environ 30 millisecondes, puis sera traité dans l’ère visuelle primaire après 50 millisecondes pour être traité le long de la voie ventrale en 100 millisecondes. Cette information pourra ensuite être traitée pour atteindre les aires motrices pour établir une commande motrice et enfin une réponse en environ 200 ms. C’est l'ordre de grandeur du temps qu’il faut pour répondre à une image et qui est observé aussi chez les humains. Je vais maintenant vous illustrer les conséquences de ses délais neuronaux.
+""", """
 9
 
 En effet si l’on considère une situation relativement naturel relevant du domaine de la vision c’est-à-dire ici Jau Wilfried son gars son gars à vous le donne en train en train d’essayer de rattraper passer une chatte est une chatte est un chat pour une vitesse pour une balle se déplaçant à une vitesse d’environ 20 m/s.
@@ -262,8 +259,7 @@ En rapportant les délais neuronaux par rapport à la balle à l’instant prés
 De la même façon, la position de la balle la position de la balle par rapport à une action possible prise à ce moment-là c’est-à-dire à l’instant présent doit être effectué pour une position de Laval telle qu’elle sera 80 000 secondes après le temps présent c’est-à-dire en avant d’une distance équivalente à à peu près 80 cm.
 Devant l’urgence de pouvoir répondre de façon efficace à une telle scène, on comprend que le système visuel a été optimisé durant les millions d’années de la sélection de l’éternel. Pour permettre de réagir efficacement à ce genre de situation.
 Ce genre d’optimisation de la vision des processus de la vision peut être mis en évidence dans une illusion extrême moment simple dite du flash retardé.
-
-
+""", """
 10
 
 Dans cette illusion, la consigne est de fixer le point vert au centre de l’écran. Si maintenant je vous demande de me donner la position du point rouge au moment où le point vert apparaît, vous me direz sans doute il apparaît légèrement à droite de celui ci.
@@ -271,7 +267,9 @@ Pourtant, à l’instant où le point vert apparaît, le point rouge est exactem
 
 Par conséquent, on a pu mettre en évidence par ces simples expériences la déraisonnable efficacité du système visuel.
 
-    """)
+"""]):
+    fig = s.content_figures([url], height=s.meta['height']*height_ratio)
+    s.add_slide(content=fig + bib, notes=notes)
 
 s.close_section()
 ###############################################################################
