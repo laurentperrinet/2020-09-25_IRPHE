@@ -553,7 +553,7 @@ Il existe d'autres faiblesses, comme le manque d'interprétabilité, mais...</p>
                     
                 <aside class="notes">
                  <p>20</p>
-<p>Dans le suite, nous allons essayer d'explorer des alternatives, comme par exemple le codage prédictif.</p>
+<p>Dans le suite, nous allons essayer d'explorer des alternatives, comme par exemple les processus prédictifs.</p>
                 </aside>
                 
 </section>
@@ -676,7 +676,7 @@ Il existe d'autres faiblesses, comme le manque d'interprétabilité, mais...</p>
 <p>26</p>
 <p>... un processus récurrent intra cortical ...</p>
 <p>27</p>
-<p>Mais aussi des connections ré-entrantes (ici dénotées en bleu). Dans une telle architecture, l'algorithme de retro propagation du gradient n'est plus possible. Nous avons introduit un algorithme d'apprentissage plus réalistes biologiquement car il est 1/local à l'aire corticale et qui s'applique à cette architecture, 2/ totalement auto-supervisé, c'est-à-dire qu'il ne dépend pas d'une tache de catégorisation.</p>
+<p>Mais aussi des connections ré-entrantes (ici dénotées en bleu). Dans une telle architecture, l'algorithme de retro propagation du gradient n'est plus possible. Nous avons introduit un algorithme d'apprentissage plus réalistes biologiquement car il est 1/ local à l'aire corticale et qui s'applique à cette architecture, 2/ totalement auto-supervisé, c'est-à-dire qu'il ne dépend pas d'une tache de catégorisation.</p>
                 </aside>
                 
 </section>
@@ -703,7 +703,7 @@ Il existe d'autres faiblesses, comme le manque d'interprétabilité, mais...</p>
 <p>26</p>
 <p>... un processus récurrent intra cortical ...</p>
 <p>27</p>
-<p>Mais aussi des connections ré-entrantes (ici dénotées en bleu). Dans une telle architecture, l'algorithme de retro propagation du gradient n'est plus possible. Nous avons introduit un algorithme d'apprentissage plus réalistes biologiquement car il est 1/local à l'aire corticale et qui s'applique à cette architecture, 2/ totalement auto-supervisé, c'est-à-dire qu'il ne dépend pas d'une tache de catégorisation.</p>
+<p>Mais aussi des connections ré-entrantes (ici dénotées en bleu). Dans une telle architecture, l'algorithme de retro propagation du gradient n'est plus possible. Nous avons introduit un algorithme d'apprentissage plus réalistes biologiquement car il est 1/ local à l'aire corticale et qui s'applique à cette architecture, 2/ totalement auto-supervisé, c'est-à-dire qu'il ne dépend pas d'une tache de catégorisation.</p>
                 </aside>
                 
 </section>
@@ -730,7 +730,7 @@ Il existe d'autres faiblesses, comme le manque d'interprétabilité, mais...</p>
 <p>26</p>
 <p>... un processus récurrent intra cortical ...</p>
 <p>27</p>
-<p>Mais aussi des connections ré-entrantes (ici dénotées en bleu). Dans une telle architecture, l'algorithme de retro propagation du gradient n'est plus possible. Nous avons introduit un algorithme d'apprentissage plus réalistes biologiquement car il est 1/local à l'aire corticale et qui s'applique à cette architecture, 2/ totalement auto-supervisé, c'est-à-dire qu'il ne dépend pas d'une tache de catégorisation.</p>
+<p>Mais aussi des connections ré-entrantes (ici dénotées en bleu). Dans une telle architecture, l'algorithme de retro propagation du gradient n'est plus possible. Nous avons introduit un algorithme d'apprentissage plus réalistes biologiquement car il est 1/ local à l'aire corticale et qui s'applique à cette architecture, 2/ totalement auto-supervisé, c'est-à-dire qu'il ne dépend pas d'une tache de catégorisation.</p>
                 </aside>
                 
 </section>
@@ -741,7 +741,7 @@ Il existe d'autres faiblesses, comme le manque d'interprétabilité, mais...</p>
     <div style="text-align:right;">Boutin, Franciosini, Chavane, Ruffier, LP (2020) <small></small> <em><a href="https://laurentperrinet.github.io/publication/boutin-franciosini-chavane-ruffier-perrinet-20">submitted</a></em></div>
                 <aside class="notes">
                  <p>28</p>
-<p>Entrainé sur une base d'image de visage, cet algorithme permet de voir émerger des noyaux de convolution dans la première et la deuxième couche du réseau. Il est remarquable de remarquer, qu'à la différence d'un CNN classique, les noyaux de convolutions sont interprétables et correspondent à des bords (couche 1) mais aussi à de "proto-concepts" comme ces champs récepteurs sensibles à des bouts de visage: oeil, nez, bouche...</p>
+<p>Entrainé sur une base d'image de visage, cet algorithme permet de voir émerger des noyaux de convolution dans la première et la deuxième couche du réseau. Il est remarquable, qu'à la différence d'un CNN classique, les noyaux de convolutions sont interprétables et correspondent à des bords comme dans V1 (couche 1) mais aussi à de "proto-concepts" comme ces champs récepteurs sensibles à des bouts de visage: oeil, nez, bouche...</p>
                 </aside>
                 
 </section>
@@ -770,8 +770,8 @@ Il existe d'autres faiblesses, comme le manque d'interprétabilité, mais...</p>
         <div style="text-align:right;">Boutin, Franciosini, Chavane, Ruffier, LP (2020) <small></small> <em><a href="https://laurentperrinet.github.io/publication/boutin-franciosini-chavane-ruffier-perrinet-20">submitted</a></em></div>
                 <aside class="notes">
                  <p>29</p>
-<p>Ces résultats s'étendent aussi bien aux images naturelles qu'à des images de visage et permettent une représentation progressivement
-Pendant sa thèse, Victor Boutin a réussi à prouver que ce réseau permettait notamment de ébruiter des images naturelles de façon robuste, comme cet oiseau et sa reconstruction à partir de l'information dans les couches 1 &amp; 2 (colonnes) et respectivement avec ou sans connections ré-entrantes. Ces résultats ont été quantifiés dans les panneaux B &amp; C.</p>
+<p>Ces résultats s'étendent aussi bien aux images naturelles qu'à des images de visage et permettent une représentation progressivement plus spécialisée vis à vis de l'aire considérée.
+Pendant sa thèse, Victor Boutin a réussi à prouver que ce réseau permettait notamment de débruiter des images naturelles de façon robuste, comme cet oiseau et sa reconstruction à partir de l'information dans les couches 1 &amp; 2 (colonnes) et respectivement avec ou sans connections ré-entrantes. Ces résultats ont été quantifiés dans les panneaux B &amp; C.</p>
                 </aside>
                 
 </section>
@@ -859,8 +859,6 @@ Pendant sa thèse, Victor Boutin a réussi à prouver que ce réseau permettait 
 <p>... cerveau...</p>
 <p>33</p>
 <p>... et à l'existence de deux voies de traitement...</p>
-<p>34</p>
-<p>... ainsi qu'à l'existence d'un forte compression de l'information autour de l'axe optique.</p>
                 </aside>
                 
 </section>
@@ -886,8 +884,6 @@ Pendant sa thèse, Victor Boutin a réussi à prouver que ce réseau permettait 
 <p>... cerveau...</p>
 <p>33</p>
 <p>... et à l'existence de deux voies de traitement...</p>
-<p>34</p>
-<p>... ainsi qu'à l'existence d'un forte compression de l'information autour de l'axe optique.</p>
                 </aside>
                 
 </section>
@@ -965,8 +961,9 @@ Nous avons alors fait l'hypothèse que les deux voies (ventrale et dorsale) sont
         </div>
         <div style="text-align:right;">Emmanuel Daucé, Pierre Albigès & LP (2020) <small></small> <em><a href="https://laurentperrinet.github.io/publication/dauce-20/">Journal of Vision</a></em></div>
                 <aside class="notes">
-                 <p>47</p>
-<p>d'un coté, la voie dorsale va identifier à partir de la vision périphérique une estimation de la probabilité de trouver la position d'un objet, indépendamment de son identité. cela permet d'effectuer une saccade qui une fois réalisée permettra de la tester grâce à la voie ventrale.</p>
+                 <p>47
+Nous avons récemment proposé une nouvelle architecture de traitement en 2 voies parallèles.
+d'un coté, la voie dorsale va identifier à partir de la vision périphérique une estimation de la probabilité de trouver la position d'un objet, indépendamment de son identité. cela permet d'effectuer une saccade qui une fois réalisée permettra de la tester grâce à la voie ventrale.</p>
                 </aside>
                 
 </section>
@@ -1074,7 +1071,8 @@ Nous avons alors fait l'hypothèse que les deux voies (ventrale et dorsale) sont
         <div style="text-align:right;">Emmanuel Daucé, Pierre Albigès & LP (2020) <small></small> <em><a href="https://laurentperrinet.github.io/publication/dauce-20/">Journal of Vision</a></em></div>
                 <aside class="notes">
                  <p>50</p>
-<p>de façon cruciale, nous montrons qu'avec une simple saccade et un coût computation minime, on peut couvrir une large surface de l'image. comparés à des algorithmes classiques de localisation / classification comme YOLO, nous obtenons un cout computationnel sous-linéaire grâce à la compression log-polaire.</p>
+<p>de façon cruciale, nous montrons qu'avec une simple saccade et un coût computation minime, on peut couvrir une large surface de l'image. comparés à des algorithmes classiques de localisation / classification comme YOLO, nous obtenons un cout computationnel sous-linéaire grâce à la compression log-polaire.
+ce genre d'algorithme s'adapte donc parfaitement à des systèmes embarqués...</p>
                 </aside>
                 
 </section>
@@ -1097,7 +1095,7 @@ Nous avons alors fait l'hypothèse que les deux voies (ventrale et dorsale) sont
         
                 <aside class="notes">
                  <p>51</p>
-<p>nous avons eu la bonne surprise la semaine dernière d'obtenir un financement ANR pour inclure ce genre d'approches bio-inspirées sur un drone en collaboration avec Stephane Viollet à l'ISM et Ryad Benosman à l'IdV.</p>
+<p>... et nous avons eu la bonne surprise la semaine dernière d'obtenir un financement ANR pour inclure ce genre d'approches bio-inspirées sur un drone en collaboration avec Stephane Viollet à l'ISM et Ryad Benosman à l'IdV.</p>
                 </aside>
                 
 </section>
@@ -1120,7 +1118,7 @@ Nous avons alors fait l'hypothèse que les deux voies (ventrale et dorsale) sont
 
 <p>
 <h3>
-<li>... predictive coding is a good alternative ...</li>
+<li>... predictive processing is a good alternative ...</li>
 </h3>
 </p>
 
@@ -1132,7 +1130,7 @@ Nous avons alors fait l'hypothèse que les deux voies (ventrale et dorsale) sont
 </ul>
                 <aside class="notes">
                  <p>52</p>
-<p>Pour conclure, la vision est effectivement déraisonnablement efficace, l'apprentissage profond est un bon moyen de s'approcher de cette efficacité - et de nouvelles approches de codage prédictif ou de vision active permettrons je l'espère de bientôt dépasser ces derniers.</p>
+<p>Pour conclure, la vision est effectivement déraisonnablement efficace, l'apprentissage profond est un bon moyen de s'approcher de cette efficacité - et de nouvelles approches de codage prédictif ou de vision active permettront je l'espère de bientôt de faire progresser ces derniers et d'élaargir notre connaissance du cerveau en général.</p>
                 </aside>
                 
 </section>

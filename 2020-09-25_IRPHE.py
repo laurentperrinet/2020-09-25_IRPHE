@@ -387,7 +387,7 @@ notes="""
 
 20
 
-Dans le suite, nous allons essayer d'explorer des alternatives, comme par exemple le codage prédictif.
+Dans le suite, nous allons essayer d'explorer des alternatives, comme par exemple les processus prédictifs.
 
 """)
 
@@ -474,7 +474,7 @@ Basés sur ce genre de principe, nous avons étendu un modèle convolutionnel cl
 
 27
 
-Mais aussi des connections ré-entrantes (ici dénotées en bleu). Dans une telle architecture, l'algorithme de retro propagation du gradient n'est plus possible. Nous avons introduit un algorithme d'apprentissage plus réalistes biologiquement car il est 1/local à l'aire corticale et qui s'applique à cette architecture, 2/ totalement auto-supervisé, c'est-à-dire qu'il ne dépend pas d'une tache de catégorisation.
+Mais aussi des connections ré-entrantes (ici dénotées en bleu). Dans une telle architecture, l'algorithme de retro propagation du gradient n'est plus possible. Nous avons introduit un algorithme d'apprentissage plus réalistes biologiquement car il est 1/ local à l'aire corticale et qui s'applique à cette architecture, 2/ totalement auto-supervisé, c'est-à-dire qu'il ne dépend pas d'une tache de catégorisation.
 
 """)
 
@@ -497,7 +497,7 @@ s.add_slide(content="""
 
 28
 
-Entrainé sur une base d'image de visage, cet algorithme permet de voir émerger des noyaux de convolution dans la première et la deuxième couche du réseau. Il est remarquable de remarquer, qu'à la différence d'un CNN classique, les noyaux de convolutions sont interprétables et correspondent à des bords (couche 1) mais aussi à de "proto-concepts" comme ces champs récepteurs sensibles à des bouts de visage: oeil, nez, bouche...
+Entrainé sur une base d'image de visage, cet algorithme permet de voir émerger des noyaux de convolution dans la première et la deuxième couche du réseau. Il est remarquable, qu'à la différence d'un CNN classique, les noyaux de convolutions sont interprétables et correspondent à des bords comme dans V1 (couche 1) mais aussi à de "proto-concepts" comme ces champs récepteurs sensibles à des bouts de visage: oeil, nez, bouche...
 
     """)
 # 20190206-Training of the SDPC model on AT&T database-0CFrmgEcGpw.f135.mp4
@@ -518,8 +518,8 @@ s.add_slide(content=s.content_figures(
        notes="""
 29
 
-Ces résultats s'étendent aussi bien aux images naturelles qu'à des images de visage et permettent une représentation progressivement
-Pendant sa thèse, Victor Boutin a réussi à prouver que ce réseau permettait notamment de ébruiter des images naturelles de façon robuste, comme cet oiseau et sa reconstruction à partir de l'information dans les couches 1 & 2 (colonnes) et respectivement avec ou sans connections ré-entrantes. Ces résultats ont été quantifiés dans les panneaux B & C.
+Ces résultats s'étendent aussi bien aux images naturelles qu'à des images de visage et permettent une représentation progressivement plus spécialisée vis à vis de l'aire considérée.
+Pendant sa thèse, Victor Boutin a réussi à prouver que ce réseau permettait notamment de débruiter des images naturelles de façon robuste, comme cet oiseau et sa reconstruction à partir de l'information dans les couches 1 & 2 (colonnes) et respectivement avec ou sans connections ré-entrantes. Ces résultats ont été quantifiés dans les panneaux B & C.
 
 """)
 for suffix in ['S4']:
@@ -587,10 +587,6 @@ for layer in ['brain', 'pathways']:
 
 ... et à l'existence de deux voies de traitement...
 
-34
-
-... ainsi qu'à l'existence d'un forte compression de l'information autour de l'axe optique.
-
                 """)
 
 
@@ -643,7 +639,7 @@ for i, fname in enumerate(['fig_methods']): # CNS-what-where-diagram
     notes="""
 
 47
-
+Nous avons récemment proposé une nouvelle architecture de traitement en 2 voies parallèles.
 d'un coté, la voie dorsale va identifier à partir de la vision périphérique une estimation de la probabilité de trouver la position d'un objet, indépendamment de son identité. cela permet d'effectuer une saccade qui une fois réalisée permettra de la tester grâce à la voie ventrale.
 
 
@@ -751,6 +747,7 @@ notes = """
 50
 
 de façon cruciale, nous montrons qu'avec une simple saccade et un coût computation minime, on peut couvrir une large surface de l'image. comparés à des algorithmes classiques de localisation / classification comme YOLO, nous obtenons un cout computationnel sous-linéaire grâce à la compression log-polaire.
+ce genre d'algorithme s'adapte donc parfaitement à des systèmes embarqués...
 
            """)
 
@@ -760,13 +757,9 @@ s.add_slide(content=s.content_figures(
             [os.path.join(figpath_talk, "2020-05-20_AAPG2020_AgileNeuroBot.png")],
             height=s.meta['height']*height_ratio),
             notes="""
-
-
 51
 
-nous avons eu la bonne surprise la semaine dernière d'obtenir un financement ANR pour inclure ce genre d'approches bio-inspirées sur un drone en collaboration avec Stephane Viollet à l'ISM et Ryad Benosman à l'IdV.
-
-
+... et nous avons eu la bonne surprise la semaine dernière d'obtenir un financement ANR pour inclure ce genre d'approches bio-inspirées sur un drone en collaboration avec Stephane Viollet à l'ISM et Ryad Benosman à l'IdV.
             """)
 
 s.close_section()
@@ -778,7 +771,7 @@ s.open_section()
 s.add_slide_summary(title='Conclusion',
     list_of_points =['vision is efficient',
                      'deep learning is great...',
-                     '... predictive coding is a good alternative ...',
+                     '... predictive processing is a good alternative ...',
                      '... let''s make it active ! '],
                      fragment_type=None,
                      # fragment_type='highlight-green', # BROKEN
@@ -786,7 +779,7 @@ s.add_slide_summary(title='Conclusion',
 
 52
 
-Pour conclure, la vision est effectivement déraisonnablement efficace, l'apprentissage profond est un bon moyen de s'approcher de cette efficacité - et de nouvelles approches de codage prédictif ou de vision active permettrons je l'espère de bientôt dépasser ces derniers.
+Pour conclure, la vision est effectivement déraisonnablement efficace, l'apprentissage profond est un bon moyen de s'approcher de cette efficacité - et de nouvelles approches de codage prédictif ou de vision active permettront je l'espère de bientôt de faire progresser ces derniers et d'élaargir notre connaissance du cerveau en général.
 """)
 s.add_slide(content=intro,
             notes="""
