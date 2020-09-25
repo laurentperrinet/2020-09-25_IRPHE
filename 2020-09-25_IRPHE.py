@@ -199,7 +199,7 @@ s.add_slide_outline(i_section,
             notes="""
 2
 
-Durant cet exposé, je vais présenter quelques principes fondamentaux, puis aussi présenter les techniques récentes développées dans le cadre de l’apprentissage profond. Enfin, je vais présenter nos travaux sur les modèles de processus productif pour la vision et proposer des perspectives de recherche.""")
+Durant cet exposé, je vais présenter quelques principes fondamentaux, puis aussi présenter les techniques récentes développées dans le cadre de l’apprentissage profond. Enfin, je vais présenter nos travaux sur les modèles de processus prédictif pour la vision et proposer des perspectives de recherche.""")
 
 for layer, notes  in zip(['brain', 'pathways', 'ventral'], [
 """
@@ -214,7 +214,7 @@ De façon schématique on peut décrire l'anatomie de la vision comme suivant de
 """, """
 5
 
-La voie ventrale est principalement impliqué dans la reconnaissance des formes comme par exemple la catégorisation des images visuelles. Ce processus peut lui-même être décomposé en une séquence de différentes étapes de traitement de l’information depuis la rétine et le thalamus, pour passer dans les aires visuelles primaires V1, V2, V3 jusqu’au aires corticales située dans le lobe inferotemporal. Ainsi certaines neurones de ces aires peuvent être sensible à des caractéristiques visuelle très particulières comme par exemple des objets ou des visages, et ceci indépendamment de leur position dans l’espace visuel. Cette organisation ressemble grossièrement aux chaînes de traitement de l’information que l’on rencontre dans les algorithmes de vision par ordinateur, depuis l'entrée rétinienne jusqu’à une sortie, par exemple motrice. Il est toutefois remarquable de noter que la vision nous paraît comme un mécanisme tout à fait naturel, et que le monde visuel me paraissent tout à fait stable alors que ce système est soumis à des contraintes majeures.
+La voie ventrale est principalement impliqué dans la reconnaissance des formes comme par exemple la catégorisation des images visuelles. Ce processus peut lui-même être décomposé en une séquence de différentes étapes de traitement de l’information depuis la rétine et le thalamus, pour passer dans les aires visuelles primaires V1, V2, V3 jusqu’au aires corticales situées dans le lobe inferotemporal. Ainsi certaines neurones de ces aires peuvent être sensible à des caractéristiques visuelles particulières comme par exemple des objets ou des visages, et ceci indépendamment de leur position dans l’espace visuel. Cette organisation ressemble grossièrement aux chaînes de traitement de l’information que l’on rencontre dans les algorithmes de vision par ordinateur, depuis l'entrée rétinienne jusqu’à une sortie, par exemple motrice. Il est toutefois remarquable de noter que la vision nous paraît comme un mécanisme tout à fait naturel, et que le monde visuel nous paraisse tout à fait stable alors que ce système est soumis à des contraintes majeures.
 """
 ]):
     s.add_slide(content=s.content_figures(
@@ -225,20 +225,20 @@ La voie ventrale est principalement impliqué dans la reconnaissance des formes 
 # author, year, journal, title='', url=None
 bib = s.content_bib("LP", "2019", "Illusions et hallucinations visuelles : une porte sur la perception ", url="https://theconversation.com/illusions-et-hallucinations-visuelles-une-porte-sur-la-perception-117389")
 
-for url in ['https://laurentperrinet.github.io/2020-09-14_IWAI/figures/CNS-general-II-A.png',
-            'https://images.theconversation.com/files/277070/original/file-20190529-192383-zy01r.jpg']:
-    fig = s.content_figures([url], height=s.meta['height']*height_ratio)
-
-    s.add_slide(content=fig + bib,
-                notes="""
+for url, notes in zip(['https://laurentperrinet.github.io/2020-09-14_IWAI/figures/CNS-general-II-A.png',
+            'https://images.theconversation.com/files/277070/original/file-20190529-192383-zy01r.jpg'], ["""
 6
 
-Il faut tout d’abord noter que dès la rétine, l’information visuelle (ici chez l’homme) est fortement focalisée. En effet la majorité de l’information est concentrée sur la macula, qui est la région autour de l’axe optique. Par l’anatomie de l’œil que l’on voit sur cette figure  et qui correspond à la majorité des "pixels", c’est-à-dire des photos récepteurs placé sur le fond de l’œil et qui constitue le senseur sur la rétine. Schématiquement on peut illustrer cette transformation sur une image classique en A, jusqu’à sa transformation dans une carte de type log-polaire de telle sorte qu’on peut comprimer l’image en une représentation en C, et que l’on peut aussi représenter dans l’espace visuel sous la forme de la figure D. Cette transformation de l’espace visuel induit une forte distorsion de l’image qui est difficilement imaginable, et des illusions d’optique permet de le révéler. Un exemple sont les illusions qui mettent en évidence la tache aveugle c’est-à-dire le point où la sortie de la rétine converge sur  le nerf optique et qui n'est pas photosensible. Certaines illusions utilisent des configurations pour lesquelles cette distorsion induit une certaine instabilité…
-
+D’abord, on peut noter que dès la rétine, l’information visuelle (ici chez l’homme) est fortement focalisée sur la rétine. L’anatomie de l’œil que l’on voit sur cette figure montre que  la rétine correspond à un senseur placé sur le fond de l’œil. La majorité des "pixels", c’est-à-dire des photos récepteurs sont concentrés sur la foveala (macula), qui est la région autour de l’axe optique. Schématiquement, on peut illustrer cette transformation sur une image classique en A, jusqu’à sa transformation dans une carte de type log-polaire de telle sorte qu’on peut comprimer l’image en une représentation en C, et que l’on peut aussi représenter dans l’espace visuel sous la forme de la figure D. Cette transformation de l’espace visuel induit une forte distorsion de l’image qui est difficilement imaginable, et des illusions d’optique permet de le révéler. Un exemple sont les illusions qui mettent en évidence la tache aveugle c’est-à-dire le point où la sortie de la rétine converge sur  le nerf optique et qui n'est pas photosensible. Certaines illusions utilisent des configurations pour lesquelles cette distorsion induit une certaine instabilité…
+""", """
 7
 
 Un exemple d'une telle illusion est celle des serpents qui tournoient. Cette illusion crée par le professeur Akiyoshi Kitaoka induit des hallucinations de mouvements dans une image qui n’en contient pas. Bien que l’image soit totalement statique, l’interférence des arrangements concentriques interfèrent avec la géométrie de la rétine et nos mouvements des yeux. Cela induit des illusions de mouvement et de façon globale perturbe la stabilité de la figure géométrique...
-                """)
+            """]):
+    fig = s.content_figures([url], height=s.meta['height']*height_ratio)
+
+    s.add_slide(content=fig + bib,
+                notes=notes)
 
 # author, year, journal, title='', url=None
 bib = s.content_bib("LP", "2020", "Temps et cerveau : comment notre perception nous fait voyager dans le temps", url="https://theconversation.com/temps-et-cerveau-comment-notre-perception-nous-fait-voyager-dans-le-temps-127567")
@@ -338,14 +338,14 @@ fig = s.content_figures([os.path.join(figpath_talk, 'ai-and-compute-all.png')], 
 s.add_slide(content=fig + bib, notes="""
 16
 
-En regardant sur une échelle temporelle plus large, on voit que c'est en tendance suivez la loi de Moore depuis les années 1960 (Perceptron) et a clairement explosé depuis l'introduction de l'apprentissage profond… C'est vraiment une nouvelle ère qui vient de s'ouvrir !
+En regardant sur une échelle temporelle plus large, on voit que la tendance a suivi la loi de Moore depuis les années 1960 (Perceptron) et a clairement explosé depuis l'introduction de l'apprentissage profond en 2012. C'est vraiment une nouvelle ère qui vient de s'ouvrir !
     """)
 
 
 # author, year, journal, title='', url=None
 bib = s.content_bib("Thomas Serre", "2019", "Deep Learning: The Good, the Bad, and the Ugly", url="https://www.annualreviews.org/doi/abs/10.1146/annurev-vision-091718-014951")
 
-for url in zip( [f'https://www.annualreviews.org/na101/home/literatum/publisher/ar/journals/content/vision/2019/vision.2019.5.issue-1/annurev-vision-091718-014951/20190909/images/large/vs50399.f{i}.jpeg' for i in ['3', '4']], ["""
+for url, notes in zip( [f'https://www.annualreviews.org/na101/home/literatum/publisher/ar/journals/content/vision/2019/vision.2019.5.issue-1/annurev-vision-091718-014951/20190909/images/large/vs50399.f{i}.jpeg' for i in ['3', '4']], ["""
 17
 
 En dehors des progrès effectués dans la catégorisation d'images (ce qui est très important pour les entreprises qui financent ces recherche -Facebook, Amazon, ou Google- on a vu l'émergence de nouvelles techniques qui illustrent toute la créativité de la communauté en apprentissage profond. En suivant cet article de revue de Thomas Serre, je citerai par exemple la capacité de pouvoir faire du transfert de style c'est-à-dire de pouvoir transformer une image dans le style d'un peintre donné. Ou alors la création d'images complètement nouvelles comme par exemple montrer dans le panneau d,  ou alors dans cette peinture dans le panneau B qui a été créé par un algorithme génératif et qui a même atteint un prix mirobolant dans une vente aux enchères....
