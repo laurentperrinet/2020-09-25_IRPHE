@@ -196,28 +196,31 @@ i_section = 0
 ###############################################################################
 s.open_section()
 s.add_slide_outline(i_section,
-            notes="""2
+            notes="""
+2
 
-            Durant cet exposé, je vais présenter quelques principes fondamentaux, puis aussi présenter les techniques récentes développées dans le cadre de l’apprentissage profond. Enfin, je vais présenter nos travaux sur les modèles de processus productif pour la vision et proposer des perspectives de recherche.""")
+Durant cet exposé, je vais présenter quelques principes fondamentaux, puis aussi présenter les techniques récentes développées dans le cadre de l’apprentissage profond. Enfin, je vais présenter nos travaux sur les modèles de processus productif pour la vision et proposer des perspectives de recherche.""")
 
-for layer in ['brain', 'pathways', 'ventral']:
-    s.add_slide(content=s.content_figures(
-                [os.path.join(figpath_talk, f"architecture_vision_{layer}.svg")],
-                height=s.meta['height']*height_ratio),
-                notes="""
+for layer, notes  in zip(['brain', 'pathways', 'ventral'], [
+"""
 
 3
 
 Commençons par le début et par l’anatomie du système visuel. Cette figure montre une représentation schématique du cerveau chez l’homme et en particulier le tronc cérébral, le cervelet et le neocortex.
-
+""", """
 4
 
 De façon schématique on peut décrire l'anatomie de la vision comme suivant des chemins depuis l’oeil, via le thalamus, pour converger sur l'aire corticale primaire de la vision (AKA V1). Depuis cette aire cérébrale, l’information est ensuite multiplexée entre une voie ventrale et une voie dorsale. La voie dorsale analyse préférentiellement la temporalité de l’information visuelle, comme par exemple le mouvement dans une image. Elle est donc essentielle par exemple pour guider les mouvement des yeux notamment quand ils servent à compenser le mouvement d'un objet visuel.
-
+""", """
 5
 
 La voie ventrale est principalement impliqué dans la reconnaissance des formes comme par exemple la catégorisation des images visuelles. Ce processus peut lui-même être décomposé en une séquence de différentes étapes de traitement de l’information depuis la rétine et le thalamus, pour passer dans les aires visuelles primaires V1, V2, V3 jusqu’au aires corticales située dans le lobe inferotemporal. Ainsi certaines neurones de ces aires peuvent être sensible à des caractéristiques visuelle très particulières comme par exemple des objets ou des visages, et ceci indépendamment de leur position dans l’espace visuel. Cette organisation ressemble grossièrement aux chaînes de traitement de l’information que l’on rencontre dans les algorithmes de vision par ordinateur, depuis l'entrée rétinienne jusqu’à une sortie, par exemple motrice. Il est toutefois remarquable de noter que la vision nous paraît comme un mécanisme tout à fait naturel, et que le monde visuel me paraissent tout à fait stable alors que ce système est soumis à des contraintes majeures.
-                """)
+"""
+]):
+    s.add_slide(content=s.content_figures(
+                [os.path.join(figpath_talk, f"architecture_vision_{layer}.svg")],
+                height=s.meta['height']*height_ratio),
+                notes=notes)
 
 # author, year, journal, title='', url=None
 bib = s.content_bib("LP", "2019", "Illusions et hallucinations visuelles : une porte sur la perception ", url="https://theconversation.com/illusions-et-hallucinations-visuelles-une-porte-sur-la-perception-117389")
