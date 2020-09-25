@@ -316,8 +316,8 @@ s.add_slide(content=fig + bib, notes="""
 14
 Ce type d’architecture consiste à décomposer les niveaux d’analyse en des processus  traitant progressivement des caractéristiques visuelles du particulier au général.
 Dans la première couche (V1), nous avons un traitement qui va extraire les contours de l’image pour ensuite analyser les courbure de ces différents contours, pour ensuite introduire des représentations plus complexes et abstraites et enfin obtenir des unités de classification ("un renard"). Mathématiquement, on peut formaliser ce type de modèle sous la forme d’un réseau de neurones convolutionnel et qui constitue la base de la grande majorité des algorithmes d’apprentissage profond qui sont utilisés de nos jours.
-L’opération de base correspond à un filtrage linéaire qui utilise un noyau conditionnel et qui va représenter la corrélation de ce noyau avec des sous partie de l’image. Cette opération est répétée dans une même couche sur différents canaux et va permettre par exemple de représenter sur une même carte les différentes orientations des contours sur cette carte. Avant de propager ce traitement dans une nouvelle couche une étape importante et d’opérer une transformation non linéaire non linéaire qui correspondent à une rectification et à une intégration par exemple en éliminant un neurone sur deux.
-On voit ainsi que au fur et à mesure que l’on monte dans la hiérarchie, les champs récepteurs deviennent progressivement de plus en plus grands comme on peut voir ici en comparant les champs récepteur RF1 et RF2.
+L’opération de base correspond à un filtrage linéaire qui utilise un noyau conditionnel et qui va représenter la corrélation de ce noyau avec des sous partie de l’image. Cette opération est répétée dans une même couche sur différents canaux et va permettre par exemple de représenter sur une même carte les différentes orientations des contours sur cette carte. Avant de propager ce traitement dans une nouvelle couche une étape importante et d’opérer une transformation non linéaire qui correspondent à une rectification et à une intégration par exemple en éliminant un neurone sur deux.
+On voit ainsi que au fur et à mesure que l’on monte dans la hiérarchie, les champs récepteurs deviennent progressivement à la fois de plus en plus grands et de moins en moins précis - comme on peut voir ici en comparant les champs récepteur RF1 et RF2.
 
 """)
 
@@ -330,43 +330,40 @@ fig = s.content_figures(['https://upload.wikimedia.org/wikipedia/commons/4/4f/Im
 s.add_slide(content=fig + bib, notes="""
 15
 
-Grâce notamment aux progrès dans les algorithmes d'apprentissage (la retro propagation du gradient), dans le matériel (les GPUs) mais aussi dans l'organisation de la communauté pour obtenir des benchmarks efficaces, ces algorithmes ont rapidement progressé sur une tache complexe de reconnaissance (IamgeNet) jusqu'à atteindre la performance humaine (5%) en 2015. Ce progrès vient au prix d'une explosion de la complexité de ces réseaux, mesurée ici avec le nombre de couches des CNNs.
+Grâce notamment aux progrès dans les algorithmes d'apprentissage (la retro propagation du gradient), dans le matériel (les GPUs) mais aussi dans l'organisation de la communauté pour obtenir des benchmarks efficaces, ces algorithmes ont rapidement progressé sur une tache complexe de reconnaissance (ImageNet) jusqu'à atteindre la performance humaine (5%) en 2015. Ce progrès vient au prix d'une explosion de la complexité de ces réseaux ...
     """)
 # author, year, journal, title='', url=None
 bib = s.content_bib("Dario Amodei & Danny Hernandez", "2018", "OpenAI", url="https://openai.com/blog/ai-and-compute/")
 fig = s.content_figures([os.path.join(figpath_talk, 'ai-and-compute-all.png')], height=s.meta['height']*height_ratio)
 s.add_slide(content=fig + bib, notes="""
-
 16
 
-En regardant sur une échelle temporelle plus large, on voit que c'est en tendance suivez la loi de Moor depuis les années 1960 et a clairement explosé depuis l'introduction de l'apprentissage profond… C'est vraiment une nouvelle ère qui vient de s'ouvrir !
-
+En regardant sur une échelle temporelle plus large, on voit que c'est en tendance suivez la loi de Moore depuis les années 1960 (Perceptron) et a clairement explosé depuis l'introduction de l'apprentissage profond… C'est vraiment une nouvelle ère qui vient de s'ouvrir !
     """)
 
 
 # author, year, journal, title='', url=None
 bib = s.content_bib("Thomas Serre", "2019", "Deep Learning: The Good, the Bad, and the Ugly", url="https://www.annualreviews.org/doi/abs/10.1146/annurev-vision-091718-014951")
 
-for url in  [f'https://www.annualreviews.org/na101/home/literatum/publisher/ar/journals/content/vision/2019/vision.2019.5.issue-1/annurev-vision-091718-014951/20190909/images/large/vs50399.f{i}.jpeg' for i in ['3', '4']]:
-    fig = s.content_figures([url], height=s.meta['height']*height_ratio)
-
-    s.add_slide(content=fig + bib, notes="""
-
+for url in zip( [f'https://www.annualreviews.org/na101/home/literatum/publisher/ar/journals/content/vision/2019/vision.2019.5.issue-1/annurev-vision-091718-014951/20190909/images/large/vs50399.f{i}.jpeg' for i in ['3', '4']], ["""
 17
 
-En dehors des progrès effectués dans la catégorisation d'images (ce qui est très important pour les entreprises qui financent ces recherche -Facebook, Amazon, ou Google- on a vu l'émergence de nouvelles techniques qui montre toute la créativité de la communauté en apprentissage profond. En suivant cet article de revue de Thomas Serre, je citerai par exemple la capacité de pouvoir faire du transfert de style c'est-à-dire de pouvoir transformer une image dans le style d'un peintre donné. Ou alors la création d'images complètement nouvelles comme par exemple montrer dans le panneau d,  ou alors dans cette peinture dans le panneau B qui a été créé par un algorithme génératif et qui a même atteint un prix mirobolant dans une vente aux enchères....
+En dehors des progrès effectués dans la catégorisation d'images (ce qui est très important pour les entreprises qui financent ces recherche -Facebook, Amazon, ou Google- on a vu l'émergence de nouvelles techniques qui illustrent toute la créativité de la communauté en apprentissage profond. En suivant cet article de revue de Thomas Serre, je citerai par exemple la capacité de pouvoir faire du transfert de style c'est-à-dire de pouvoir transformer une image dans le style d'un peintre donné. Ou alors la création d'images complètement nouvelles comme par exemple montrer dans le panneau d,  ou alors dans cette peinture dans le panneau B qui a été créé par un algorithme génératif et qui a même atteint un prix mirobolant dans une vente aux enchères....
 
+Figure 3  Art and image synthesis with deep neural networks. (a) Style transfer with convolutional neural networks (CNNs). The content of an image (top, first panel) is combined with the style of three distinct paintings (top, second, third, and fourth panels) to synthesize a new artistic image (bottom row) using a neural network (Gatys et al. 2017). Image credit: Matthias Bethge (adapted with permission). (b) The Portrait of Edmond Belamy produced by a generative adversarial network (GAN) and sold by Christie's for $432,500 in October 2018. Reproduced with permission from the copyright holder. Sotheby's Contemporary Art Day Auction held in March 2019 also featured a machine installation that used neural networks to generate an infinite stream of portraits. Mainstream artists including Refik Anadol, Trevor Paglen, and Jason Salavon have started to incorporate neural networks as a part of their artistic process. (c) Latest improvements in style transfer by leveraging attentional mechanism to produce transfers that respect the semantic content of the original image (Park & Lee 2019). Image credit: Dae Y. Park and Kwang H. Lee (adapted with permission). (d) Synthetic images generated by a large generative adversarial network named BigGAN (Brock et al. 2019). Adapted with permission from the authors.
+
+""","""
 18
 
 Mais tout n'est pas rose dans le monde de l'apprentissage profond…
 En effet, ces modèles qui ont gagné le concours de reconnaissance d'image peuvent être très sensibles à des petites perturbations qui va faire qu'une chaussette va être reconnu comme un éléphant, qu'un panneau de signalisation ne pourra pas être reconnu. si il contient des bouts de sketch de scotch, , qu'une personne va changer d'une entité si elle porte des lunettes. Pire, des algorithmes qui atteignent des niveaux de performance sur-humains seront incapables de généraliser leurs performances si on change le type de perturbation qui est appliquée aux images.
 Il existe d'autres faiblesses, comme le manque d'interprétabilité, mais...
 
+Figure 4  Deep neural networks are sensitive to noise perturbations. (a) Universal adversarial attacks. State-of-the-art deep neural networks are vulnerable to universal (image-agnostic) adversarial attacks such that a very small noise mask (shown magnified for GoogLeNet) applied to images would lead to misclassification with high probability (actual adversarial samples with noise overlaid shown). Panel adapted from Moosavi-Dezfooli et al. (2017) with permission. (b–d) Sample adversarial physical attacks (b) conducted on a traffic sign system using stickers masked as graffiti, (c) using printed glasses to fool a face verification system, and (d) using a sticker to cause a deep neural network to see bananas everywhere. Panel b adapted from Eykholt et al. (2018) with permission. Panel c adapted from Sharif et al. (2019) with permission. Panel d adapted from Brown et al. (2017) with permission. (e) Deep neural networks do not generalize to unseen noise patterns, as shown for a network trained with additive Gaussian noise and tested on salt-and-pepper noise, which appear nearly identical to human observers. Panel adapted from Geirhos et al. (2018) with permission.
+"""]):
+    fig = s.content_figures([url], height=s.meta['height']*height_ratio)
 
-    Figure 3  Art and image synthesis with deep neural networks. (a) Style transfer with convolutional neural networks (CNNs). The content of an image (top, first panel) is combined with the style of three distinct paintings (top, second, third, and fourth panels) to synthesize a new artistic image (bottom row) using a neural network (Gatys et al. 2017). Image credit: Matthias Bethge (adapted with permission). (b) The Portrait of Edmond Belamy produced by a generative adversarial network (GAN) and sold by Christie's for $432,500 in October 2018. Reproduced with permission from the copyright holder. Sotheby's Contemporary Art Day Auction held in March 2019 also featured a machine installation that used neural networks to generate an infinite stream of portraits. Mainstream artists including Refik Anadol, Trevor Paglen, and Jason Salavon have started to incorporate neural networks as a part of their artistic process. (c) Latest improvements in style transfer by leveraging attentional mechanism to produce transfers that respect the semantic content of the original image (Park & Lee 2019). Image credit: Dae Y. Park and Kwang H. Lee (adapted with permission). (d) Synthetic images generated by a large generative adversarial network named BigGAN (Brock et al. 2019). Adapted with permission from the authors.
-
-    Figure 4  Deep neural networks are sensitive to noise perturbations. (a) Universal adversarial attacks. State-of-the-art deep neural networks are vulnerable to universal (image-agnostic) adversarial attacks such that a very small noise mask (shown magnified for GoogLeNet) applied to images would lead to misclassification with high probability (actual adversarial samples with noise overlaid shown). Panel adapted from Moosavi-Dezfooli et al. (2017) with permission. (b–d) Sample adversarial physical attacks (b) conducted on a traffic sign system using stickers masked as graffiti, (c) using printed glasses to fool a face verification system, and (d) using a sticker to cause a deep neural network to see bananas everywhere. Panel b adapted from Eykholt et al. (2018) with permission. Panel c adapted from Sharif et al. (2019) with permission. Panel d adapted from Brown et al. (2017) with permission. (e) Deep neural networks do not generalize to unseen noise patterns, as shown for a network trained with additive Gaussian noise and tested on salt-and-pepper noise, which appear nearly identical to human observers. Panel adapted from Geirhos et al. (2018) with permission.
-    """)
+    s.add_slide(content=fig + bib, notes=notes)
 
 # TODO : lee sedol
 fig = s.content_figures(['https://laurentperrinet.github.io/sciblog/files/2016-07-07_EDP-proba/figures/power.png'], height=s.meta['height']*height_ratio)
